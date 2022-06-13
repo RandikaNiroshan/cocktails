@@ -9,3 +9,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+  .basic-transition {
+    @apply transition-all duration-300 ease-in-out
+  } 
+
+  .menu-active {
+    @apply transition-all duration-500
+  }
+
+  .svg-icon{
+    @apply stroke-app-cadet basic-transition hover:stroke-app-flame hover:scale-125
+  }
+
+  .svg-icon-group{
+    @apply stroke-app-cadet basic-transition group-hover:stroke-app-flame group-hover:scale-125
+  }
+}
