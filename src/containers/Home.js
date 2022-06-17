@@ -28,7 +28,7 @@ const Home = () => {
             <div className="h-min w-auto col-start-1 row-start-4 row-span-2 col-span-2">
               <TwoByTwo cocktail="" />
             </div>
-            <div className="w-auto col-start-5 row-start-4 row-span-2 col-span-2">
+            <div className="h-min w-auto col-start-5 row-start-4 row-span-2 col-span-2">
               <TwoByTwo cocktail="" />
             </div>
           </div>

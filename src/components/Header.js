@@ -30,13 +30,13 @@ const Header = () => {
       <nav className="flex justify-center">
         <ul className="flex justify-center gap-5">
           {Menu.map((item, index) => (
-            <li key={index} className="font-app-heading text-2xl font-bold">
+            <li key={index} className="font-app-text text-lg font-bold">
               <NavLink
                 to={item.link}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-app-flame menu-active"
-                    : "text-app-cadet hover:text-app-flame hover:text-[1.6rem] basic-transition"
+                    ? "text-app-flame double-transition"
+                    : "text-app-cadet hover:text-app-flame basic-transition"
                 }
               >
                 {item.menu}
@@ -45,20 +45,40 @@ const Header = () => {
           ))}
         </ul>
       </nav>
-      <div className="flex gap-1 h-8">
-        <svg
-          className="h-8 w-8 cursor-pointer svg-icon"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
+      <div className="flex gap-4 h-8 justify-center items-center">
+        <div className="h-8 w-8 relative group cursor-pointer">
+          <svg
+            className="drop-shadow-lg fill-app-cadet group-hover:fill-app-flame stroke-app-cadet basic-transition group-hover:stroke-app-flame group-hover:animate-expand svg-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+          <div className="w-8 h-8 flex justify-center items-center absolute top-0 left-0">
+            <span className="text-white text-center text-[9px] font-app-main group-hover:tracking-widest basic-transition">0</span>
+          </div>
+        </div>
+        <div className="h-8 w-8">
+          <svg
+            className="drop-shadow-lg stroke-app-cadet basic-transition hover:stroke-app-flame hover:animate-expand cursor-pointer svg-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </div>
       </div>
     </header>
   );

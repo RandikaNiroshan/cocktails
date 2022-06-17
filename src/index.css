@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Oswald:wght@200;400;700&family=Shadows+Into+Light&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Cookie&family=Oswald:wght@200;400;700&family=Special+Elite&display=swap");
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -10,20 +10,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
+@layer base {
+  blockquote {
+    @apply text-app-cadet font-app-quote text-lg font-bold tracking-wide relative;
+    @apply before:absolute before:text-app-cadet/40 before:text-6xl before:w-16 before:h-16 before:-left-20 before:-top-8 before:content-["“"];
+    @apply after:absolute after:text-app-cadet/40 after:text-6xl after:w-20 after:h-16 after:-right-24 after:-bottom-12 after:content-["”"];
+  }
+
+  cite {
+    @apply text-app-cadet font-app-main text-lg font-bold relative right-28 -bottom-8;
+  }
+}
+
+@layer components {
   .basic-transition {
-    @apply transition-all duration-300 ease-in-out
-  } 
-
-  .menu-active {
-    @apply transition-all duration-500
+    @apply transition-all duration-300 ease-in-out;
   }
 
-  .svg-icon{
-    @apply stroke-app-cadet basic-transition hover:stroke-app-flame hover:scale-125
+  .double-transition {
+    @apply transition-all duration-500 ease-in-out;
   }
 
-  .svg-icon-group{
-    @apply stroke-app-cadet basic-transition group-hover:stroke-app-flame group-hover:scale-125
+  .svg-icon-group {
+    @apply stroke-app-cadet basic-transition group-hover:stroke-app-flame group-hover:scale-125;
+  }
+
+  .stat-card {
+    transform: rotateY(25deg) scale(0.9) rotateX(10deg);
+    filter: blur(2px);
+    opacity: 0.8;
+    transition: 0.6s ease all;
+  }
+
+  .stat-card:hover {
+    transform: rotateY(-15deg) translateY(-10px) rotateX(10deg) scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
+
+  .neon-text {
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #29335c, 0 0 42px #29335c,
+      0 0 82px #29335c, 0 0 92px #29335c, 0 0 102px #29335c, 0 0 151px #29335c;
+  }
+
+  .title-text {
+    @apply before:block before:absolute before:top-1/2 before:w-[70px] before:h-[3px] before:-left-24 before:bg-app-flame before:content-[""];
+    @apply after:block after:absolute after:top-1/2 after:w-[70px] after:h-[3px] after:-right-24 after:bg-app-flame after:content-[""];
   }
 }
