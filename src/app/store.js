@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { cocktailReducer } from "./features/cocktailSlice";
+import cocktailReducer from "./features/cocktailSlice";
 
 export const store = configureStore({
   reducer: {
-      'cocktail': cocktailReducer,
+    cocktail: cocktailReducer,
   },
 });

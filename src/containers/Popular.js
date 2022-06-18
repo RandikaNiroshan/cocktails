@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { PopularCard } from "../components";
-import { PopularDrinks } from "../utils/constants";
+import { PopularDrinks } from "../utils/const-data";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -14,8 +14,9 @@ const Popular = () => {
     slidesToShow: 4,
     speed: 1000,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 3000,
     centerMode: true,
+    swipeToSlide: true,
     cssEase: "linear",
     responsive: [
       {
@@ -34,7 +35,7 @@ const Popular = () => {
   };
 
   return (
-    <section className="bg-app-cadet my-8">
+    <section className="bg-app-cadet">
       <div className="px-12 py-3">
         <Slider {...settings}>
           {PopularList.map((item) => (

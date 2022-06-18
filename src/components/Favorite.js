@@ -1,6 +1,7 @@
 import React from "react";
 
-const Favorite = ({ isLiked }) => {
+const Favorite = ({ id }) => {
+  const isLiked = id ? true : false;
   return (
     <svg
       className={`h-5 w-5 drop-shadow-lg stroke-white ${isLiked && "fill-white"}`}

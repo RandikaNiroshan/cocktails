@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Menu } from "../utils/constants";
+import { Menu } from "../utils/const-data";
 
 const Header = () => {
   return (

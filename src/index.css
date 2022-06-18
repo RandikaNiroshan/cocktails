@@ -13,7 +13,7 @@
 @layer base {
   blockquote {
     @apply text-app-cadet font-app-quote text-lg font-bold tracking-wide relative;
-    @apply before:absolute before:text-app-cadet/40 before:text-6xl before:w-16 before:h-16 before:-left-20 before:-top-8 before:content-["“"];
+    @apply before:absolute before:text-app-cadet/40 before:text-6xl before:w-16 before:h-16 before:-left-20 before:-top-4 before:content-["“"];
     @apply after:absolute after:text-app-cadet/40 after:text-6xl after:w-20 after:h-16 after:-right-24 after:-bottom-12 after:content-["”"];
   }
 
@@ -57,5 +57,9 @@
   .title-text {
     @apply before:block before:absolute before:top-1/2 before:w-[70px] before:h-[3px] before:-left-24 before:bg-app-flame before:content-[""];
     @apply after:block after:absolute after:top-1/2 after:w-[70px] after:h-[3px] after:-right-24 after:bg-app-flame after:content-[""];
+  }
+
+  .pagination-buttons{
+    @apply bg-white text-sm text-app-cadet font-bold font-app-main px-3 py-1 rounded-md text-center ring-2 ring-app-cadet hover:bg-app-cadet hover:text-white basic-transition;
   }
 }
