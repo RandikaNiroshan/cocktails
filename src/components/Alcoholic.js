@@ -41,7 +41,7 @@ const Alcoholic = ({ alcoholic, alt }) => {
           )}
         </div>
         <div className="hidden invisible group-hover:block group-hover:visible basic-transition">
-          <p className="text-app-cadet capitalize text-[0px] group-hover:text-white group-hover:text-[10px] font-app-main text-center tracking-wide pr-2 basic-transition">
+          <p className="text-app-cadet capitalize text-[0px] group-hover:text-white group-hover:text-[10px] font-app-main text-center tracking-wide pb-[1px] pr-2 basic-transition">
             {alcoholic}
           </p>
         </div>

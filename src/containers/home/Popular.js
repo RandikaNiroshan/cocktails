@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
-import { PopularCard } from "../components";
-import { PopularDrinks } from "../utils/const-data";
+import { PopularCard } from "../../components";
+import { PopularDrinks } from "../../app/utils/data";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -35,7 +35,7 @@ const Popular = () => {
   };
 
   return (
-    <section className="bg-app-cadet">
+    <section className="bg-image pt-5 pb-3">
       <div className="px-12 py-3">
         <Slider {...settings}>
           {PopularList.map((item) => (

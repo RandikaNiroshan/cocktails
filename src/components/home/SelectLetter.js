@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchByFirstLetter, onLetterClick } from "../app/features/cocktailSlice";
-import { Letters } from "../utils/const-data";
+import { fetchByFirstLetter, onLetterClick } from "../../app/features/cocktailsSlice";
+import { Letters } from "../../app/utils/data";
 
 const SelectLetter = () => {
   const dispatch = useDispatch();
-  const selectedLetter = useSelector((state) => state.cocktail.selectedLetter);
+  const selectedLetter = useSelector((state) => state.cocktails.selectedLetter);
   const LettersList = Letters;
 
   const onClick = (letter) => {

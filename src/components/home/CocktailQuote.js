@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Quotes } from "../utils/const-data";
+import { Quotes } from "../../app/utils/data";
 
 const CocktailQuote = () => {
   const [quoteId, setQuoteId] = useState(0);

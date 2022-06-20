@@ -11,6 +11,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply bg-[#edffd9];
+  }
   blockquote {
     @apply text-app-cadet font-app-quote text-lg font-bold tracking-wide relative;
     @apply before:absolute before:text-app-cadet/40 before:text-6xl before:w-16 before:h-16 before:-left-20 before:-top-4 before:content-["“"];
@@ -38,7 +41,7 @@
   .stat-card {
     transform: rotateY(25deg) scale(0.9) rotateX(10deg);
     filter: blur(2px);
-    opacity: 0.8;
+    opacity: 0.9;
     transition: 0.6s ease all;
   }
 
@@ -48,18 +51,35 @@
     opacity: 1;
   }
 
-  .neon-text {
-    color: #fff;
-    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #29335c, 0 0 42px #29335c,
-      0 0 82px #29335c, 0 0 92px #29335c, 0 0 102px #29335c, 0 0 151px #29335c;
-  }
-
   .title-text {
     @apply before:block before:absolute before:top-1/2 before:w-[70px] before:h-[3px] before:-left-24 before:bg-app-flame before:content-[""];
     @apply after:block after:absolute after:top-1/2 after:w-[70px] after:h-[3px] after:-right-24 after:bg-app-flame after:content-[""];
   }
 
-  .pagination-buttons{
+  .pagination-buttons {
     @apply bg-white text-sm text-app-cadet font-bold font-app-main px-3 py-1 rounded-md text-center ring-2 ring-app-cadet hover:bg-app-cadet hover:text-white basic-transition;
+  }
+
+  .bg-image{
+    @apply bg-cover bg-[url('https://m.media-amazon.com/images/S/aplus-media/vc/e92cec4a-692f-46ba-865a-37879a4617bf._CR0,0,970,300_PT0_SX970__.jpg')] relative overflow-hidden;
+    @apply before:content-[""] before:block before:blur-[8px] before:absolute before:left-0 before:top-0 before:bg-[#000] before:opacity-50 before:h-full before:w-full z-[1];
+  }
+
+  .neon-text {
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #29335c, 0 0 42px #29335c,
+      0 0 82px #29335c, 0 0 92px #29335c, 0 0 102px #29335c, 0 0 151px #29335c;
+  }
+  .loading {
+    background-color: #ededed;
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0) 60%
+      )
+      #ededed;
+    background-size: 200% 100%;
+    background-position-x: 180%;
   }
 }

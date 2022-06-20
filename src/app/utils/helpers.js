@@ -1,3 +1,5 @@
+import { FeaturedCocktails } from "./data";
+
 export const organizeCocktail = (cocktail) => {
   const cocktailData = {
     id: cocktail.idDrink,
@@ -33,9 +35,16 @@ export const organizeCocktail = (cocktail) => {
 
 export const organizeCocktailList = (cocktails) => {
   const organizedCocktails = [];
-  cocktails.forEach((cocktail) => {
-    const data = organizeCocktail(cocktail);
-    organizedCocktails.push(data);
-  });
+  if (cocktails !== null) {
+    cocktails.forEach((cocktail) => {
+      const data = organizeCocktail(cocktail);
+      organizedCocktails.push(data);
+    });
+  }
   return organizedCocktails;
+};
+
+export const featuredCocktails = () => {
+  const shuffled = FeaturedCocktails.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 6);
 };

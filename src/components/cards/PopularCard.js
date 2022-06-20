@@ -1,6 +1,6 @@
 import React from "react";
-import { ImagePlaceHolder } from "../assets";
-import { Favorite, LinkButton } from "../components";
+import { ImagePlaceHolder } from "../../assets";
+import { Favorite, LinkButton } from "../";
 
 const PopularCard = ({ cocktail }) => {
   const { id, drink, image, category } = cocktail;
@@ -12,13 +12,9 @@ const PopularCard = ({ cocktail }) => {
           src={image ?? ImagePlaceHolder}
           alt={drink ?? "Cocktail"}
         />
-        <div className="flex place-items-center animate-expand cursor-pointer drop-shadow-sm absolute top-4 left-4 rounded-md z-[3] active:scale-[0.90] hover:scale-[1.10] basic-transition">
-          <div className="group-hover:scale-125 basic-transition">
-          <Favorite id={id} />
-          </div>
-        </div>
+        <Favorite id={id} />
         <div className="absolute overflow-hidden bottom-2 left-2 right-2 bg-app-cadet/70 group-hover:bg-app-cadet/30 h-1/3 w-fill rounded-b-lg group-hover:h-[calc(100%-16px)] group-hover:rounded-lg basic-transition grid items-center">
-          <div className="px-1 pb-2">
+          <div className="px-2 pb-2 flex flex-col items-center justify-center">
             <p className="text-[14px] text-center font-app-text text-white truncate leading-5">
               {drink ?? "Classic Cocktail"}
             </p>

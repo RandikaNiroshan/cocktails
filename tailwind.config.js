@@ -25,9 +25,13 @@ module.exports = {
         expand: {
           "50%": { transform: "scale(1.1)" },
         },
+        loading:{
+          "to" : {"background-position-x": "-20%"}
+        }
       },
       animation: {
         expand: "expand 1s ease-in-out infinite",
+        loading: "1s loading ease-in-out infinite"
       },
       screens: {
         xm: "500px",

@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { Menu } from "../utils/const-data";
+import { Menu } from "../app/utils/data";
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center h-16">
+    <header className="flex justify-between items-center h-16 px-10">
       <div className="flex gap-1 h-8 relative group">
         <Link to="/">
           <svg
