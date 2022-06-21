@@ -17,9 +17,9 @@ const IngredientsList = ({ cocktail, loading }) => {
           })
         )}
         {loading === HTTP_STATUS.FULFILLED && (
-          cocktail.ingredients.map((item) => {
+          cocktail.ingredients.map((item, index) => {
             return (
-              <div key={item.id}>
+              <div key={index}>
                 <IngredientCard ingredient={item} loading={loading} />
               </div>
             );

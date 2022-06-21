@@ -7,9 +7,9 @@ import { fetchRandomDrink } from "../../app/features/randomSlice";
 const Home = () => {
   const dispatch = useDispatch();
   const randomCocktail = useSelector(
-    (state) => state.randomDrink.randomCocktail
+    (state) => state.random.randomCocktail
   );
-  const loading = useSelector((state) => state.randomDrink.loading);
+  const loading = useSelector((state) => state.random.loading);
   const featuredDrinks = featuredCocktails();
 
   useEffect(() => {

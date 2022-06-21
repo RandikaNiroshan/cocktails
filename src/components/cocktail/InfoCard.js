@@ -1,7 +1,7 @@
 import React from "react";
 import { HTTP_STATUS } from "../../app/utils/constants";
 
-const InfoCard = ({ title, data, isNumber, loading }) => {
+const InfoCard = ({ title, data, loading }) => {
   return (
     <>
       {loading === HTTP_STATUS.PENDING && (

@@ -6,3 +6,5 @@ export {default as Popular} from './home/Popular';
 export {default as Stats} from './home/Stats';
 export {default as Cocktails} from './home/Cocktails';
 export {default as CocktailInfo} from './cocktail/CocktailInfo';
+export {default as Instructions} from './cocktail/Instructions';
+export {default as VideoTutorial} from './cocktail/VideoTutorial';

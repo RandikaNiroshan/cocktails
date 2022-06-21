@@ -18,7 +18,7 @@ const initialState = {
   error: null,
 };
 
-export const alcoholic = createSlice({
+export const alcoholicSlice = createSlice({
   name: "alcoholic",
   initialState: initialState,
   reducers: {
@@ -41,4 +41,4 @@ export const alcoholic = createSlice({
   },
 });
 
-export default alcoholic.reducer;
+export default alcoholicSlice.reducer;

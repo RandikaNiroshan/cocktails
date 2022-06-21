@@ -1,3 +1,4 @@
+export { default as Logo } from "./Logo";
 export { default as MainCard } from "./home-grid/MainCard";
 export { default as OneByThree } from "./home-grid/OneByThree";
 export { default as TwoByTwo } from "./home-grid/TwoByTwo";

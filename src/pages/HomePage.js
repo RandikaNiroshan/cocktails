@@ -1,8 +1,10 @@
 import React from "react";
 import { Title } from "../components";
 import { Cocktails, Home, Popular, Stats } from "../containers";
+import { useTitle } from "../hooks/useTitle";
 
 const HomePage = () => {
+  useTitle("Cocktails");
   
   return (
     <>
