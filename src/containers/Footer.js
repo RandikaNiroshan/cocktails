@@ -57,7 +57,7 @@ const Footer = () => {
               return (
                 <Link
                   key={index}
-                  to={`/alcoholic/${index + 1}`}
+                  to={`/alcoholic?id=${index}`}
                   className="text-start w-max text-[13px] font-app-main text-white hover:text-app-flame basic-transition cursor-pointer mb-1"
                 >
                   {item.strAlcoholic}
@@ -71,7 +71,7 @@ const Footer = () => {
                 return (
                   <Link
                     key={index}
-                    to={`/categories/${index + 1}`}
+                    to={`/categories?id=${index}`}
                     className="text-center w-max text-[13px] font-app-main text-white hover:text-app-flame basic-transition cursor-pointer"
                   >
                     {item.strCategory}

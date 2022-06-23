@@ -30,6 +30,9 @@ const initialState = {
   categoriesList: [],
   alcoholicList: [],
   glassesList: [],
+  selectedCategory: 0,
+  selectedAlcoholic: 0,
+  selectedGlass: 0,
   loading: null,
   error: null,
 };
@@ -37,6 +40,17 @@ const initialState = {
 export const initialSlice = createSlice({
   name: "initial",
   initialState: initialState,
+  reducers: {
+    updateCategory: (state, {payload}) =>{
+      state.selectedCategory = payload;
+    },
+    updateAlcoholic: (state, {payload}) =>{
+      state.selectedAlcoholic = payload;
+    },
+    updateGlass: (state, {payload}) =>{
+      state.selectedGlass = payload;
+    }
+  },
   extraReducers: {
     [fetchCategories.pending]: (state) => {
       state.loading = HTTP_STATUS.PENDING;
