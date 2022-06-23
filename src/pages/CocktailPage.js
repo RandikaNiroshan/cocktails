@@ -19,10 +19,10 @@ const CocktailPage = () => {
   return (
     <>
       <CocktailInfo cocktail={cocktail} loading={loading} />
-      <Title title={"Instructions"}/>
-      <Instructions cocktail={cocktail} loading={loading}/>
-      <Title title={"A Video Guide"}/>
-      <VideoTutorial cocktail={cocktail} loading={loading}/>
+      <Title title={"Instructions"} />
+      <Instructions cocktail={cocktail} loading={loading} />
+      <Title title={"Video Guide"} />
+      <VideoTutorial cocktail={cocktail} loading={loading} />
     </>
   );
 };

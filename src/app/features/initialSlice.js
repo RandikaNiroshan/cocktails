@@ -5,7 +5,6 @@ import { API_BASE_URL, HTTP_STATUS } from "../utils/constants";
 export const fetchCategories = createAsyncThunk(
   "initial/fetchCategories",
   async () => {
-    console.log("Fetching categories...");
     const response = await axios.get(`${API_BASE_URL}/list.php?c=list`);
     return response.data.drinks;
   }
@@ -14,7 +13,6 @@ export const fetchCategories = createAsyncThunk(
 export const fetchGlasses = createAsyncThunk(
   "initial/fetchGlasses",
   async () => {
-    console.log("Fetching glasses...");
     const response = await axios.get(`${API_BASE_URL}/list.php?g=list`);
     return response.data.drinks;
   }
@@ -23,7 +21,6 @@ export const fetchGlasses = createAsyncThunk(
 export const fetchAlcoholic = createAsyncThunk(
   "initial/fetchAlcoholic",
   async () => {
-    console.log("Fetching alcoholic...");
     const response = await axios.get(`${API_BASE_URL}/list.php?a=list`);
     return response.data.drinks;
   }

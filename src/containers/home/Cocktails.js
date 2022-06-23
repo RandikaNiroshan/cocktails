@@ -7,8 +7,6 @@ const Cocktails = () => {
   const dispatch = useDispatch();
   const cocktails = useSelector(state => state.cocktails.cocktails);
   const loading = useSelector(state => state.cocktails.loading);
-  const error = useSelector(state => state.cocktails.error);
-
   
   useEffect(() => {
     dispatch(initialFetch());
@@ -21,7 +19,7 @@ const Cocktails = () => {
         <SelectLetter />
       </div>
       <div className="px-28">
-        <GridWithPagination list={cocktails} loading={loading} error={error}/>
+        <GridWithPagination list={cocktails} loading={loading}/>
       </div>
     </section>
   );

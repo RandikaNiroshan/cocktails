@@ -3,6 +3,12 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { HTTP_STATUS } from "../app/utils/constants";
 import { Logo } from "../components";
+import {
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaGithubSquare,
+  FaLinkedin,
+} from "react-icons/fa";
 
 const Footer = () => {
   const loading = useSelector((state) => state.initial.loading);
@@ -13,8 +19,38 @@ const Footer = () => {
     <footer className="bg-app-cadet w-full h-auto">
       {loading === HTTP_STATUS.FULFILLED && (
         <div className="flex justify-evenly px-20 py-10">
-          <div className="flex-[3]">
+          <div className="flex-[3] flex flex-col">
             <Logo alt={true} />
+            <div className="flex gap-1 mx-1 mb-2 mt-3 w-full justify-start">
+              <a
+                href="https://facebook.com/RandikaNiroshan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebookSquare className="w-5 h-5 text-white shadow-sm hover:text-app-flame hover:animate-expand hover:cursor-pointer" />
+              </a>
+              <a
+                href="https://twitter.com/RandikaNiroshan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitterSquare className="w-5 h-5 text-white shadow-sm hover:text-app-flame hover:animate-expand hover:cursor-pointer" />
+              </a>
+              <a
+                href="https://github.com/RandikaNiroshan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaGithubSquare className="w-5 h-5 text-white shadow-sm hover:text-app-flame hover:animate-expand hover:cursor-pointer" />
+              </a>
+              <a
+                href="https://linkedin.com/in/randika-niroshan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin className="w-5 h-5 text-white shadow-sm hover:text-app-flame hover:animate-expand hover:cursor-pointer" />
+              </a>
+            </div>
           </div>
           <div className="flex-[3] flex flex-col justify-start w-full px-1">
             {alcoholic.map((item, index) => {

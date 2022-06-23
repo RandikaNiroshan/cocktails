@@ -48,3 +48,11 @@ export const featuredCocktails = () => {
   const shuffled = FeaturedCocktails.sort(() => 0.5 - Math.random());
   return shuffled.slice(0, 6);
 };
+
+export const youtubeResponseToVideos = (response) => {
+  const videoIdList = [];
+  if (response !== null) {
+    response.forEach((item) => videoIdList.push(item.id.videoId));
+  }
+  return videoIdList;
+};

@@ -4,7 +4,7 @@ import { DummyCocktail } from "../app/utils/data";
 import { HTTP_STATUS } from "../app/utils/constants";
 import CocktailCard from "./cards/CocktailCard";
 
-const GridWithPagination = ({ list, loading, error, perPage }) => {
+const GridWithPagination = ({ list, loading, perPage }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = perPage ?? 8;
@@ -24,38 +24,45 @@ const GridWithPagination = ({ list, loading, error, perPage }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-8">
-        {loading === HTTP_STATUS.PENDING && (
-          <>
-            {[...Array(itemsPerPage)].map((_item, index) => {
-              return (
-                <div key={index}>
-                  {<CocktailCard cocktail={DummyCocktail} loading={loading} />}
-                </div>
-              );
-            })}
-          </>
-        )}
-        {loading === HTTP_STATUS.REJECTED && (
-          <div>
-            <p>{error}</p>
-          </div>
-        )}
-        {loading === HTTP_STATUS.FULFILLED &&
-          list.length > 0 &&
-          displayItems.map((item, index) => {
+      {loading === HTTP_STATUS.FULFILLED && list.length === 0 && (
+        <div className="w-full p-4">
+          <p className="text-app-flame font-app-heading text-xl font-bold text-center">
+            No Cocktails Found For The Selected Letter
+          </p>
+        </div>
+      )}
+      
+      {loading === HTTP_STATUS.REJECTED && (
+        <div className="w-full p-4">
+          <p className="text-app-flame font-app-heading text-xl font-bold text-center">
+            Something Went Wrong. Try Again Later
+          </p>
+        </div>
+      )}
+
+      {loading === HTTP_STATUS.PENDING && (
+        <div className="grid grid-cols-4 gap-8">
+          {[...Array(itemsPerPage)].map((_item, index) => {
+            return (
+              <div key={index}>
+                {<CocktailCard cocktail={DummyCocktail} loading={loading} />}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
+        <div className="grid grid-cols-4 gap-8">
+          {displayItems.map((item, index) => {
             return (
               <div key={index}>
                 {<CocktailCard cocktail={item} loading={loading} />}
               </div>
             );
           })}
-        {loading === HTTP_STATUS.FULFILLED && list.length === 0 && (
-          <div>
-            <p>No drinks found</p>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="mx-8 my-10">
         {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
