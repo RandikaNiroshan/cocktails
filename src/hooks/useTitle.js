@@ -8,7 +8,12 @@ export function useTitle(title, loading) {
     if (loading === null) {
       document.title = title;
     } else {
-      document.title = loading === HTTP_STATUS.FULFILLED ? title : defaultTitle;
+      if (title === undefined) {
+        document.title = defaultTitle;
+      } else {
+        document.title =
+          loading === HTTP_STATUS.FULFILLED ? title : defaultTitle;
+      }
     }
     return () => {
       document.title = prevTitle;

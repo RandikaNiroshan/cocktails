@@ -5,21 +5,25 @@ import { GridWithPagination, SelectLetter } from "../../components";
 
 const Cocktails = () => {
   const dispatch = useDispatch();
-  const cocktails = useSelector(state => state.cocktails.cocktails);
-  const loading = useSelector(state => state.cocktails.loading);
-  
+  const cocktails = useSelector((state) => state.cocktails.cocktails);
+  const loading = useSelector((state) => state.cocktails.loading);
+
   useEffect(() => {
     dispatch(initialFetch());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   return (
     <section className="my-4">
       <div className="my-8 mx-10">
         <SelectLetter />
       </div>
       <div className="px-28">
-        <GridWithPagination list={cocktails} loading={loading}/>
+        <GridWithPagination
+          list={cocktails}
+          loading={loading}
+          fullData={true}
+        />
       </div>
     </section>
   );

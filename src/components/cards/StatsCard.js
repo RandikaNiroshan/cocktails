@@ -16,7 +16,9 @@ const StatsCard = ({ count, title, image }) => {
           <h2 className="text-app-olivine text-base md:text-lg font-app-text tracking-widest font-bold text-center group-hover:basic-transition">
             {title}
           </h2>
-          <p className="hidden invisible group-hover:block group-hover:visible group-hover:basic-transition neon-text text-lg font-app-heading text-center active:scale-90 active:basic-transition hover:animate-expand cursor-pointer">Show Me  ⇨</p>
+          <p className="hidden invisible group-hover:block group-hover:visible group-hover:basic-transition neon-text text-lg font-app-heading text-center active:scale-90 active:basic-transition hover:animate-expand cursor-pointer">
+            Show Me ⇨
+          </p>
         </div>
       </div>
     </div>

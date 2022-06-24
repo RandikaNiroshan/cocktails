@@ -4,7 +4,7 @@ import { DummyCocktail } from "../app/utils/data";
 import { HTTP_STATUS } from "../app/utils/constants";
 import CocktailCard from "./cards/CocktailCard";
 
-const GridWithPagination = ({ list, loading, perPage }) => {
+const GridWithPagination = ({ list, loading, perPage, fullData }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = perPage ?? 8;
@@ -27,11 +27,11 @@ const GridWithPagination = ({ list, loading, perPage }) => {
       {loading === HTTP_STATUS.FULFILLED && list.length === 0 && (
         <div className="w-full p-4">
           <p className="text-app-flame font-app-heading text-xl font-bold text-center">
-            No Cocktails Found For The Selected Letter
+            {fullData ? "No Cocktails Found For The Selected Letter" : "Oops!!. No Cocktails Found"}
           </p>
         </div>
       )}
-      
+
       {loading === HTTP_STATUS.REJECTED && (
         <div className="w-full p-4">
           <p className="text-app-flame font-app-heading text-xl font-bold text-center">
@@ -57,7 +57,7 @@ const GridWithPagination = ({ list, loading, perPage }) => {
           {displayItems.map((item, index) => {
             return (
               <div key={index}>
-                {<CocktailCard cocktail={item} loading={loading} />}
+                {<CocktailCard cocktail={item} loading={loading} fullData={fullData}/>}
               </div>
             );
           })}

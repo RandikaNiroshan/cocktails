@@ -27,7 +27,7 @@ const VideoTutorial = ({ cocktail, loading }) => {
             <ReactPlayer
               className="w-full h-full"
               controls={true}
-              url={`https://www.youtube.com/watch?v=${videosList[currentVideoIndex].videoId}`}
+              url={`https://www.youtube.com/watch?v=${videosList[currentVideoIndex]}`}
             />
           )}
         {youtubeLoading === HTTP_STATUS.REJECTED && (

@@ -20,7 +20,7 @@ const CocktailCard = ({ cocktail, loading }) => {
                   src={image ?? ImagePlaceHolder}
                   alt={drink ?? "Cocktail Image"}
                 />
-                <Alcoholic alcoholic={alcoholic} />
+                {alcoholic && <Alcoholic alcoholic={alcoholic} />}
                 <Favorite id={id} />
               </>
             )}
@@ -41,9 +41,11 @@ const CocktailCard = ({ cocktail, loading }) => {
                 <p className="text-[14px] text-center font-app-text text-app-flame truncate leading-5">
                   {drink ?? "Classic Cocktail"}
                 </p>
-                <p className="text-base text-center font-app-heading font-bold text-app-cadet truncate leading-5">
-                  {category ?? "Category"}
-                </p>
+                {category && (
+                  <p className="text-base text-center font-app-heading font-bold text-app-cadet truncate leading-5">
+                    {category ?? "Category"}
+                  </p>
+                )}
               </>
             )}
           </div>
