@@ -5,15 +5,20 @@ import { organizeCocktailList } from "../utils/helpers";
 
 export const fetchByAlcoholic = createAsyncThunk(
   "alcoholic/fetchByAlcoholic",
-  async (type) => {
-    const response = await axios.get(`${API_BASE_URL}/filter.php?a=${type}`);
-    return organizeCocktailList(response.data.drinks);
+  async ({ param, typeList }) => {
+    if (param >= 0 && param < typeList.length) {
+      const response = await axios.get(
+        `${API_BASE_URL}/filter.php?a=${typeList[param]["strAlcoholic"]}`
+      );
+      return organizeCocktailList(response.data.drinks);
+    }
+
+    throw new Error("Invalid type");
   }
 );
 
 const initialState = {
-  alcoholic: [],
-  selected: "Alcoholic",
+  cocktails: [],
   loading: null,
   error: null,
 };
@@ -21,11 +26,6 @@ const initialState = {
 export const alcoholicSlice = createSlice({
   name: "alcoholic",
   initialState: initialState,
-  reducers: {
-    selectAlcoholic: (state, {payload}) =>{
-        state.selected = payload;
-    }
-  },
   extraReducers: {
     [fetchByAlcoholic.pending]: (state) => {
       state.loading = HTTP_STATUS.PENDING;
