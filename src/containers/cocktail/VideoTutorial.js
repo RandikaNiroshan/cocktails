@@ -28,7 +28,7 @@ const VideoTutorial = ({ cocktail, loading }) => {
       <div className="px-32 my-8 w-full flex justify-center">
         {loading === HTTP_STATUS.FULFILLED &&
           youtubeLoading === HTTP_STATUS.FULFILLED && (
-            <div>
+            <div className="flex flex-col justify-center items-center">
               <ReactPlayer
                 className="w-full h-full p-4 mb-4 drop-shadow-lg bg-white rounded-xl"
                 controls={true}
@@ -36,7 +36,7 @@ const VideoTutorial = ({ cocktail, loading }) => {
               />
               <div className="w-full p-4 flex justify-center gap-2 items-center">
                 <p className="text-app-cadet font-app-heading text-xl font-bold text-center">Video Guide Not Relevant?</p>
-                <PrimaryButton onClick={onSkipVideo} text="Skip This"/>
+                <PrimaryButton onClick={onSkipVideo} text="Next Video"/>
               </div>
             </div>
           )}

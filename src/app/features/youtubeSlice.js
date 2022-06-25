@@ -12,6 +12,7 @@ export const fetchVideoList = createAsyncThunk(
       {
         params: {
           maxResults: 10,
+          safeSearch:"strict",
           q: searchQuery,
           key: process.env.REACT_APP_YOUTUBE_API_KEY,
         },
