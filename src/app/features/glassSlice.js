@@ -5,9 +5,15 @@ import { organizeCocktailList } from "../utils/helpers";
 
 export const fetchByGlass = createAsyncThunk(
   "glass/fetchByGlass",
-  async (type) => {
-    const response = await axios.get(`${API_BASE_URL}/filter.php?g=${type}`);
-    return organizeCocktailList(response.data.drinks);
+  async ({ param, typeList }) => {
+    if (param >= 0 && param < typeList.length) {
+      const response = await axios.get(
+        `${API_BASE_URL}/filter.php?g=${typeList[param]["strGlass"]}`
+      );
+      return organizeCocktailList(response.data.drinks);
+    }
+
+    throw new Error("Invalid type");
   }
 );
 

@@ -9,7 +9,14 @@ export const fetchVideoList = createAsyncThunk(
     const searchQuery = `How to make ${title} cocktail`;
     const replaceSpaces = searchQuery.replaceAll(" ", "%20");
     const response = await axios.get(
-      `${YOUTUBE_API_BASE_URL}/search?part=snippet&maxResults=10&q=${replaceSpaces}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+      `${YOUTUBE_API_BASE_URL}/search`,
+      {
+        params: {
+          maxResults: 10,
+          q: replaceSpaces,
+          key: process.env.REACT_APP_YOUTUBE_API_KEY,
+        },
+      }
     );
     return youtubeResponseToVideos(response.data["items"]);
   }
@@ -17,7 +24,6 @@ export const fetchVideoList = createAsyncThunk(
 
 const initialState = {
   videos: [],
-  currentVideoIndex: 0,
   loading: null,
   error: null,
 };
@@ -25,12 +31,6 @@ const initialState = {
 export const youtubeSlice = createSlice({
   name: "youtube",
   initialState: initialState,
-  reducer: {
-    skipVideo: (state) => {
-      state.currentVideoIndex =
-        state.currentVideoIndex === 9 ? 0 : state.currentVideoIndex + 1;
-    },
-  },
   extraReducers: {
     [fetchVideoList.pending]: (state) => {
       state.loading = HTTP_STATUS.PENDING;
@@ -45,7 +45,5 @@ export const youtubeSlice = createSlice({
     },
   },
 });
-
-export const { skipVideo } = youtubeSlice.actions;
 
 export default youtubeSlice.reducer;

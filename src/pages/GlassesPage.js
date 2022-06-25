@@ -3,55 +3,69 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { fetchByGlass } from "../app/features/glassSlice";
 import { HTTP_STATUS } from "../app/utils/constants";
-import { GridWithPagination } from "../components";
+import { GridWithPagination, Title } from "../components";
 import { useTitle } from "../hooks/useTitle";
 
 const GlassesPage = () => {
   const dispatch = useDispatch();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const type = searchParams.get("id") ?? 0;
-  const [selectedType, setSelectedType] = useState(type);
 
   const glasses = useSelector((state) => state.initial.glassesList);
   const loadingGlasses = useSelector((state) => state.initial.loading);
-
   const cocktails = useSelector((state) => state.glass.cocktails);
   const loading = useSelector((state) => state.glass.loading);
 
+  const [selectedType, setSelectedType] = useState(type);
+
   useTitle(`${glasses?.[type]?.["strGlass"]} | Cocktails`, loadingGlasses);
 
+  const onChangeType = (index) => {
+    setSelectedType(index);
+    searchParams.set("id", index);
+    setSearchParams(searchParams);
+  };
+
   useEffect(() => {
-    if(glasses[selectedType]["strGlass"] !== undefined){
-      dispatch(fetchByGlass(glasses[selectedType]["strGlass"]));
+    setSelectedType(type);
+    if (glasses.length > 0) {
+      dispatch(fetchByGlass({ param: selectedType, typeList: glasses }));
     }
-  },[dispatch, glasses, selectedType]);
+  }, [dispatch, glasses, selectedType, type]);
+
   return (
-    <div>
-      <div>GlassesPage - {type}</div>
+    <>
+      <Title title="What's Your Preferred Glass?" />
       {loadingGlasses === HTTP_STATUS.FULFILLED && (
-        <div className="flex justify-center gap-8">
+        <div className="bg-image flex justify-center gap-4 flex-wrap mt-10 mb-12 py-10 px-28">
           {glasses.map((glass, index) => {
             return (
               <div
                 key={index}
-                className={`${index === selectedType ? "bg-app-flame" : "bg-app-cadet"}`}
-                onClick={() => setSelectedType(index)}
+                className={`rounded-md px-6 py-2 drop-shadow-lg cursor-pointer group hover:scale-110 basic-transition ${
+                  index === Number(selectedType) ? "bg-app-flame" : "bg-white"
+                }`}
+                onClick={() => onChangeType(index)}
               >
-                {glass.strGlass}
+                <p
+                  className={`text-app-cadet text-lg font-app-text ${
+                    index === Number(selectedType)
+                      ? "text-white"
+                      : "text-app-cadet"
+                  }`}
+                >
+                  {glass.strGlass}
+                </p>
               </div>
             );
           })}
         </div>
       )}
-      <div>
-        <GridWithPagination
-          list={cocktails}
-          loading={loading}
-          perPage={16}
-        />
+      <div className="px-28 pb-4">
+        <GridWithPagination list={cocktails} loading={loading} perPage={12} />
       </div>
-    </div>
+    </>
   );
 };
 

@@ -64,7 +64,7 @@ const GridWithPagination = ({ list, loading, perPage, fullData }) => {
         </div>
       )}
 
-      <div className="mx-8 my-10">
+      <div className="mx-8 my-12">
         {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
           <ReactPaginate
             pageRangeDisplayed={5}

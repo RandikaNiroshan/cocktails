@@ -6,7 +6,7 @@ import { Alcoholic, Favorite, LinkButton } from "../../components";
 const TwoByTwo = ({ cocktail, loading }) => {
   const { id, drink, image, category, alcoholic, ingredients } = cocktail;
   return (
-    <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white">
+    <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white z-[3]">
       <div className="rounded-[5px] overflow-hidden">
         <div className="grid grid-cols-two-by-two">
           <div className="p-2 relative">
@@ -36,13 +36,13 @@ const TwoByTwo = ({ cocktail, loading }) => {
             >
               {loading === HTTP_STATUS.PENDING && (
                 <>
-                  <p className="loading animate-loading text-slate-100 text-[14px] leading-5 mb-1">
+                  <p className="loading animate-loading rounded-md text-slate-100 text-[14px] leading-5 mb-1">
                     ...
                   </p>
-                  <p className="loading animate-loading text-slate-100 text-base leading-5 mb-2">
+                  <p className="loading animate-loading rounded-md text-slate-100 text-base leading-5 mb-2">
                     ...
                   </p>
-                  <div className="loading animate-loading w-full h-10"></div>
+                  <div className="loading animate-loading rounded-md w-full h-10"></div>
                 </>
               )}
               {loading === HTTP_STATUS.FULFILLED && (

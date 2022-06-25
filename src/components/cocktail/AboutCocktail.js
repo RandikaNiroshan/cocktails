@@ -1,5 +1,6 @@
 import React from "react";
 import { HTTP_STATUS } from "../../app/utils/constants";
+import PrimaryButton from "../buttons/PrimaryButton";
 import InfoCard from "./InfoCard";
 
 const AboutCocktail = ({ cocktail, loading }) => {
@@ -37,12 +38,8 @@ const AboutCocktail = ({ cocktail, loading }) => {
         <InfoCard title="Serve" data={cocktail.glass} loading={loading} />
       </div>
       <div className="flex justify-center items-start gap-1 w-full mt-5">
-        <button className="w-max h-max mx-2 px-[6px] py-[3px] lg:px-[10px] active:scale-[0.95] hover:scale-[1.05] basic-transition rounded-md bg-app-flame text-white text-center text-base font-app-heading tracking-wider drop-shadow-md">
-          Instructions
-        </button>
-        <button className="w-max h-max mx-2 px-[6px] py-[3px] lg:px-[10px] active:scale-[0.95] hover:scale-[1.05] basic-transition rounded-md bg-app-flame text-white text-center text-base font-app-heading tracking-wider drop-shadow-md">
-          Video Guide
-        </button>
+        <PrimaryButton onClick={() => {}} text="Instructions"/>
+        <PrimaryButton onClick={() => {}} text="Video Guide"/>
       </div>
     </div>
   );

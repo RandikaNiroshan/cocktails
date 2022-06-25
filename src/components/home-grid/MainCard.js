@@ -6,7 +6,7 @@ import { Alcoholic, Favorite, LinkButton } from "../../components";
 const MainCard = ({ cocktail, loading }) => {
   const { id, drink, image, category, alcoholic, ingredients } = cocktail;
   return (
-    <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white">
+    <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white z-[4]">
       <div className="rounded-[5px] overflow-hidden">
         <div className="p-[10px] relative">
           {loading === HTTP_STATUS.PENDING && (
@@ -27,8 +27,8 @@ const MainCard = ({ cocktail, loading }) => {
         <div className="px-1 pb-4">
           {loading === HTTP_STATUS.PENDING && (
             <div className="px-2 space-y-1">
-              <p className="loading animate-loading text-[14px] text-slate-100 text-center truncate leading-5">...</p>
-              <p className="loading animate-loading text-base text-slate-100 text-center truncate leading-5">...</p>
+              <p className="loading animate-loading rounded-md text-[14px] text-slate-100 text-center truncate leading-5">...</p>
+              <p className="loading animate-loading rounded-md text-base text-slate-100 text-center truncate leading-5">...</p>
             </div>
           )}
           {loading === HTTP_STATUS.FULFILLED && (

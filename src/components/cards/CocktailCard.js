@@ -3,7 +3,7 @@ import { ImagePlaceHolder } from "../../assets";
 import { Alcoholic, Favorite, LinkButton } from "..";
 import { HTTP_STATUS } from "../../app/utils/constants";
 
-const CocktailCard = ({ cocktail, loading }) => {
+const CocktailCard = ({ cocktail, loading, fullData }) => {
   const { id, drink, image, category, alcoholic } = cocktail;
   return (
     <div>
@@ -25,15 +25,17 @@ const CocktailCard = ({ cocktail, loading }) => {
               </>
             )}
           </div>
-          <div className="px-2 pb-2">
+          <div className={`px-2 ${fullData ? "pb-2" : "pb-3"}`}>
             {loading === HTTP_STATUS.PENDING && (
               <div className="px-1 space-y-1">
-                <p className="loading animate-loading text-[14px] text-slate-100 text-center truncate leading-5">
+                <p className="loading animate-loading text-[14px] rounded-md text-slate-100 text-center truncate leading-5">
                   ...
                 </p>
-                <p className="loading animate-loading text-base text-slate-100 text-center truncate leading-5">
-                  ...
-                </p>
+                {fullData && (
+                  <p className="loading animate-loading text-base rounded-md text-slate-100 text-center truncate leading-5">
+                    ...
+                  </p>
+                )}
               </div>
             )}
             {loading === HTTP_STATUS.FULFILLED && (

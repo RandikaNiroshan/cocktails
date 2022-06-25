@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { fetchByAlcoholic } from "../app/features/alcoholicSlice";
 import { HTTP_STATUS } from "../app/utils/constants";
-import { GridWithPagination } from "../components";
+import { GridWithPagination, Title } from "../components";
 import { useTitle } from "../hooks/useTitle";
 
 const AlcoholicPage = () => {
@@ -16,8 +16,6 @@ const AlcoholicPage = () => {
   const loadingTypes = useSelector((state) => state.initial.loading);
   const cocktails = useSelector((state) => state.alcoholic.cocktails);
   const loading = useSelector((state) => state.alcoholic.loading);
-
-  console.log("rebuilding");
 
   const [selectedType, setSelectedType] = useState(type);
 
@@ -42,31 +40,37 @@ const AlcoholicPage = () => {
   }, [dispatch, alcoholicTypes, selectedType, type]);
 
   return (
-    <div>
-      <div>AlcoholicPage- {type}</div>
+    <>
+      <Title title="Select Cocktails Based On"/>
       {loadingTypes === HTTP_STATUS.FULFILLED && (
-        <div className="flex justify-center gap-8">
+        <div className="bg-image flex justify-center gap-6 flex-wrap mt-10 mb-12 py-10 px-28">
           {alcoholicTypes.map((alcoholic, index) => {
             return (
               <div
                 key={index}
-                className={`${
-                  index === Number(selectedType)
-                    ? "bg-app-flame"
-                    : "bg-app-cadet"
+                className={`rounded-md px-6 py-2 drop-shadow-lg cursor-pointer group hover:scale-110 basic-transition ${
+                  index === Number(selectedType) ? "bg-app-flame" : "bg-white"
                 }`}
                 onClick={() => onChangeType(index)}
               >
-                {alcoholic.strAlcoholic}
+                <p
+                  className={`text-app-cadet text-lg font-app-text ${
+                    index === Number(selectedType)
+                      ? "text-white"
+                      : "text-app-cadet"
+                  }`}
+                >
+                  {alcoholic.strAlcoholic}
+                </p>
               </div>
             );
           })}
         </div>
       )}
-      <div>
-        <GridWithPagination list={cocktails} loading={loading} perPage={16} />
+      <div className="px-28 pb-4">
+        <GridWithPagination list={cocktails} loading={loading} perPage={12} />
       </div>
-    </div>
+    </>
   );
 };
 

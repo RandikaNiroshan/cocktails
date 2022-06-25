@@ -3,56 +3,74 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { fetchByCategory } from "../app/features/categorySlice";
 import { HTTP_STATUS } from "../app/utils/constants";
-import { GridWithPagination } from "../components";
+import { GridWithPagination, Title } from "../components";
 import { useTitle } from "../hooks/useTitle";
 
 const CategoriesPage = () => {
   const dispatch = useDispatch();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const type = searchParams.get("id") ?? 0;
-  const [selectedType, setSelectedType] = useState(type);
-
+  
   const categories = useSelector((state) => state.initial.categoriesList);
   const loadingCategories = useSelector((state) => state.initial.loading);
-
   const cocktails = useSelector((state) => state.category.cocktails);
   const loading = useSelector((state) => state.category.loading);
+
+  const [selectedType, setSelectedType] = useState(type);
 
   useTitle(
     `${categories?.[type]?.["strCategory"]} | Cocktails`,
     loadingCategories
   );
 
+  const onChangeType = (index) => {
+    setSelectedType(index);
+    searchParams.set("id", index);
+    setSearchParams(searchParams);
+  };
+
   useEffect(() => {
-    if (categories[selectedType]["strCategory"] !== undefined) {
-      dispatch(fetchByCategory(categories[selectedType]["strCategory"]));
+    setSelectedType(type);
+    if (categories.length > 0) {
+      dispatch(
+        fetchByCategory({ param: selectedType, typeList: categories })
+      );
     }
-  }, [dispatch, categories, selectedType]);
+  }, [dispatch, categories, selectedType, type]);
+
   return (
-    <div>
-      <div>CategoriesPage - {type}</div>
+    <>
+      <Title title="Select From Your Favorite Category"/>
       {loadingCategories === HTTP_STATUS.FULFILLED && (
-        <div className="flex justify-center gap-8">
+        <div className="bg-image flex justify-center gap-4 flex-wrap mt-10 mb-12 py-10 px-28">
           {categories.map((category, index) => {
             return (
               <div
-                key={index}
-                className={`${
-                  index === selectedType ? "bg-app-flame" : "bg-app-cadet"
+              key={index}
+              className={`rounded-md px-6 py-2 drop-shadow-lg cursor-pointer group hover:scale-110 basic-transition ${
+                index === Number(selectedType) ? "bg-app-flame" : "bg-white"
+              }`}
+              onClick={() => onChangeType(index)}
+            >
+              <p
+                className={`text-app-cadet text-lg font-app-text ${
+                  index === Number(selectedType)
+                    ? "text-white"
+                    : "text-app-cadet"
                 }`}
-                onClick={() => setSelectedType(index)}
               >
                 {category.strCategory}
-              </div>
+              </p>
+            </div>
             );
           })}
         </div>
       )}
-      <div>
-        <GridWithPagination list={cocktails} loading={loading} perPage={16} />
+      <div className="px-28 pb-4">
+        <GridWithPagination list={cocktails} loading={loading} perPage={12} />
       </div>
-    </div>
+    </>
   );
 };
 
