@@ -7,13 +7,12 @@ export const fetchVideoList = createAsyncThunk(
   "youtube/fetchVideoList",
   async (title) => {
     const searchQuery = `How to make ${title} cocktail`;
-    const replaceSpaces = searchQuery.replaceAll(" ", "%20");
     const response = await axios.get(
       `${YOUTUBE_API_BASE_URL}/search`,
       {
         params: {
           maxResults: 10,
-          q: replaceSpaces,
+          q: searchQuery,
           key: process.env.REACT_APP_YOUTUBE_API_KEY,
         },
       }

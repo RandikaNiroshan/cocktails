@@ -38,8 +38,8 @@ const AboutCocktail = ({ cocktail, loading }) => {
         <InfoCard title="Serve" data={cocktail.glass} loading={loading} />
       </div>
       <div className="flex justify-center items-start gap-1 w-full mt-5">
-        <PrimaryButton onClick={() => {}} text="Instructions"/>
-        <PrimaryButton onClick={() => {}} text="Video Guide"/>
+        <PrimaryButton onClick={() => {console.log("Instructions")}} text="Instructions"/>
+        <PrimaryButton onClick={() => {console.log("Video Guide")}} text="Video Guide"/>
       </div>
     </div>
   );
