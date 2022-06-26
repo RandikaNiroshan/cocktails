@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
 import { DummyCocktail } from "../app/utils/data";
 import { HTTP_STATUS } from "../app/utils/constants";
 import CocktailCard from "./cards/CocktailCard";
+import Pagination from "./Pagination";
 
-const GridWithPagination = ({ list, loading, perPage, fullData }) => {
+const CocktailsGrid = ({ list, loading, perPage, fullData }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = perPage ?? 8;
   const itemsVisited = pageNumber * itemsPerPage;
-
   const displayItems = list.slice(itemsVisited, itemsVisited + itemsPerPage);
-
   const pageCount = Math.ceil(list.length / itemsPerPage);
-
-  const changePage = ({ selected }) => {
-    setPageNumber(selected);
-  };
 
   useEffect(() => {
     setPageNumber(0);
@@ -66,22 +60,11 @@ const GridWithPagination = ({ list, loading, perPage, fullData }) => {
 
       <div className="mx-8 my-12">
         {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
-          <ReactPaginate
-            pageRangeDisplayed={5}
-            previousLabel={" < "}
-            nextLabel={" > "}
-            pageCount={pageCount}
-            onPageChange={changePage}
-            containerClassName={"flex items-center justify-center gap-2"}
-            activeLinkClassName={"bg-app-cadet text-white"}
-            previousLinkClassName={"pagination-buttons mr-2 px-5"}
-            nextLinkClassName={"pagination-buttons ml-2 px-5"}
-            pageLinkClassName={"pagination-buttons"}
-          />
+          <Pagination pageCount={pageCount} setPageNumber={setPageNumber}/>
         )}
       </div>
     </div>
   );
 };
 
-export default GridWithPagination;
+export default CocktailsGrid;

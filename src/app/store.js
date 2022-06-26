@@ -10,6 +10,7 @@ import alcoholicReducer from "./features/alcoholicSlice";
 import categoryReducer from "./features/categorySlice";
 import glassReducer from "./features/glassSlice";
 import favoriteReducer from "./features/favoriteSlice";
+import ingredientReducer from "./features/ingredientSlice";
 
 const persistConfig = {
   key: 'favorites',
@@ -29,6 +30,7 @@ export default configureStore({
     category: categoryReducer,
     glass: glassReducer,
     youtube: youtubeReducer,
+    ingredient: ingredientReducer,
     favorite: persistedFavoriteReducer,
   },
   middleware: (getDefaultMiddleware) =>

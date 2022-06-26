@@ -1,7 +1,7 @@
 import React from "react";
 import { HTTP_STATUS } from "../../app/utils/constants";
 
-const IngredientCard = ({ ingredient, loading }) => {
+const IngredientWithMeasure = ({ ingredient, loading }) => {
   const { name, measure } = ingredient;
   return (
     <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-pointer">
@@ -47,4 +47,4 @@ const IngredientCard = ({ ingredient, loading }) => {
   );
 };
 
-export default IngredientCard;
+export default IngredientWithMeasure;

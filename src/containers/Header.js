@@ -18,7 +18,7 @@ const Header = () => {
       <nav className="flex justify-center">
         <ul className="flex justify-center gap-5">
           {Menu.map((item, index) => (
-            <li key={index} className="font-app-text text-lg font-bold">
+            <li key={index} className="font-app-text text-lg">
               <NavLink
                 to={item.link}
                 className={({ isActive }) =>

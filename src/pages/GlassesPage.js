@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { fetchByGlass } from "../app/features/glassSlice";
 import { HTTP_STATUS } from "../app/utils/constants";
-import { GridWithPagination, Title } from "../components";
+import { CocktailsGrid, Title } from "../components";
 import { useTitle } from "../hooks/useTitle";
 
 const GlassesPage = () => {
@@ -63,7 +63,7 @@ const GlassesPage = () => {
         </div>
       )}
       <div className="px-28 pb-4">
-        <GridWithPagination list={cocktails} loading={loading} perPage={12} />
+        <CocktailsGrid list={cocktails} loading={loading} perPage={12} />
       </div>
     </>
   );

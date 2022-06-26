@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchByFirstLetter, initialFetch } from "../../app/features/cocktailsSlice";
-import { GridWithPagination, SelectLetter } from "../../components";
+import { CocktailsGrid, SelectLetter } from "../../components";
 
 const Cocktails = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Cocktails = () => {
         <SelectLetter />
       </div>
       <div className="px-28">
-        <GridWithPagination
+        <CocktailsGrid
           list={cocktails}
           loading={loading}
           fullData={true}

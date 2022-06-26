@@ -44,6 +44,17 @@ export const organizeCocktailList = (cocktails) => {
   return organizedCocktails;
 };
 
+export const organizeIngredients = (ingredients) => {
+  const organizedIngredients = [];
+  if (ingredients !== null) {
+    ingredients.forEach((item) => {
+      const data = item["strIngredient1"];
+      organizedIngredients.push(data);
+    });
+  }
+  return organizedIngredients;
+};
+
 export const featuredCocktails = () => {
   const shuffled = FeaturedCocktails.sort(() => 0.5 - Math.random());
   return shuffled.slice(0, 6);
