@@ -20,7 +20,7 @@ const OneByThree = ({ cocktail, loading }) => {
                 alt={drink ?? "Cocktail Image"}
               />
               <Alcoholic alcoholic={alcoholic} />
-              <Favorite id={id} />
+              <Favorite id={id}cocktail={cocktail} />
             </>
           )}
         </div>

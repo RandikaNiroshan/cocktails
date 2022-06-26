@@ -20,7 +20,7 @@ const MainCard = ({ cocktail, loading }) => {
                 alt={drink ?? "Cocktail Image"}
               />
               <Alcoholic alcoholic={alcoholic} />
-              <Favorite id={id} />
+              <Favorite cocktail={cocktail} />
             </>
           )}
         </div>

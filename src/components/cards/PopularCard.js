@@ -12,7 +12,7 @@ const PopularCard = ({ cocktail }) => {
           src={image ?? ImagePlaceHolder}
           alt={drink ?? "Cocktail"}
         />
-        <Favorite id={id} />
+        <Favorite cocktail={cocktail} />
         <div className="absolute overflow-hidden bottom-2 left-2 right-2 bg-app-cadet/70 group-hover:bg-app-cadet/30 h-1/3 w-fill rounded-b-lg group-hover:h-[calc(100%-16px)] group-hover:rounded-lg basic-transition grid items-center">
           <div className="px-2 pb-2 flex flex-col items-center justify-center">
             <p className="text-[14px] text-center font-app-text text-white truncate leading-5">

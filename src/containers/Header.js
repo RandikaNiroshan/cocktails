@@ -1,9 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Menu } from "../app/utils/data";
 import { Logo } from "../components";
 
 const Header = () => {
+  const favCount = useSelector((state) => state.favorite.favorite);
+  const navigate = useNavigate();
+
+  const onNavigateFavorite = () => {
+    navigate("/favorites");
+  }
+
   return (
     <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-10">
       <Logo />
@@ -40,9 +48,9 @@ const Header = () => {
               d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
             />
           </svg>
-          <div className="w-8 h-8 flex justify-center items-center absolute top-0 left-0">
+          <div onClick={onNavigateFavorite} className="w-8 h-8 flex justify-center items-center absolute top-0 left-0">
             <span className="text-white text-center text-[9px] font-app-main group-hover:tracking-widest basic-transition">
-              0
+              {favCount?.length ?? 0}
             </span>
           </div>
         </div>

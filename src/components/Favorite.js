@@ -1,13 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavorite, removeFavorite } from "../app/features/favoriteSlice";
 
-const Favorite = ({ id }) => {
-  const isLiked = id ? true : false;
+const Favorite = ({ cocktail }) => {
+  const dispatch = useDispatch();
+  const favoriteList = useSelector((state) => state.favorite.favorite);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const onToggleFavorite = () => {
+    const data = {
+      id: cocktail.id,
+      drink: cocktail.drink,
+      image: cocktail.image,
+    };
+
+    if (favoriteList.some(item => item.id === cocktail.id)) {
+      dispatch(removeFavorite(data));
+      setIsFavorite(false);
+    }else{
+      dispatch(addFavorite(data));
+      setIsFavorite(true);
+    }
+  };
+
+  useEffect(() => {
+    if (favoriteList.some(item => item.id === cocktail.id)) {
+      setIsFavorite(true);
+    }else{
+      setIsFavorite(false);
+    }
+  }, [cocktail, favoriteList]);
+
   return (
-    <div className="flex place-items-center animate-expand cursor-pointer drop-shadow-sm absolute top-4 left-4 rounded-md z-[3] active:scale-[0.90] hover:scale-[1.10] basic-transition">
+    <div
+      onClick={() => onToggleFavorite()}
+      className="flex place-items-center animate-expand cursor-pointer drop-shadow-sm absolute top-4 left-4 rounded-md z-[3] active:scale-[0.90] hover:scale-[1.10] basic-transition"
+    >
       <div className="group-hover:scale-125 basic-transition">
         <svg
           className={`h-5 w-5 drop-shadow-lg stroke-white ${
-            isLiked && "fill-white"
+            isFavorite && "fill-white"
           }`}
           fill="none"
           viewBox="0 0 24 24"

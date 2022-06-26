@@ -34,7 +34,7 @@ const CocktailInfo = ({ cocktail, loading }) => {
                 alt={cocktail.drink}
               />
             )}
-            <Favorite />
+            <Favorite cocktail={cocktail} />
           </div>
           {loading === HTTP_STATUS.FULFILLED && tags.length > 0 && (
             <div className="flex flex-wrap gap-2 overflow-hidden mt-8 pr-4">

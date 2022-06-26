@@ -21,7 +21,7 @@ const TwoByTwo = ({ cocktail, loading }) => {
                   alt={drink ?? "Cocktail Image"}
                 />
                 <Alcoholic alcoholic={alcoholic} alt={true} />
-                <Favorite id={id} />
+                <Favorite cocktail={cocktail} />
               </>
             )}
           </div>

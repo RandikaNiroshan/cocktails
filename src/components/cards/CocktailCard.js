@@ -21,7 +21,7 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
                   alt={drink ?? "Cocktail Image"}
                 />
                 {alcoholic && <Alcoholic alcoholic={alcoholic} />}
-                <Favorite id={id} />
+                <Favorite cocktail={cocktail} />
               </>
             )}
           </div>
