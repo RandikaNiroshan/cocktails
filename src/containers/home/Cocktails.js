@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { initialFetch } from "../../app/features/cocktailsSlice";
+import { fetchByFirstLetter, initialFetch } from "../../app/features/cocktailsSlice";
 import { GridWithPagination, SelectLetter } from "../../components";
 
 const Cocktails = () => {
   const dispatch = useDispatch();
   const cocktails = useSelector((state) => state.cocktails.cocktails);
   const loading = useSelector((state) => state.cocktails.loading);
+  const selectedLetter = useSelector((state) => state.cocktails.selectedLetter);
 
   useEffect(() => {
-    dispatch(initialFetch());
+    if(selectedLetter === ""){
+      dispatch(initialFetch());
+    }else{
+      dispatch(fetchByFirstLetter(selectedLetter));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

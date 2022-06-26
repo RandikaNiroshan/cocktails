@@ -1,8 +1,14 @@
 import { useEffect } from "react";
 import { HTTP_STATUS } from "../app/utils/constants";
+import { animateScroll as scroll } from "react-scroll";
 
 export function useTitle(title, loading) {
   useEffect(() => {
+    scroll.scrollToTop({
+      duration: 300,
+      delay: 50,
+      smooth: true,
+    });
     const defaultTitle = "Cocktails";
     const prevTitle = document.title;
     if (loading === null) {

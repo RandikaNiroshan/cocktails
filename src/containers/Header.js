@@ -9,7 +9,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const onNavigateFavorite = () => {
-    navigate("/favorites");
+    favCount?.length > 0 ? navigate("/favorites") : alert("No favorites");
   }
 
   return (

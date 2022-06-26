@@ -2,6 +2,7 @@ import React from "react";
 import { HTTP_STATUS } from "../../app/utils/constants";
 import PrimaryButton from "../buttons/PrimaryButton";
 import InfoCard from "./InfoCard";
+import { Link } from "react-scroll";
 
 const AboutCocktail = ({ cocktail, loading }) => {
   return (
@@ -38,8 +39,27 @@ const AboutCocktail = ({ cocktail, loading }) => {
         <InfoCard title="Serve" data={cocktail.glass} loading={loading} />
       </div>
       <div className="flex justify-center items-start gap-1 w-full mt-5">
-        <PrimaryButton onClick={() => {console.log("Instructions")}} text="Instructions"/>
-        <PrimaryButton onClick={() => {console.log("Video Guide")}} text="Video Guide"/>
+        <Link
+          to="instructions"
+          spy={true}
+          smooth="easeInCubic"
+          offset={-170}
+          duration={700}
+          delay={150}
+        >
+          <PrimaryButton text="Instructions" />
+        </Link>
+
+        <Link
+          to="video-guide"
+          spy={true}
+          smooth="easeInCubic"
+          offset={-150}
+          duration={700}
+          delay={150}
+        >
+          <PrimaryButton text="Video Guide" />
+        </Link>
       </div>
     </div>
   );

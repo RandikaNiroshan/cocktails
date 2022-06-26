@@ -24,7 +24,7 @@ const VideoTutorial = ({ cocktail, loading }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading]);
   return (
-    <section>
+    <section id="video-guide">
       <div className="px-32 my-8 w-full flex justify-center">
         {loading === HTTP_STATUS.FULFILLED &&
           youtubeLoading === HTTP_STATUS.FULFILLED && (

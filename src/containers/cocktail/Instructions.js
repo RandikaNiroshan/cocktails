@@ -11,7 +11,7 @@ const Instructions = ({ cocktail, loading }) => {
   }, [loading, cocktail.instructions]);
 
   return (
-    <section className="bg-app-cadet">
+    <section className="bg-app-cadet" id="instructions">
       <div className="px-32 py-10 mt-12 w-full mb-8 flex flex-col items-center">
         {loading === HTTP_STATUS.FULFILLED &&
           instructions.length > 0 &&

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { useTitle } from "../hooks/useTitle";
 import { fetchCocktailDetails } from "../app/features/detailsSlice";
 import { Title } from "../components";
 import { CocktailInfo, Instructions, VideoTutorial } from "../containers";
-import { useTitle } from "../hooks/useTitle";
+
 
 const CocktailPage = () => {
   const dispatch = useDispatch();
