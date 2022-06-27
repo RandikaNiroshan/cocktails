@@ -44,6 +44,17 @@ export const organizeCocktailList = (cocktails) => {
   return organizedCocktails;
 };
 
+export const organizeIngredient = (ingredient) => {
+  return {
+    id: ingredient.idIngredient,
+    name: ingredient.strIngredient,
+    description: ingredient.strDescription,
+    type: ingredient.strType,
+    alcohol: ingredient.strAlcohol,
+    abv: ingredient.strABV,
+  };
+};
+
 export const organizeIngredients = (ingredients) => {
   const organizedIngredients = [];
   if (ingredients !== null) {

@@ -1,7 +1,17 @@
-import React from 'react'
-import { HTTP_STATUS } from '../../app/utils/constants'
+import React from "react";
+import {useDispatch } from "react-redux";
+import { fetchIngredientDetails } from "../../app/features/aboutIngredientSlice";
+import { showIngredientModal } from "../../app/features/modalSlice";
+import { HTTP_STATUS } from "../../app/utils/constants";
+import PrimaryButton from "../buttons/PrimaryButton";
 
-const IngredientCard = ({loading, name}) => {
+const IngredientCard = ({ loading, name }) => {
+  const dispatch = useDispatch();
+
+  const onClick = () => {
+    dispatch(fetchIngredientDetails(name));
+    dispatch(showIngredientModal());
+  };
   return (
     <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-pointer">
       <div className="rounded-[5px] overflow-hidden">
@@ -12,7 +22,7 @@ const IngredientCard = ({loading, name}) => {
           {loading === HTTP_STATUS.FULFILLED && (
             <div className="p-2 rounded-[5px] bg-app-cadet/30">
               <img
-                className="aspect-square w-full object-cover rounded-[5px] group-hover:scale-110 basic-transition"
+                className="aspect-square w-full object-cover rounded-[5px] group-hover:scale-110 basic-transition group-hover:blur-[2px]"
                 src={`https://www.thecocktaildb.com/images/ingredients/${name}-Medium.png`}
                 alt={name}
               />
@@ -36,8 +46,18 @@ const IngredientCard = ({loading, name}) => {
           )}
         </div>
       </div>
+      {loading === HTTP_STATUS.FULFILLED && (
+        <div className="z-[2] pt-5 rounded-[5px] h-full w-full flex justify-center items-center overflow-hidden bg-app-cadet/[0.35] absolute top-0 left-0 right-0 translate-y-full group-hover:translate-y-0 basic-transition duration-500">
+          <div className="px-3 pb-2 flex flex-col items-center justify-center">
+            <p className="text-[14px] mb-3 text-center font-app-text text-white leading-5">
+            {name}
+            </p>
+            <PrimaryButton onClick={onClick} text="More Details"/> 
+          </div>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default IngredientCard
+export default IngredientCard;

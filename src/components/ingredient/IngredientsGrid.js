@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "../Pagination";
-import IngredientCard from "./IngredientCard";
 import { HTTP_STATUS } from "../../app/utils/constants";
+import IngredientCard from "./IngredientCard";
 
 const IngredientsGrid = ({ list, loading, perPage }) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -50,7 +50,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
           {displayItems.map((item, index) => {
             return (
               <div key={index}>
-                {<IngredientCard name={item} loading={loading}/>}
+                {<IngredientCard name={item} loading={loading} />}
               </div>
             );
           })}
@@ -59,7 +59,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
 
       <div className="mx-8 my-12">
         {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
-          <Pagination pageCount={pageCount} setPageNumber={setPageNumber}/>
+          <Pagination pageCount={pageCount} setPageNumber={setPageNumber} />
         )}
       </div>
     </div>

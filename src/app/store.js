@@ -11,6 +11,8 @@ import categoryReducer from "./features/categorySlice";
 import glassReducer from "./features/glassSlice";
 import favoriteReducer from "./features/favoriteSlice";
 import ingredientReducer from "./features/ingredientSlice";
+import aboutIngredientReducer from "./features/aboutIngredientSlice";
+import modalReducer from "./features/modalSlice";
 
 const persistConfig = {
   key: 'favorites',
@@ -31,6 +33,8 @@ export default configureStore({
     glass: glassReducer,
     youtube: youtubeReducer,
     ingredient: ingredientReducer,
+    aboutIngredient: aboutIngredientReducer,
+    modal: modalReducer,
     favorite: persistedFavoriteReducer,
   },
   middleware: (getDefaultMiddleware) =>
