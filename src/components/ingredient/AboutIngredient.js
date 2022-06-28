@@ -1,34 +1,40 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { hideIngredientModal } from "../../app/features/modalSlice";
 import { HTTP_STATUS } from "../../app/utils/constants";
 import PrimaryButton from "../buttons/PrimaryButton";
 import IngredientDetailsTile from "./IngredientDetailsTile";
 
 const AboutIngredient = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const ingredient = useSelector((state) => state.aboutIngredient.ingredient);
   const loading = useSelector((state) => state.aboutIngredient.loading);
+
+  const onClickHandler = () => {
+    dispatch(hideIngredientModal());
+    navigate(`/ingredients/${ingredient?.name}`)
+  }
 
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="text-3xl my-2 capitalize text-app-flame font-extrabold font-app-heading">
         Ingredient Details
       </h1>
-      <div className="flex mt-2 w-full justify-center gap-4">
-        <div className="p-4 flex-[3] w-full bg-app-cadet/50 rounded-[5px]">
-          {loading === HTTP_STATUS.PENDING && (
-            <div className="loading animate-loading aspect-[3/4] rounded-[5px]"></div>
-          )}
-          {loading === HTTP_STATUS.FULFILLED && (
-            <>
+      <div className="grid grid-cols-9 mt-2 justify-center gap-4">
+        <div className="col-start-1 col-span-4 overflow-hidden relative">
+          <div className="p-2 h-full w-auto bg-app-cadet/50 rounded-[5px] flex justify-center items-center">
+            {loading === HTTP_STATUS.FULFILLED && (
               <img
-                className="aspect-[3/4] w-full object-cover rounded-[5px]"
+                className="aspect-square w-full object-cover rounded-[5px] max-w-[200px] scale-110"
                 src={`https://www.thecocktaildb.com/images/ingredients/${ingredient.name}-Medium.png`}
                 alt={ingredient.name}
               />
-            </>
-          )}
+            )}
+          </div>
         </div>
-        <div className="flex flex-[5] flex-col justify-center items-center w-auto min-w-[200px] rounded-[5px] border-[3px] border-dashed">
+        <div className="col-start-5 col-span-5 flex py-2 flex-col justify-center items-center w-auto min-w-[200px] rounded-[5px] border-[3px] border-dashed">
           <IngredientDetailsTile
             loading={loading}
             title="Name"
@@ -37,7 +43,7 @@ const AboutIngredient = () => {
           <IngredientDetailsTile
             loading={loading}
             title="Type"
-            text={ingredient?.type === null ? "Not Set" : ingredient?.type}
+            text={ingredient?.type === null ? "-" : ingredient?.type}
           />
           <IngredientDetailsTile
             loading={loading}
@@ -49,10 +55,11 @@ const AboutIngredient = () => {
             title="Alcohol By Volume"
             text={ingredient?.abv === null ? "-" : `${ingredient?.abv} %`}
           />
-          <div className="my-3 w-full flex justify-center items-center">
+          <div className="my-2 w-full flex justify-center items-center">
             <PrimaryButton
-              onClick={() => console.log("View Recipes")}
+              onClick={onClickHandler}
               text="View Recipes"
+              loading={loading}
             />
           </div>
         </div>

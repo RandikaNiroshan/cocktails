@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-scroll";
 
-const StatsCard = ({ count, title, image }) => {
+const StatsCard = ({ count, title, image, link, scrollTo }) => {
+  const navigate = useNavigate();
+
+  const onClickHandle = () => {
+    link && navigate(link);
+  };
   return (
     <div className="stat-card bg-white rounded-xl drop-shadow-xl h-auto w-auto flex flex-col justify-center items-center overflow-hidden relative ring-4 ring-app-cadet group">
       <img
@@ -16,9 +23,27 @@ const StatsCard = ({ count, title, image }) => {
           <h2 className="text-app-olivine text-base md:text-lg font-app-text tracking-widest font-bold text-center group-hover:basic-transition">
             {title}
           </h2>
-          <p className="hidden invisible group-hover:block group-hover:visible group-hover:basic-transition neon-text text-lg font-app-heading text-center active:scale-90 active:basic-transition hover:animate-expand cursor-pointer">
-            Show Me ⇨
-          </p>
+          {link && (
+            <p
+              onClick={onClickHandle}
+              className="hidden invisible group-hover:block group-hover:visible group-hover:basic-transition neon-text text-lg font-app-heading text-center active:scale-90 active:basic-transition hover:animate-expand cursor-pointer"
+            >
+              Show Me ⇨
+            </p>
+          )}
+          {scrollTo && (
+            <Link
+              to={scrollTo}
+              smooth="easeInCubic"
+              offset={-170}
+              duration={700}
+              delay={150}
+            >
+              <p className="hidden invisible group-hover:block group-hover:visible group-hover:basic-transition neon-text text-lg font-app-heading text-center active:scale-90 active:basic-transition hover:animate-expand cursor-pointer">
+                Show Me ⇨
+              </p>
+            </Link>
+          )}
         </div>
       </div>
     </div>

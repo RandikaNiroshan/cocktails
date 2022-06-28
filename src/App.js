@@ -5,6 +5,7 @@ import {
   AlcoholicPage,
   CategoriesPage,
   CocktailPage,
+  CocktailsByIngredientPage,
   ErrorPage,
   FavoritePage,
   GlassesPage,
@@ -22,6 +23,7 @@ function App() {
         <Route path="/categories" element={<CategoriesPage />} />
         <Route path="/glasses" element={<GlassesPage />} />
         <Route path="/ingredients" element={<IngredientsPage />} />
+        <Route path="/ingredients/:id" element={<CocktailsByIngredientPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/favorites" element={<FavoritePage />} />
         <Route path="/*" element={<ErrorPage />} />

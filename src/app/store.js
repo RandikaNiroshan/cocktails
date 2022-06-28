@@ -12,6 +12,7 @@ import glassReducer from "./features/glassSlice";
 import favoriteReducer from "./features/favoriteSlice";
 import ingredientReducer from "./features/ingredientSlice";
 import aboutIngredientReducer from "./features/aboutIngredientSlice";
+import fetchByIngredientReducer from "./features/fetchByIngredientSlice";
 import modalReducer from "./features/modalSlice";
 
 const persistConfig = {
@@ -34,6 +35,7 @@ export default configureStore({
     youtube: youtubeReducer,
     ingredient: ingredientReducer,
     aboutIngredient: aboutIngredientReducer,
+    fetchByIngredient: fetchByIngredientReducer,
     modal: modalReducer,
     favorite: persistedFavoriteReducer,
   },

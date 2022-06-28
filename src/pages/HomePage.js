@@ -13,7 +13,7 @@ const HomePage = () => {
       <Stats />
       <Title title="Most popular cocktails" />
       <Popular />
-      <Title title="Browse By Name" />
+      <Title title="Browse Cocktails By Name" />
       <Cocktails />
     </>
   );

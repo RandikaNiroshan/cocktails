@@ -41,24 +41,22 @@ const AboutCocktail = ({ cocktail, loading }) => {
       <div className="flex justify-center items-start gap-1 w-full mt-5">
         <Link
           to="instructions"
-          spy={true}
           smooth="easeInCubic"
           offset={-170}
           duration={700}
           delay={150}
         >
-          <PrimaryButton text="Instructions" />
+          <PrimaryButton text="Instructions" loading={loading}/>
         </Link>
 
         <Link
           to="video-guide"
-          spy={true}
           smooth="easeInCubic"
           offset={-150}
           duration={700}
           delay={150}
         >
-          <PrimaryButton text="Video Guide" />
+          <PrimaryButton text="Video Guide" loading={loading}/>
         </Link>
       </div>
     </div>

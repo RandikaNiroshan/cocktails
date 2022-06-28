@@ -19,7 +19,7 @@ const Cocktails = () => {
   }, []);
 
   return (
-    <section className="my-4">
+    <section className="my-4" id="cocktails">
       <div className="my-8 mx-10">
         <SelectLetter />
       </div>

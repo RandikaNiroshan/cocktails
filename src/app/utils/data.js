@@ -400,6 +400,33 @@ export const PopularDrinks = [
 
 export const FeaturedCocktails = [
   {
+    id: "17200",
+    drink: "Grasshopper",
+    category: "Ordinary Drink",
+    tags: "IBA,ContemporaryClassic,Halloween",
+    IBA: "Contemporary Classics",
+    alcoholic: "Alcoholic",
+    glass: "Cocktail glass",
+    instructions:
+      "Pour ingredients into a cocktail shaker with ice. Shake briskly and then strain into a chilled cocktail glass.",
+    image:
+      "https://www.thecocktaildb.com/images/media/drink/aqm9el1504369613.jpg",
+    ingredients: [
+      {
+        name: "Green Creme de Menthe",
+        measure: "3/4 oz ",
+      },
+      {
+        name: "Creme de Cacao",
+        measure: "3/4 oz white ",
+      },
+      {
+        name: "Light cream",
+        measure: "3/4 oz ",
+      },
+    ],
+  },
+  {
     id: "12716",
     drink: "Mango Orange Smoothie",
     category: "Other/Unknown",

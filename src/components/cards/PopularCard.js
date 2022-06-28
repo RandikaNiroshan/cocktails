@@ -21,7 +21,7 @@ const PopularCard = ({ cocktail }) => {
             <p className="text-base text-center font-app-heading text-app-olivine truncate leading-5">
               {category ?? "Category"}
             </p>
-            <div className="flex justify-center absolute -bottom-20 w-full group-hover:bottom-6 double-transition">
+            <div className="flex justify-center scale-0 w-full group-hover:scale-100 delay-150 translate-y-32 group-hover:translate-y-0 double-transition">
               <LinkButton link={`/cocktails/${id}`} text="View Recipe" />
             </div>
           </div>

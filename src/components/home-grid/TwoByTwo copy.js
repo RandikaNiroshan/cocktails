@@ -6,7 +6,7 @@ import { Alcoholic, Favorite, LinkButton } from "../../components";
 const TwoByTwo = ({ cocktail, loading }) => {
   const { id, drink, image, category, alcoholic, ingredients } = cocktail;
   return (
-    <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default from-right">
+    <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default">
       <div className="rounded-[5px] overflow-hidden">
         <div className="grid grid-cols-two-by-two">
           <div className="p-2 relative">
@@ -73,17 +73,13 @@ const TwoByTwo = ({ cocktail, loading }) => {
       </div>
       {loading === HTTP_STATUS.FULFILLED && (
         <>
-          <div className="z-[2] rounded-[5px] h-full w-full flex justify-center items-center overflow-hidden absolute top-0 left-0 right-0">
-          <div className="relative w-full flex justify-center items-center">
-            <div className="px-3 pb-2 flex flex-col items-center justify-center scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:bottom-0 group-hover:delay-[150ms] group-hover:duration-500 duration-150">
+          <div className="z-[2] rounded-[5px] h-full w-full flex justify-center items-center overflow-hidden bg-app-cadet/[0.35] absolute top-0 left-0 right-0 translate-x-full group-hover:translate-x-0 basic-transition duration-500">
+            <div className="px-3 pb-2">
               <p className="text-[14px] text-center font-app-text text-white leading-5">
                 {drink ?? "Cocktail"}
               </p>
-            </div>
-            <div className="flex items-center justify-center px-8 scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:-bottom-[30px] group-hover:delay-[450ms] group-hover:duration-500 duration-150">
               <LinkButton link={`/cocktails/${id}`} text="View Recipe" />
             </div>
-          </div>
           </div>
         </>
       )}

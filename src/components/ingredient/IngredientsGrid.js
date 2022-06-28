@@ -34,7 +34,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
       )}
 
       {loading === HTTP_STATUS.PENDING && (
-        <div className="grid grid-cols-4 gap-8">
+        <div className="grid grid-cols-5 gap-8">
           {[...Array(itemsPerPage)].map((_item, index) => {
             return (
               <div key={index}>

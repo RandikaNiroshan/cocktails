@@ -65,6 +65,26 @@
     @apply before:content-[""] before:block before:blur-[8px] before:absolute before:left-0 before:top-0 before:bg-[#000] before:opacity-50 before:h-full before:w-full z-[1];
   }
 
+  .card-hover{
+    @apply after:content-[""] after:bg-app-cadet/[0.35] after:w-[200%] after:h-[200%] after:scale-0 after:absolute after:transition-all after:ease-in-out after:hover:scale-100;
+  }
+
+  .cocktail-card{
+    @apply card-hover after:rounded-[50%]  after:origin-bottom-right after:-bottom-[50%] after:-right-[50%] after:duration-[600ms]
+  }
+
+  .ingredient-card{
+    @apply card-hover after:rounded-[50%]  after:origin-top-left after:-top-[50%] after:-left-[50%] after:duration-[600ms]
+  }
+
+  .from-bottom{
+  @apply card-hover after:rounded-[25%]  after:origin-bottom after:-top-[50%] after:-left-[50%] after:-right-[50%] after:duration-[800ms]
+  }
+
+  .from-right{
+    @apply card-hover after:rounded-md after:origin-right after:-top-[50%] after:-bottom-[50%] after:-right-[50%] after:duration-[800ms]
+    }
+
   .neon-text {
     color: #fff;
     text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #29335c, 0 0 42px #29335c,
