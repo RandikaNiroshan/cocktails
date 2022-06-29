@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { fetchByGlass } from "../app/features/glassSlice";
 import { HTTP_STATUS } from "../app/utils/constants";
+import { calcOtherCocktailGrid } from "../app/utils/helpers";
 import { CocktailsGrid, Title } from "../components";
 import { useTitle } from "../hooks/useTitle";
+import useWindowSize from "../hooks/useWindowSize";
 
 const GlassesPage = () => {
   const dispatch = useDispatch();
@@ -20,6 +22,7 @@ const GlassesPage = () => {
   const [selectedType, setSelectedType] = useState(type);
 
   useTitle(`${glasses?.[type]?.["strGlass"]} | Cocktails`, loadingGlasses);
+  const size = useWindowSize();
 
   const onChangeType = (index) => {
     setSelectedType(index);
@@ -63,7 +66,11 @@ const GlassesPage = () => {
         </div>
       )}
       <div className="px-28 pb-4">
-        <CocktailsGrid list={cocktails} loading={loading} perPage={12} />
+        <CocktailsGrid
+          list={cocktails}
+          loading={loading}
+          perPage={calcOtherCocktailGrid(size.width)}
+        />
       </div>
     </>
   );

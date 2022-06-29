@@ -1,7 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchByFirstLetter, initialFetch } from "../../app/features/cocktailsSlice";
+import { calcHomeCocktailGrid } from "../../app/utils/helpers";
 import { CocktailsGrid, SelectLetter } from "../../components";
+import useWindowSize from "../../hooks/useWindowSize";
+import {
+  fetchByFirstLetter,
+  initialFetch,
+} from "../../app/features/cocktailsSlice";
 
 const Cocktails = () => {
   const dispatch = useDispatch();
@@ -9,10 +14,12 @@ const Cocktails = () => {
   const loading = useSelector((state) => state.cocktails.loading);
   const selectedLetter = useSelector((state) => state.cocktails.selectedLetter);
 
+  const size = useWindowSize();
+
   useEffect(() => {
-    if(selectedLetter === ""){
+    if (selectedLetter === "") {
       dispatch(initialFetch());
-    }else{
+    } else {
       dispatch(fetchByFirstLetter(selectedLetter));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -20,11 +27,12 @@ const Cocktails = () => {
 
   return (
     <section className="my-4" id="cocktails">
-      <div className="my-8 mx-10">
+      <div className="my-8 mx-12 md:mx-24 lg:mx-12">
         <SelectLetter />
       </div>
-      <div className="px-28">
+      <div className="px-[5vw] md:px-[6vw] lg:px-[7vw]">
         <CocktailsGrid
+          perPage={calcHomeCocktailGrid(size.width)}
           list={cocktails}
           loading={loading}
           fullData={true}

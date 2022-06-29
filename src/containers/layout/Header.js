@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Menu } from "../app/utils/data";
-import { Logo } from "../components";
+import { Menu } from "../../app/utils/data";
+import { Logo } from "../../components";
 
 const Header = () => {
   const favCount = useSelector((state) => state.favorite.favorite);

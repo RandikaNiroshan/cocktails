@@ -9,7 +9,7 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
     <div>
       <div className="bg-white h-full w-full rounded-[8px] drop-shadow-lg group overflow-hidden relative hover:ring-1 cocktail-card hover:rotate-0 hover:ring-white ">
         <div className="rounded-[8px] overflow-hidden">
-          <div className="px-3 pt-3 pb-2 relative">
+          <div className="p-1 md:px-2 md:pt-2 md:pb-[6px] lg:px-3 lg:pt-3 lg:pb-2 relative">
             {loading === HTTP_STATUS.PENDING && (
               <div className="loading animate-loading aspect-[4/5] w-full rounded-[8px]"></div>
             )}

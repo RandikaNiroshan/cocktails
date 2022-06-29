@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAlcoholic, fetchCategories, fetchGlasses } from "../app/features/initialSlice";
-import { Header, Footer } from "./";
+import { fetchAlcoholic, fetchCategories, fetchGlasses } from "../../app/features/initialSlice";
+import { Header, Footer } from "../";
 
 const Layout = (props) => {
   const dispatch = useDispatch();

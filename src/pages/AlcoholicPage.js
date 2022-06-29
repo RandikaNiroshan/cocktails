@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { fetchByAlcoholic } from "../app/features/alcoholicSlice";
 import { HTTP_STATUS } from "../app/utils/constants";
+import { calcOtherCocktailGrid } from "../app/utils/helpers";
 import { CocktailsGrid, Title } from "../components";
 import { useTitle } from "../hooks/useTitle";
+import useWindowSize from "../hooks/useWindowSize";
 
 const AlcoholicPage = () => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ const AlcoholicPage = () => {
     `${alcoholicTypes?.[selectedType]?.["strAlcoholic"]} | Cocktails`,
     loadingTypes
   );
+  const size = useWindowSize();
 
   const onChangeType = (index) => {
     setSelectedType(index);
@@ -41,9 +44,9 @@ const AlcoholicPage = () => {
 
   return (
     <>
-      <Title title="Select Cocktails Based On"/>
+      <Title title="Select Cocktails Based On" />
       {loadingTypes === HTTP_STATUS.FULFILLED && (
-        <div className="bg-image flex justify-center gap-6 flex-wrap mt-10 mb-12 py-10 px-28">
+        <div className="bg-image flex justify-center gap-6 flex-wrap mt-10 mb-12 py-10 px-10 sm:px-16 md:px-20 lg:px-28">
           {alcoholicTypes.map((alcoholic, index) => {
             return (
               <div
@@ -68,7 +71,11 @@ const AlcoholicPage = () => {
         </div>
       )}
       <div className="px-28 pb-4">
-        <CocktailsGrid list={cocktails} loading={loading} perPage={12} />
+        <CocktailsGrid
+          list={cocktails}
+          loading={loading}
+          perPage={calcOtherCocktailGrid(size.width)}
+        />
       </div>
     </>
   );

@@ -11,7 +11,7 @@ const CocktailQuote = () => {
   }, [quotes.length]);
 
   return (
-    <div className="sm:px-16 md:px-28 relative">
+    <div className="relative w-full flex flex-col justify-center items-center">
       <blockquote>{quotes[quoteId].quote}</blockquote>
       <cite className="absolute before:block before:absolute before:top-1/2 before:w-[25px] before:h-[2.5px] before:-left-8 before:bg-app-cadet before:content-['']">
         {quotes[quoteId].author}

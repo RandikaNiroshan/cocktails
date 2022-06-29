@@ -1,3 +1,4 @@
+import { SCREEN_SIZE } from "./constants";
 import { FeaturedCocktails } from "./data";
 
 export const organizeCocktail = (cocktail) => {
@@ -78,3 +79,42 @@ export const youtubeResponseToVideos = (response) => {
   }
   return videoIdList;
 };
+
+export const calcHomeCocktailGrid = (width) => {
+  if (width < SCREEN_SIZE.MD) {
+    return 2 * 4;
+  }
+  if (width < SCREEN_SIZE.LG) {
+    return 3 * 3;
+  }
+  if (width < SCREEN_SIZE.XL) {
+    return 4 * 2;
+  }
+  return 5 * 2;
+}
+
+export const calcOtherCocktailGrid = (width) => {
+  if (width < SCREEN_SIZE.MD) {
+    return 2 * 5;
+  }
+  if (width < SCREEN_SIZE.LG) {
+    return 3 * 4;
+  }
+  if (width < SCREEN_SIZE.XL) {
+    return 4 * 3;
+  }
+  return 5 * 3;
+}
+
+export const calcPopularSlides = (width) => {
+  if (width < SCREEN_SIZE.MD) {
+    return 1;
+  }
+  if (width < SCREEN_SIZE.LG) {
+    return 2.5;
+  }
+  if (width < SCREEN_SIZE.XXL) {
+    return 4;
+  }
+  return 5;
+}
