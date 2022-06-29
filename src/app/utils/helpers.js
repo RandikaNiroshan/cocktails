@@ -118,3 +118,16 @@ export const calcPopularSlides = (width) => {
   }
   return 5;
 }
+
+export const calcIngredientsGrid = (width) => {
+  if (width < SCREEN_SIZE.MD) {
+    return 3 * 5;
+  }
+  if (width < SCREEN_SIZE.LG) {
+    return 4 * 4;
+  }
+  if (width < SCREEN_SIZE.XL) {
+    return 5 * 4;
+  }
+  return 5 * 4;
+}

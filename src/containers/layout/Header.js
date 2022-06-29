@@ -10,12 +10,29 @@ const Header = () => {
 
   const onNavigateFavorite = () => {
     favCount?.length > 0 ? navigate("/favorites") : alert("No favorites");
-  }
+  };
 
   return (
-    <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-10">
-      <Logo />
-      <nav className="flex justify-center">
+    <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-12">
+      <div className="h-6 w-6 md:h-8 md:w-8 lg:hidden">
+        <svg
+          className="drop-shadow-lg stroke-app-cadet basic-transition hover:stroke-app-flame hover:animate-expand cursor-pointer svg-icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={3}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </div>
+      <div className="pr-5 lg:pr-0">
+        <Logo />
+      </div>
+      <nav className="hidden lg:flex justify-center">
         <ul className="flex justify-center gap-5">
           {Menu.map((item, index) => (
             <li key={index} className="font-app-text text-lg">
@@ -34,13 +51,13 @@ const Header = () => {
         </ul>
       </nav>
       <div className="flex gap-4 h-8 justify-center items-center">
-        <div className="h-8 w-8 relative group cursor-pointer">
+        <div className="h-6 w-6 md:h-8 md:w-8 relative group cursor-pointer">
           <svg
             className="drop-shadow-lg fill-app-cadet group-hover:fill-app-flame stroke-app-cadet basic-transition group-hover:stroke-app-flame group-hover:animate-expand svg-icon"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth={3}
           >
             <path
               strokeLinecap="round"
@@ -48,19 +65,22 @@ const Header = () => {
               d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
             />
           </svg>
-          <div onClick={onNavigateFavorite} className="w-8 h-8 flex justify-center items-center absolute top-0 left-0">
+          <div
+            onClick={onNavigateFavorite}
+            className="w-8 h-8 flex justify-center items-center absolute top-0 left-0"
+          >
             <span className="text-white text-center text-[9px] font-app-main group-hover:tracking-widest basic-transition">
               {favCount?.length ?? 0}
             </span>
           </div>
         </div>
-        <div className="h-8 w-8">
+        <div className="h-6 w-6 md:h-8 md:w-8">
           <svg
             className="drop-shadow-lg stroke-app-cadet basic-transition hover:stroke-app-flame hover:animate-expand cursor-pointer svg-icon"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth={3}
           >
             <path
               strokeLinecap="round"

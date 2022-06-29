@@ -8,7 +8,7 @@ const OneByThree = ({ cocktail, loading }) => {
   return (
     <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default from-bottom">
       <div className="rounded-[5px] overflow-hidden">
-        <div className="p-2 relative">
+        <div className="p-[5px] md:p-2 relative">
           {loading === HTTP_STATUS.PENDING && (
             <div className="loading animate-loading aspect-[4/3] w-full rounded-[5px]"></div>
           )}
@@ -37,10 +37,10 @@ const OneByThree = ({ cocktail, loading }) => {
           )}
           {loading === HTTP_STATUS.FULFILLED && (
             <>
-              <p className="text-[14px] text-center font-app-text text-app-flame truncate leading-5">
+              <p className="text-[10px] md:text-[12px] lg:text-[14px] text-center font-app-text text-app-flame truncate leading-5">
                 {drink ?? "Cocktail"}
               </p>
-              <p className="text-base text-center font-app-heading font-bold text-app-cadet truncate leading-5">
+              <p className="text-[12px] md:text-[13px] lg:text-[15px] text-center font-app-heading font-bold text-app-cadet truncate leading-5">
                 {category ?? "Category"}
               </p>
             </>
@@ -50,12 +50,12 @@ const OneByThree = ({ cocktail, loading }) => {
       {loading === HTTP_STATUS.FULFILLED && (
         <div className="z-[2] pt-5 rounded-[5px] h-full w-full flex justify-center items-center overflow-hidden absolute top-0 left-0 right-0">
           <div className="relative w-full flex justify-center items-center">
-            <div className="px-3 pb-2 flex flex-col items-center justify-center scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:bottom-2 group-hover:delay-[150ms] group-hover:duration-500 duration-150">
-              <p className="text-[14px] text-center font-app-text text-white leading-5">
+            <div className="px-3 pb-2 flex flex-col items-center justify-center scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:bottom-1 lg:group-hover:bottom-2 group-hover:delay-[150ms] group-hover:duration-500 duration-150">
+              <p className="text-[10px] md:text-[12px] lg:text-[14px] text-center font-app-text text-white leading-5">
                 {drink ?? "Cocktail"}
               </p>
             </div>
-            <div className="flex items-center justify-center px-8 scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:-bottom-[24px] group-hover:delay-[450ms] group-hover:duration-500 duration-150">
+            <div className="flex items-center justify-center px-8 scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:-bottom-[20px] lg:group-hover:-bottom-[24px] group-hover:delay-[450ms] group-hover:duration-500 duration-150">
               <LinkButton link={`/cocktails/${id}`} text="View Recipe" />
             </div>
           </div>

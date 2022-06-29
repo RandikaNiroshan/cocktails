@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { HTTP_STATUS } from "../app/utils/constants";
 import { animateScroll as scroll } from "react-scroll";
 
-export function useTitle(title, loading) {
+export function useTitle(title, loading = HTTP_STATUS.FULFILLED) {
   useEffect(() => {
     scroll.scrollToTop({
       duration: 300,

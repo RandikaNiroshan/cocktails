@@ -9,7 +9,7 @@ const TwoByTwo = ({ cocktail, loading }) => {
     <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default from-right">
       <div className="rounded-[5px] overflow-hidden">
         <div className="grid grid-cols-two-by-two">
-          <div className="p-2 relative">
+          <div className="p-[5px] md:p-2 relative">
             {loading === HTTP_STATUS.PENDING && (
               <div className="loading animate-loading aspect-[4/3] w-full rounded-[5px]"></div>
             )}
@@ -30,7 +30,7 @@ const TwoByTwo = ({ cocktail, loading }) => {
             <div
               className={`py-3 absolute -left-[10px] w-full ${
                 loading === HTTP_STATUS.FULFILLED
-                  ? "group-hover:hidden basic-transition pr-3"
+                  ? "group-hover:hidden basic-transition pr-2 pl-1 md:pl-0"
                   : "pr-1"
               }`}
             >
@@ -47,18 +47,18 @@ const TwoByTwo = ({ cocktail, loading }) => {
               )}
               {loading === HTTP_STATUS.FULFILLED && (
                 <>
-                  <p className="text-[14px] font-app-text text-app-flame leading-5">
+                  <p className="text-[10px] md:text-[12px] lg:text-[14px] font-app-text text-app-flame leading-5">
                     {drink ?? "Cocktail"}
                   </p>
-                  <p className="text-base font-app-heading text-app-cadet font-bold truncate leading-5">
+                  <p className="text-[12px] md:text-[13px] lg:text-[15px] font-app-heading text-app-cadet font-bold truncate leading-5">
                     {category ?? "Category"}
                   </p>
-                  <div className="flex flex-wrap gap-1 overflow-hidden mt-1">
+                  <div className="flex flex-wrap gap-1 overflow-hidden mt-2">
                     {ingredients.map((item, i) => {
                       return (
                         <div
                           key={i}
-                          className="rounded-[4px] border border-app-olivine w-max px-1 text-[10px] font-app-main text-app-olivine"
+                          className="rounded-[4px] border border-app-olivine w-max px-1 text-[8px] md:text-[9px] lg:text-[10px] font-app-main text-app-olivine"
                         >
                           {item.name}
                         </div>

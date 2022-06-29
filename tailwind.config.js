@@ -18,20 +18,24 @@ module.exports = {
         "two-by-two": "minmax(0, 1fr) 12px minmax(0, 1fr)",
       },
       gridTemplateRows: {
-        "main-grid-5":
+        "sm-main-grid":
+          "minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.4fr) minmax(0, 1fr) minmax(0, 1fr)",
+        "md-main-grid":
+          "minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.6fr) minmax(0, 1fr) minmax(0, 1fr)",
+        "xl-main-grid":
           "minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.5fr) minmax(0, 1fr) minmax(0, 1fr)",
       },
       keyframes: {
         expand: {
           "50%": { transform: "scale(1.1)" },
         },
-        loading:{
-          "to" : {"background-position-x": "-20%"}
-        }
+        loading: {
+          to: { "background-position-x": "-20%" },
+        },
       },
       animation: {
         expand: "expand 1s ease-in-out infinite",
-        loading: "1s loading ease-in-out infinite"
+        loading: "1s loading ease-in-out infinite",
       },
       screens: {
         xm: "500px",

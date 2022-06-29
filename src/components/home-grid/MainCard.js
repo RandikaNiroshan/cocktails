@@ -24,7 +24,7 @@ const MainCard = ({ cocktail, loading }) => {
             </>
           )}
         </div>
-        <div className="px-1 pb-[15px] xl:pb-[28px]">
+        <div className="px-1 lg:pb-[15px]">
           {loading === HTTP_STATUS.PENDING && (
             <div className="px-2 space-y-1">
               <p className="loading animate-loading rounded-md text-[14px] text-slate-100 text-center truncate leading-5">

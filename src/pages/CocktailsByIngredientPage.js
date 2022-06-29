@@ -23,8 +23,8 @@ const CocktailsByIngredientPage = () => {
 
   return (
     <>
-      <Title className="mt-12 mb-16" title={`Recipes For ${id}`} />
-      <div className="px-28 pb-4">
+      <Title className="mt-7 mb-8 md:mt-10 md:mb-12 lg:mt-12 lg:mb-16" title={`Recipes For ${id}`} />
+      <div className="px-[5vw] md:px-[6vw] lg:px-[7vw]">
         <CocktailsGrid
           list={cocktails}
           loading={loading}

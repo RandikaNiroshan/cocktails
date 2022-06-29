@@ -34,7 +34,7 @@ const Footer = () => {
                       <Link
                         key={index}
                         to={item.link}
-                        className="text-start w-max text-[11px] font-app-main text-white hover:text-app-flame basic-transition cursor-pointer mb-1"
+                        className="text-start w-max text-[11px] font-app-main text-white basic-transition cursor-pointer mb-1"
                       >
                         {item.menu}
                       </Link>

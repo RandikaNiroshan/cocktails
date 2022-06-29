@@ -34,7 +34,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
       )}
 
       {loading === HTTP_STATUS.PENDING && (
-        <div className="grid grid-cols-5 gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
           {[...Array(itemsPerPage)].map((_item, index) => {
             return (
               <div key={index}>
@@ -46,7 +46,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
       )}
 
       {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
-        <div className="grid grid-cols-5 gap-8">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-5 lg:gap-8">
           {displayItems.map((item, index) => {
             return (
               <div key={index}>

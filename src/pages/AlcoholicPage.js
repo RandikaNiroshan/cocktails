@@ -46,18 +46,18 @@ const AlcoholicPage = () => {
     <>
       <Title title="Select Cocktails Based On" />
       {loadingTypes === HTTP_STATUS.FULFILLED && (
-        <div className="bg-image flex justify-center gap-6 flex-wrap mt-10 mb-12 py-10 px-10 sm:px-16 md:px-20 lg:px-28">
+        <div className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28">
           {alcoholicTypes.map((alcoholic, index) => {
             return (
               <div
                 key={index}
-                className={`rounded-md px-6 py-2 drop-shadow-lg cursor-pointer group hover:scale-110 basic-transition ${
+                className={`rounded-md px-[10px] md:px-4 lg:px-6 py-[5px] md:py-[6px] lg:py-2 drop-shadow-lg cursor-pointer group hover:scale-110 basic-transition ${
                   index === Number(selectedType) ? "bg-app-flame" : "bg-white"
                 }`}
                 onClick={() => onChangeType(index)}
               >
                 <p
-                  className={`text-app-cadet text-lg font-app-text ${
+                  className={`text-app-cadet text-sm md:text-base lg:text-lg font-app-text ${
                     index === Number(selectedType)
                       ? "text-white"
                       : "text-app-cadet"
@@ -70,7 +70,7 @@ const AlcoholicPage = () => {
           })}
         </div>
       )}
-      <div className="px-28 pb-4">
+      <div className="px-[5vw] md:px-[6vw] lg:px-[7vw]">
         <CocktailsGrid
           list={cocktails}
           loading={loading}
