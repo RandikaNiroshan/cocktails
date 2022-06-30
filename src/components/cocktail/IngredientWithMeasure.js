@@ -16,7 +16,7 @@ const IngredientWithMeasure = ({ ingredient, loading }) => {
   return (
     <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-pointer ingredient-card">
       <div className="rounded-[5px] overflow-hidden">
-        <div className="p-3 relative">
+        <div className="p-1 md:p-2 lg:p-3 relative">
           {loading === HTTP_STATUS.PENDING && (
             <div className="loading animate-loading aspect-square w-full rounded-[5px]"></div>
           )}

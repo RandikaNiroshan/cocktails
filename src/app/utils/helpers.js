@@ -131,3 +131,16 @@ export const calcIngredientsGrid = (width) => {
   }
   return 5 * 4;
 }
+
+export const calcVideoWidth = (width) => {
+  if (width < SCREEN_SIZE.MD) {
+    return width - 30;
+  }
+  if (width < SCREEN_SIZE.LG) {
+    return width * 0.8;
+  }
+  if (width < SCREEN_SIZE.XL) {
+    return width * 0.7;
+  }
+  return width * 0.65;
+}

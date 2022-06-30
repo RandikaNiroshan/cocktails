@@ -6,7 +6,7 @@ import { Link } from "react-scroll";
 
 const AboutCocktail = ({ cocktail, loading }) => {
   return (
-    <div className="flex flex-col bg-white rounded-xl drop-shadow-lg w-full px-6 py-4">
+    <div className="flex flex-col bg-white rounded-xl drop-shadow-lg w-full px-4 lg:px-6 py-4">
       {loading === HTTP_STATUS.PENDING && (
         <>
           <div className="px-1 space-y-1">
@@ -21,7 +21,7 @@ const AboutCocktail = ({ cocktail, loading }) => {
       )}
       {loading === HTTP_STATUS.FULFILLED && (
         <>
-          <h1 className="text-3xl font-app-main text-app-flame font-bold">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-app-main text-app-flame font-bold">
             {cocktail.drink}
           </h1>
           <p className="text-lg font-app-heading text-app-cadet font-bold">
@@ -29,7 +29,7 @@ const AboutCocktail = ({ cocktail, loading }) => {
           </p>
         </>
       )}
-      <div className="flex justify-evenly gap-3 mt-3 h-auto px-1">
+      <div className="flex justify-evenly gap-2 lg:gap-3 mt-3 h-auto px-1">
         <InfoCard
           title="Ingredients"
           data={cocktail.ingredients?.length}

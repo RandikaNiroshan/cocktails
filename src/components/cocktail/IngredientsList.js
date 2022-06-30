@@ -6,7 +6,7 @@ import IngredientWithMeasure from "./IngredientWithMeasure";
 const IngredientsList = ({ cocktail, loading }) => {
   return (
     <div className="w-full">
-      <div className="grid grid-cols-3 gap-5 mt-6">
+      <div className="grid grid-cols-3 xl:grid-cols-4 gap-2 md:gap-3 lg:gap-5 mt-6">
         {loading === HTTP_STATUS.PENDING &&
           [...Array(3)].map((_item, index) => {
             return (
