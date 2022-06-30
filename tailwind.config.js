@@ -38,8 +38,12 @@ module.exports = {
         loading: "1s loading ease-in-out infinite",
       },
       screens: {
-        xm: "500px",
-      },
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1050px',
+        'xl': '1380px',
+        '2xl': '1536px',
+      }
     },
   },
   plugins: [],
