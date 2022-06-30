@@ -19,22 +19,22 @@ const AboutIngredient = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="text-3xl my-2 capitalize text-app-flame font-extrabold font-app-heading">
+      <h1 className="text-xl md:text-2xl lg:text-3xl my-2 capitalize text-app-flame font-extrabold font-app-heading">
         Ingredient Details
       </h1>
-      <div className="grid grid-cols-9 mt-2 justify-center gap-4">
-        <div className="col-start-1 col-span-4 overflow-hidden relative">
-          <div className="p-2 h-full w-auto bg-app-cadet/50 rounded-[5px] flex justify-center items-center">
+      <div className="grid grid-rows-9 grid-cols-1 md:grid-cols-9 md:grid-rows-1 mt-2 justify-center gap-2 md:gap-4">
+        <div className="col-start-1 row-start-1 row-span-4 md:row-span-1 md:col-start-1 md:col-span-4 overflow-hidden">
+          <div className="p-[6px] md:p-2 h-max md:h-full w-auto bg-app-cadet/50 rounded-[5px] flex justify-center items-center">
             {loading === HTTP_STATUS.FULFILLED && (
               <img
-                className="aspect-square w-full object-cover rounded-[5px] max-w-[200px] scale-110"
+                className="aspect-[4/3] md:aspect-square w-full object-cover rounded-[5px] max-w-[75vw] md:max-w-[200px] scale-100 md:scale-110"
                 src={`https://www.thecocktaildb.com/images/ingredients/${ingredient.name}-Medium.png`}
                 alt={ingredient.name}
               />
             )}
           </div>
         </div>
-        <div className="col-start-5 col-span-5 flex py-2 flex-col justify-center items-center w-auto min-w-[200px] rounded-[5px] border-[3px] border-dashed">
+        <div className="col-start-1 row-start-5 row-span-5 md:row-span-1 md:col-start-5 md:col-span-5 md:row-start-1 flex py-2 flex-col justify-center items-center w-auto min-w-[200px] rounded-[5px] border-[3px] border-dashed">
           <IngredientDetailsTile
             loading={loading}
             title="Name"

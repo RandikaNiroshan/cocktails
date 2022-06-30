@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-12">
+      <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-20">
         <div onClick={() => setIsOpen(true)} className="h-6 w-6 md:h-8 md:w-8 lg:hidden">
           <svg
             className="drop-shadow-lg stroke-app-cadet basic-transition hover:stroke-app-flame hover:animate-expand cursor-pointer svg-icon"

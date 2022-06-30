@@ -733,10 +733,6 @@ export const FeaturedCocktails = [
         measure: "2 cl ",
       },
       {
-        name: "Passion fruit syrup",
-        measure: "2 cl ",
-      },
-      {
         name: "Sweet and sour",
         measure: "6 cl ",
       },
@@ -744,6 +740,10 @@ export const FeaturedCocktails = [
         name: "Club soda",
         measure: "1 dash ",
       },
+      {
+        name: "Passion fruit syrup",
+        measure: "2 cl ",
+      }
     ],
   },
   {

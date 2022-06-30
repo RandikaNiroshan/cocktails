@@ -33,7 +33,7 @@ const VideoTutorial = ({ cocktail, loading }) => {
           youtubeLoading === HTTP_STATUS.FULFILLED && (
             <div className="flex flex-col justify-center items-center">
               <ReactPlayer
-                width={calcVideoWidth(size.width)}
+                width={calcVideoWidth(size.width) ?? "100%"}
                 height="100%"
                 className="w-full h-auto aspect-video p-[6px] md:p-2 lg:p-3 xl:p-4 mb-4 drop-shadow-lg bg-white rounded-md lg:rounded-xl"
                 controls={true}

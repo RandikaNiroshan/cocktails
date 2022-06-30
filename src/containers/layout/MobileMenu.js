@@ -18,7 +18,7 @@ const MobileMenu = ({ onClose }) => {
             <li
               key={index}
               onClick={() => navigateRoute(item.link)}
-              className="font-app-text text-xl text-white basic-transition"
+              className="font-app-text text-xl text-white basic-transition cursor-pointer"
             >
               {item.menu}
             </li>

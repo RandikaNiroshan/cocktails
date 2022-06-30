@@ -37,10 +37,10 @@ const MainCard = ({ cocktail, loading }) => {
           )}
           {loading === HTTP_STATUS.FULFILLED && (
             <>
-              <p className="text-[14px] text-center font-app-text text-app-flame truncate leading-5">
+              <p className="text-[10px] md:text-[12px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-app-flame truncate leading-5">
                 {drink ?? "Cocktail"}
               </p>
-              <p className="text-base text-center font-app-heading font-bold text-app-cadet truncate leading-5">
+              <p className="text-[12px] md:text-[13px] lg:text-[15px] xl:text-[16px] text-center font-app-heading font-bold text-app-cadet truncate leading-5">
                 {category ?? "Category"}
               </p>
             </>
@@ -52,18 +52,18 @@ const MainCard = ({ cocktail, loading }) => {
           <div className="z-[2] rounded-[5px] h-full w-full flex justify-center items-center overflow-hidden absolute top-0 left-0 right-0">
             <div className="relative w-full flex justify-center items-center">
               <div className="px-3 pb-1 flex flex-col items-center justify-center scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:-bottom-2 group-hover:delay-[250ms] group-hover:duration-500 duration-150">
-                <p className="text-[15px] text-center font-app-text text-white tracking-wider leading-5">
+                <p className="text-[10px] md:text-[12px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-white tracking-wider leading-5">
                   {drink ?? "Cocktail"}
                 </p>
                 <p className="mt-2 lg:mb-1 text-sm text-center font-app-heading text-white truncate leading-5">
                   Ingredients:
                 </p>
-                <div className="flex flex-wrap justify-center gap-[5px] overflow-hidden ">
+                <div className="flex flex-wrap justify-center gap-1 xl:gap-2 overflow-hidden ">
                   {ingredients.map((item, i) => {
                     return (
                       <div
                         key={i}
-                        className="rounded-[4px] border border-app-olivine w-max px-1 text-[12px] font-app-main text-app-olivine"
+                        className="rounded-[4px] border border-app-olivine w-max px-1 text-[8px] md:text-[9px] lg:text-[10px] xl:text-[12px] font-app-main text-app-olivine"
                       >
                         {item.name}
                       </div>

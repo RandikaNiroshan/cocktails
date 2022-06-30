@@ -24,7 +24,7 @@ const Footer = () => {
     <footer className="bg-app-cadet w-full h-auto relative">
       {loading === HTTP_STATUS.FULFILLED && (
         <>
-          <div className="flex justify-center md:flex-col lg:flex-row py-4 px-12 lg:px-20 xl:px-32 lg:py-10">
+          <div className="flex justify-center md:flex-col lg:flex-row py-4 px-12 lg:px-12 xl:px-20 lg:py-10">
             <div className="flex justify-center md:justify-evenly w-full">
               <div className="lg:flex-[3] flex flex-col md:hidden lg:flex justify-center items-center lg:items-start lg:justify-start">
                 <FooterLogo />

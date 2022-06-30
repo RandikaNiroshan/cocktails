@@ -142,5 +142,5 @@ export const calcVideoWidth = (width) => {
   if (width < SCREEN_SIZE.XL) {
     return width * 0.7;
   }
-  return width * 0.65;
+  return width * 0.6;
 }

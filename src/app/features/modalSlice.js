@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   showIngredientModal: false,
+  showSearchModal: false,
 };
 
 export const modalSlice = createSlice({
@@ -13,9 +14,21 @@ export const modalSlice = createSlice({
     },
     hideIngredientModal: (state) => {
       state.showIngredientModal = false;
-    }
-  }
+    },
+    showSearchModal: (state) => {
+      state.showSearchModal = true;
+    },
+    hideSearchModal: (state) => {
+      state.showSearchModal = false;
+    },
+  },
 });
 
-export const {showIngredientModal, hideIngredientModal} = modalSlice.actions;
+export const {
+  showIngredientModal,
+  hideIngredientModal,
+  showSearchModal,
+  hideSearchModal,
+} = modalSlice.actions;
+
 export default modalSlice.reducer;

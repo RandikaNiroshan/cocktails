@@ -28,7 +28,7 @@ const TwoByTwo = ({ cocktail, loading }) => {
           <div className=""></div>
           <div className="rounded-[5px] relative">
             <div
-              className={`py-3 absolute -left-[10px] w-full ${
+              className={`py-3 absolute -left-[10px] xl:left-[0px] w-full ${
                 loading === HTTP_STATUS.FULFILLED
                   ? "group-hover:hidden basic-transition pr-2 pl-1 md:pl-0"
                   : "pr-1"
@@ -47,18 +47,18 @@ const TwoByTwo = ({ cocktail, loading }) => {
               )}
               {loading === HTTP_STATUS.FULFILLED && (
                 <>
-                  <p className="text-[10px] md:text-[12px] lg:text-[14px] font-app-text text-app-flame leading-5">
+                  <p className="text-[10px] md:text-[12px] lg:text-[14px] xl:text-[15px] font-app-text text-app-flame leading-5">
                     {drink ?? "Cocktail"}
                   </p>
-                  <p className="text-[12px] md:text-[13px] lg:text-[15px] font-app-heading text-app-cadet font-bold truncate leading-5">
+                  <p className="xl:mt-2 text-[12px] md:text-[13px] lg:text-[15px] xl:text-[16px] font-app-heading text-app-cadet font-bold truncate leading-5">
                     {category ?? "Category"}
                   </p>
-                  <div className="flex flex-wrap gap-1 overflow-hidden mt-2">
+                  <div className="flex flex-wrap gap-1 xl:gap-2 overflow-hidden mt-1 xl:mt-4">
                     {ingredients.map((item, i) => {
                       return (
                         <div
                           key={i}
-                          className="rounded-[4px] border border-app-olivine w-max px-1 text-[8px] md:text-[9px] lg:text-[10px] font-app-main text-app-olivine"
+                          className={`rounded-[4px] border border-app-olivine w-max px-1 text-[8px] md:text-[9px] lg:text-[10px] xl:text-[12px] font-app-main text-app-olivine ${i > 3 ? "hidden xl:block" : ""}`}
                         >
                           {item.name}
                         </div>
@@ -76,7 +76,7 @@ const TwoByTwo = ({ cocktail, loading }) => {
           <div className="z-[2] rounded-[5px] h-full w-full flex justify-center items-center overflow-hidden absolute top-0 left-0 right-0">
           <div className="relative w-full flex justify-center items-center">
             <div className="px-3 pb-2 flex flex-col items-center justify-center scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:bottom-0 group-hover:delay-[150ms] group-hover:duration-500 duration-150">
-              <p className="text-[14px] text-center font-app-text text-white leading-5">
+              <p className="text-[10px] md:text-[12px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-white leading-5">
                 {drink ?? "Cocktail"}
               </p>
             </div>

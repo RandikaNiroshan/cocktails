@@ -39,7 +39,7 @@ const IngredientCard = ({ loading, name }) => {
           )}
           {loading === HTTP_STATUS.FULFILLED && (
             <>
-              <p className="text-[14px] text-center font-app-text text-app-cadet group-hover:text-transparent basic-transition truncate leading-5">
+              <p className="text-[12px] md:text-[13px] lg:text-[14px] text-center font-app-text text-app-cadet group-hover:text-transparent basic-transition truncate leading-5">
                 {name}
               </p>
             </>
@@ -49,8 +49,8 @@ const IngredientCard = ({ loading, name }) => {
       {loading === HTTP_STATUS.FULFILLED && (
         <div className="z-[2] pt-5 rounded-[5px] h-full w-full flex justify-center items-center overflow-hidden absolute top-0 left-0 right-0">
           <div className="relative w-full flex justify-center items-center">
-          <div className="px-3 pb-2 flex flex-col items-center justify-center scale-0 group-hover:scale-100 absolute delay-150 -top-48 group-hover:-top-10 basic-transition group-hover:duration-500 duration-150">
-            <p className="text-[14px] mb-3 text-center font-app-text text-white leading-5">
+          <div className="px-2 md:px-3 pb-2 flex flex-col items-center justify-center scale-0 group-hover:scale-100 absolute delay-150 -top-48 group-hover:-top-10 basic-transition group-hover:duration-500 duration-150">
+            <p className="text-[12px] md:text-[13px] lg:text-[14px] mb-3 text-center font-app-text text-white leading-5">
             {name}
             </p>
             <PrimaryButton onClick={onClick} text="More Details"/> 

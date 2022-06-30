@@ -6,8 +6,8 @@ const Modal = ({ children, onCloseModal }) => {
   return ReactDOM.createPortal(
     <>
       <div onClick={() => onCloseModal()} className="fixed inset-0 bg-app-cadet/30 backdrop-blur-sm" />
-      <div className="fixed inset-0 flex justify-center items-center">
-        <div className="bg-white rounded-lg drop-shadow-lg p-4 w-auto h-auto relative">
+      <div className="fixed inset-0 flex justify-center items-center p-4 md:p-6">
+        <div className="bg-white rounded-lg drop-shadow-lg p-2 md:p-4 w-auto h-auto relative">
           {children}
           <div
             onClick={() => onCloseModal()}

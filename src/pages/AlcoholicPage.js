@@ -51,7 +51,7 @@ const AlcoholicPage = () => {
             return (
               <div
                 key={index}
-                className={`rounded-md px-[10px] md:px-4 lg:px-6 py-[5px] md:py-[6px] lg:py-2 drop-shadow-lg cursor-pointer group hover:scale-110 basic-transition ${
+                className={`rounded-md px-[12px] md:px-4 lg:px-6 py-[5px] md:py-[6px] lg:py-2 drop-shadow-lg cursor-pointer group md:hover:scale-110 basic-transition ${
                   index === Number(selectedType) ? "bg-app-flame" : "bg-white"
                 }`}
                 onClick={() => onChangeType(index)}
