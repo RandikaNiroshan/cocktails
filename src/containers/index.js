@@ -8,3 +8,4 @@ export {default as Cocktails} from './home/Cocktails';
 export {default as CocktailInfo} from './cocktail/CocktailInfo';
 export {default as Instructions} from './cocktail/Instructions';
 export {default as VideoTutorial} from './cocktail/VideoTutorial';
+export {default as SearchCocktails} from './SearchCocktails';

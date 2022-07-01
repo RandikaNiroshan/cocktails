@@ -21,3 +21,4 @@ export { default as IngredientsList } from "./cocktail/IngredientsList";
 export { default as IngredientCard } from "./ingredient/IngredientCard";
 export { default as IngredientsGrid } from "./ingredient/IngredientsGrid";
 export { default as AboutIngredient } from "./ingredient/AboutIngredient";
+export { default as SearchItemsGrid } from "./search/SearchItemsGrid";

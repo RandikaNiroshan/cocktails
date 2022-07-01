@@ -132,6 +132,20 @@ export const calcIngredientsGrid = (width) => {
   return 5 * 4;
 }
 
+
+export const calcSearchGrid = (width) => {
+  if (width < SCREEN_SIZE.MD) {
+    return 1 * 4;
+  }
+  if (width < SCREEN_SIZE.LG) {
+    return 2 * 3;
+  }
+  if (width < SCREEN_SIZE.XL) {
+    return 3 * 2;
+  }
+  return 4 * 2;
+}
+
 export const calcVideoWidth = (width) => {
   if (width < SCREEN_SIZE.MD) {
     return width - 30;

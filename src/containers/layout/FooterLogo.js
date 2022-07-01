@@ -17,28 +17,28 @@ const FooterLogo = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaFacebookSquare className="w-5 h-5 text-white shadow-sm hover:text-app-flame hover:animate-expand hover:cursor-pointer" />
+          <FaFacebookSquare className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
         <a
           href="https://twitter.com/RandikaNiroshan"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaTwitterSquare className="w-5 h-5 text-white shadow-sm hover:text-app-flame hover:animate-expand hover:cursor-pointer" />
+          <FaTwitterSquare className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
         <a
           href="https://github.com/RandikaNiroshan"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaGithubSquare className="w-5 h-5 text-white shadow-sm hover:text-app-flame hover:animate-expand hover:cursor-pointer" />
+          <FaGithubSquare className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
         <a
           href="https://linkedin.com/in/randika-niroshan"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaLinkedin className="w-5 h-5 text-white shadow-sm hover:text-app-flame hover:animate-expand hover:cursor-pointer" />
+          <FaLinkedin className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
       </div>
     </div>

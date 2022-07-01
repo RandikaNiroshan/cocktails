@@ -14,6 +14,7 @@ import ingredientReducer from "./features/ingredientSlice";
 import aboutIngredientReducer from "./features/aboutIngredientSlice";
 import fetchByIngredientReducer from "./features/fetchByIngredientSlice";
 import modalReducer from "./features/modalSlice";
+import searchReducer from "./features/searchSlice";
 
 const persistConfig = {
   key: 'favorites',
@@ -21,7 +22,6 @@ const persistConfig = {
 };
 
 const persistedFavoriteReducer = persistReducer(persistConfig, favoriteReducer);
-
 
 export default configureStore({
   reducer: {
@@ -37,6 +37,7 @@ export default configureStore({
     aboutIngredient: aboutIngredientReducer,
     fetchByIngredient: fetchByIngredientReducer,
     modal: modalReducer,
+    search: searchReducer,
     favorite: persistedFavoriteReducer,
   },
   middleware: (getDefaultMiddleware) =>

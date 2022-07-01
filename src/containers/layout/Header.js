@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
+import { showSearchModal } from "../../app/features/modalSlice";
 import { Menu } from "../../app/utils/data";
 import { Logo } from "../../components";
 import MobileMenu from "./MobileMenu";
@@ -9,17 +10,22 @@ const Header = () => {
   const favCount = useSelector((state) => state.favorite.favorite);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const openSearch = () => {
+    dispatch(showSearchModal());
+  };
 
   const onNavigateFavorite = () => {
-    favCount?.length > 0 ? navigate("/favorites") : alert("No favorites");
+    favCount?.length > 0 && navigate("/favorites");
   };
 
   return (
     <>
-      <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-20">
+      <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16">
         <div onClick={() => setIsOpen(true)} className="h-6 w-6 md:h-8 md:w-8 lg:hidden">
           <svg
-            className="drop-shadow-lg stroke-app-cadet basic-transition hover:stroke-app-flame hover:animate-expand cursor-pointer svg-icon"
+            className="drop-shadow-lg stroke-app-cadet basic-transition md:hover:stroke-app-flame md:hover:animate-expand cursor-pointer svg-icon"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -44,7 +50,7 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive
                       ? "text-app-flame double-transition"
-                      : "text-app-cadet hover:text-app-flame basic-transition"
+                      : "text-app-cadet md:hover:text-app-flame basic-transition"
                   }
                 >
                   {item.menu}
@@ -56,7 +62,7 @@ const Header = () => {
         <div className="flex gap-4 h-8 justify-center items-center">
           <div className="h-6 w-6 md:h-8 md:w-8 relative group cursor-pointer">
             <svg
-              className="drop-shadow-lg fill-app-cadet group-hover:fill-app-flame stroke-app-cadet basic-transition group-hover:stroke-app-flame group-hover:animate-expand svg-icon"
+              className="drop-shadow-lg fill-app-cadet md:group-hover:fill-app-flame stroke-app-cadet basic-transition md:group-hover:stroke-app-flame md:group-hover:animate-expand svg-icon"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -72,14 +78,14 @@ const Header = () => {
               onClick={onNavigateFavorite}
               className="w-8 h-8 flex justify-center items-center absolute top-0 left-0"
             >
-              <span className="text-white text-center text-[9px] font-app-main group-hover:tracking-widest basic-transition">
+              <span className="text-white text-center text-[9px] font-app-main md:group-hover:tracking-widest basic-transition">
                 {favCount?.length ?? 0}
               </span>
             </div>
           </div>
-          <div className="h-6 w-6 md:h-8 md:w-8">
+          <div onClick={openSearch} className="h-6 w-6 md:h-8 md:w-8">
             <svg
-              className="drop-shadow-lg stroke-app-cadet basic-transition hover:stroke-app-flame hover:animate-expand cursor-pointer svg-icon"
+              className="drop-shadow-lg stroke-app-cadet basic-transition md:hover:stroke-app-flame md:hover:animate-expand cursor-pointer svg-icon"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
