@@ -7,7 +7,11 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
   const { id, drink, image, category, alcoholic } = cocktail;
   return (
     <div>
-      <div className="bg-white h-full w-full rounded-[8px] drop-shadow-lg group overflow-hidden relative hover:ring-1 cocktail-card hover:rotate-0 hover:ring-white ">
+      <div
+        className={`bg-white h-full w-full rounded-[8px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white ${
+          loading === HTTP_STATUS.FULFILLED && " cocktail-card hover:rotate-0"
+        }`}
+      >
         <div className="rounded-[8px] overflow-hidden">
           <div className="p-1 md:px-2 md:pt-2 md:pb-[6px] lg:px-3 lg:pt-3 lg:pb-2 relative">
             {loading === HTTP_STATUS.PENDING && (
@@ -25,16 +29,12 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
               </>
             )}
           </div>
-          <div className={`px-2 ${fullData ? "pb-2" : "pb-3"}`}>
+          <div className="mx-1 md:mx-2 lg:mx-3 pb-1 md:pb-[6px] lg:pb-2">
             {loading === HTTP_STATUS.PENDING && (
-              <div className="px-1 space-y-1">
-                <p className="loading animate-loading text-[14px] rounded-md text-slate-100 text-center truncate leading-5">
-                  ...
-                </p>
+              <div className="flex flex-col justify-start items-start">
+                <p className="loading animate-loading rounded-md text-slate-100 h-[24px] lg:h-[28px] w-full mb-1"></p>
                 {fullData && (
-                  <p className="loading animate-loading text-base rounded-md text-slate-100 text-center truncate leading-5">
-                    ...
-                  </p>
+                  <p className="loading animate-loading rounded-[4px] text-slate-100 h-[16px] w-full mb-2 xl:mb-[10px]"></p>
                 )}
               </div>
             )}
@@ -60,7 +60,7 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
                   {drink ?? "Classic Cocktail"}
                 </p>
               </div>
-              <div className="flex items-center justify-center px-8 scale-0 group-hover:scale-100 absolute -bottom-80 group-hover:-bottom-[40px] group-hover:delay-[400ms] group-hover:duration-500 duration-150">
+              <div className="flex items-center justify-center px-8 scale-0 group-hover:scale-100 absolute -bottom-80 group-hover:-bottom-[32px] md:group-hover:-bottom-[35px] lg:group-hover:-bottom-[40px] group-hover:delay-[400ms] group-hover:duration-500 duration-150">
                 <LinkButton link={`/cocktails/${id}`} text="View Recipe" />
               </div>
             </div>

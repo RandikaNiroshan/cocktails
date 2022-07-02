@@ -33,7 +33,7 @@ const CocktailPage = () => {
       <Title title={"Video Guide"} />
       <VideoTutorial cocktail={cocktail} loading={loading} />
       {showModal && (
-        <Modal onCloseModal={onCloseModal}>
+        <Modal onCloseModal={onCloseModal} show={showModal}>
           <AboutIngredient />
         </Modal>
       )}

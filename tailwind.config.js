@@ -5,8 +5,8 @@ module.exports = {
       colors: {
         "app-flame": "#E4572E",
         "app-cadet": "#29335C",
-        "app-marigold": "#F3A712",
         "app-olivine": "#A8C686",
+        "app-bg": "#F8F8F6",
       },
       fontFamily: {
         "app-main": ["Oswald", "sans-serif"],
@@ -46,5 +46,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 };

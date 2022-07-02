@@ -39,7 +39,7 @@ const IngredientsPage = () => {
         />
       </div>
       {showModal && (
-        <Modal onCloseModal={onCloseModal}>
+        <Modal onCloseModal={onCloseModal} show={showModal}>
           <AboutIngredient />
         </Modal>
       )}

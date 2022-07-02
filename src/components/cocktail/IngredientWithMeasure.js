@@ -14,7 +14,7 @@ const IngredientWithMeasure = ({ ingredient, loading }) => {
     dispatch(showIngredientModal());
   };
   return (
-    <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-pointer ingredient-card">
+    <div className={`bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-pointer ${loading === HTTP_STATUS.FULFILLED && " ingredient-card"}`}>
       <div className="rounded-[5px] overflow-hidden">
         <div className="p-1 md:p-2 lg:p-3 relative">
           {loading === HTTP_STATUS.PENDING && (
@@ -30,26 +30,21 @@ const IngredientWithMeasure = ({ ingredient, loading }) => {
             </div>
           )}
         </div>
-        <div className="px-2 pb-2">
+        <div className="pb-1 md:pb-2 lg:pb-3 px-1 md:px-2 lg:px-3">
           {loading === HTTP_STATUS.PENDING && (
-            <div className="px-1 space-y-1">
-              <p className="loading animate-loading text-[14px] text-slate-100 text-center truncate leading-5">
-                ...
-              </p>
-              <p className="loading animate-loading text-base text-slate-100 text-center truncate leading-5">
-                ...
-              </p>
-            </div>
+            <div className="flex flex-col justify-start items-start">
+            <p className="loading animate-loading rounded-md text-slate-100 h-[20px] lg:h-[24px] w-full"></p>
+          </div>
           )}
           {loading === HTTP_STATUS.FULFILLED && (
-            <>
+            <div className="px-1 lg:pb-1">
               <p className="text-[10px] md:text-[11px] lg:text-[12px] text-center font-app-main font-bold text-app-flame group-hover:text-transparent basic-transition truncate leading-5">
                 {measure}
               </p>
               <p className="text-[12px] md:text-[13px] lg:text-[14px] text-center font-app-text text-app-cadet group-hover:text-transparent basic-transition truncate leading-5">
                 {name}
               </p>
-            </>
+            </div>
           )}
         </div>
       </div>

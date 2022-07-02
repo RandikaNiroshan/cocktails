@@ -32,7 +32,7 @@ const Layout = (props) => {
       <Header />
       {props.children}
       {showModal && (
-        <Modal onCloseModal={onCloseModal}>
+        <Modal onCloseModal={onCloseModal} show={showModal}>
           <SearchCocktails />
         </Modal>
       )}

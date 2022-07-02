@@ -7,7 +7,7 @@ export const searchCocktails = createAsyncThunk(
   "search/searchCocktails",
   async (search) => {
     const response = await axios.get(`${API_BASE_URL}/search.php?s=${search}`);
-    return organizeCocktailList(response.data.drinks);
+    return organizeCocktailList(response.data.drinks, 16);
   }
 );
 

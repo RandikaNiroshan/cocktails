@@ -60,30 +60,30 @@
     @apply bg-white text-sm text-app-cadet font-bold font-app-main px-3 py-1 rounded-md text-center ring-2 ring-app-cadet hover:bg-app-cadet hover:text-white basic-transition;
   }
 
-  .bg-image{
+  .bg-image {
     @apply bg-cover bg-[url('https://m.media-amazon.com/images/S/aplus-media/vc/e92cec4a-692f-46ba-865a-37879a4617bf._CR0,0,970,300_PT0_SX970__.jpg')] relative overflow-hidden;
     @apply before:content-[""] before:block before:blur-[8px] before:absolute before:left-0 before:top-0 before:bg-[#000] before:opacity-50 before:h-full before:w-full z-[1];
   }
 
-  .card-hover{
+  .card-hover {
     @apply after:content-[""] after:bg-app-cadet/[0.35] after:w-[200%] after:h-[200%] after:scale-0 after:absolute after:transition-all after:ease-in-out after:hover:scale-100;
   }
 
-  .cocktail-card{
-    @apply card-hover after:rounded-[50%]  after:origin-bottom-right after:-bottom-[50%] after:-right-[50%] after:duration-[600ms]
+  .cocktail-card {
+    @apply card-hover after:rounded-[50%]  after:origin-bottom-right after:-bottom-[50%] after:-right-[50%] after:duration-[600ms];
   }
 
-  .ingredient-card{
-    @apply card-hover after:rounded-[50%]  after:origin-top-left after:-top-[50%] after:-left-[50%] after:duration-[600ms]
+  .ingredient-card {
+    @apply card-hover after:rounded-[50%]  after:origin-top-left after:-top-[50%] after:-left-[50%] after:duration-[600ms];
   }
 
-  .from-bottom{
-  @apply card-hover after:rounded-[25%]  after:origin-bottom after:-top-[50%] after:-left-[50%] after:-right-[50%] after:duration-[800ms]
+  .from-bottom {
+    @apply card-hover after:rounded-[25%]  after:origin-bottom after:-top-[50%] after:-left-[50%] after:-right-[50%] after:duration-[800ms];
   }
 
-  .from-right{
-    @apply card-hover after:rounded-md after:origin-right after:-top-[50%] after:-bottom-[50%] after:-right-[50%] after:duration-[800ms]
-    }
+  .from-right {
+    @apply card-hover after:rounded-md after:origin-right after:-top-[50%] after:-bottom-[50%] after:-right-[50%] after:duration-[800ms];
+  }
 
   .neon-text {
     color: #fff;
@@ -91,15 +91,8 @@
       0 0 82px #29335c, 0 0 92px #29335c, 0 0 102px #29335c, 0 0 151px #29335c;
   }
   .loading {
-    background-color: #ededed;
-    background: linear-gradient(
-        100deg,
-        rgba(255, 255, 255, 0) 40%,
-        rgba(255, 255, 255, 0.5) 50%,
-        rgba(255, 255, 255, 0) 60%
-      )
-      #ededed;
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
     background-size: 200% 100%;
-    background-position-x: 180%;
   }
 }

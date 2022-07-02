@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <section className="bg-image w-full">
-      <div className="p-4 md:px-8 lg:px-10 xl:px-16 md:py-6 lg:py-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 justify-center">
+      <div className="p-4 md:px-6 lg:px-10 xl:px-16 md:py-6 lg:py-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 justify-center">
         <div className="h-min w-auto col-start-1 row-start-1 row-span-3">
           <OneByThree cocktail={featuredDrinks[0]} loading={loading} />
         </div>

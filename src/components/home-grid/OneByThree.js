@@ -6,9 +6,9 @@ import { Alcoholic, Favorite, LinkButton } from "../../components";
 const OneByThree = ({ cocktail, loading }) => {
   const { id, drink, image, category, alcoholic } = cocktail;
   return (
-    <div className="bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default from-bottom">
+    <div className={`bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default ${loading === HTTP_STATUS.FULFILLED && " from-bottom"}`}>
       <div className="rounded-[5px] overflow-hidden">
-        <div className="p-[5px] md:p-2 relative">
+        <div className="p-[6px] md:p-2 xl:p-[10px] relative">
           {loading === HTTP_STATUS.PENDING && (
             <div className="loading animate-loading aspect-[4/3] w-full rounded-[5px]"></div>
           )}
@@ -24,26 +24,22 @@ const OneByThree = ({ cocktail, loading }) => {
             </>
           )}
         </div>
-        <div className="px-1 pb-2">
+        <div className="px-1">
           {loading === HTTP_STATUS.PENDING && (
-            <div className="px-1 space-y-1">
-              <p className="loading animate-loading rounded-md text-[14px] text-slate-100 text-center truncate leading-5">
-                ...
-              </p>
-              <p className="loading animate-loading rounded-md text-base text-slate-100 text-center truncate leading-5">
-                ...
-              </p>
+            <div className="flex flex-col justify-start items-start mx-1">
+              <p className="loading animate-loading rounded-md text-slate-100 h-[20px] w-full mb-1"></p>
+              <p className="loading animate-loading rounded-[5px] text-slate-100 h-[16px] w-full mb-2 xl:mb-[10px]"></p>
             </div>
           )}
           {loading === HTTP_STATUS.FULFILLED && (
-            <>
+            <div className="pb-1">
               <p className="text-[10px] md:text-[12px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-app-flame truncate leading-5">
                 {drink ?? "Cocktail"}
               </p>
               <p className="text-[12px] md:text-[13px] lg:text-[15px] xl:text-[16px] text-center font-app-heading font-bold text-app-cadet truncate leading-5">
                 {category ?? "Category"}
               </p>
-            </>
+            </div>
           )}
         </div>
       </div>

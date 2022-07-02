@@ -37,16 +37,12 @@ const SearchCard = ({ cocktail, loading }) => {
           <div className="rounded-[5px] px-[5px] py-[8px] md:p-2 col-start-3 col-span-3">
             {loading === HTTP_STATUS.PENDING && (
               <div className="flex flex-col justify-between w-full h-full">
-                <div className="flex flex-col justify-start items-start">
-                  <p className="loading animate-loading rounded-md text-slate-100 text-[14px] leading-5 mb-1">
-                    ...
-                  </p>
-                  <p className="loading animate-loading rounded-md text-slate-100 text-base leading-5 mb-2">
-                    ...
-                  </p>
+                <div className="flex flex-col justify-start items-start mr-1">
+                  <p className="loading animate-loading rounded-md text-slate-100 h-[20px] w-full mb-1"></p>
+                  <p className="loading animate-loading rounded-md text-slate-100 h-[16px] w-full"></p>
                 </div>
                 <div className="flex items-center justify-center">
-                  <PrimaryButton loading={loading} text="View Recipe" />
+                  <p className="loading animate-loading rounded-md text-slate-100 h-[20px] lg:h-[25px] w-[33%]"></p>
                 </div>
               </div>
             )}

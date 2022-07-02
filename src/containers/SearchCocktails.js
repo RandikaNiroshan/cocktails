@@ -24,12 +24,19 @@ const SearchCocktails = () => {
   }, [debounceSearch, dispatch]);
 
   return (
-    <div className="flex flex-col justify-center items-center w-[calc(95vw-40px)] max-w-[calc(95vw-40px)] md:w-[calc(90vw-40px)] md:max-w-[calc(90vw-40px)] px-2 py-4">
+    <div
+      className={`flex flex-col justify-center items-center w-[calc(95vw-40px)] max-w-[calc(95vw-40px)] md:w-[calc(90vw-40px)] md:max-w-[calc(90vw-40px)] lg:w-[calc(80vw-40px)] lg:max-w-[calc(80vw-40px)] xl:w-[calc(60vw-40px)] xl:max-w-[calc(60vw-40px)] px-2 md:px-3 lg:px-4 pt-4 ${
+        debounceSearch !== "" ? "pb-4" : "pb-8 md:pb-10"
+      }`}
+    >
+      <h1 className="text-xl md:text-2xl lg:text-3xl my-2 capitalize text-app-flame font-extrabold font-app-heading">
+        Search Cocktails
+      </h1>
       <input
         onChange={onChangeHandler}
         type="text"
-        placeholder="Start Typing"
-        className="w-full h-auto px-4 py-2 bg-app-cadet rounded-lg text-[12px] md:text-[13px] lg:text-[15px] xl:text-[16px] font-app-main text-white tracking-wider"
+        className="w-full h-auto px-4 md:px-6 py-2 md:py-3 bg-app-cadet rounded-lg text-[12px] md:text-[13px] lg:text-[15px] xl:text-[16px] font-app-main text-white tracking-wider border-1 ring-1 border-app-cadet ring-app-cadet focus:border-app-cadet focus:ring-app-cadet"
+        placeholder="Start Typing To Search"
       />
       {debounceSearch !== "" && (
         <div className="w-full mt-3 md:mt-4">

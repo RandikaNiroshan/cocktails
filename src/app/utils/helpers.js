@@ -34,13 +34,22 @@ export const organizeCocktail = (cocktail) => {
   return { ...cocktailData, ingredients: ingredientArray };
 };
 
-export const organizeCocktailList = (cocktails) => {
+export const organizeCocktailList = (cocktails, limit = 0) => {
   const organizedCocktails = [];
   if (cocktails !== null) {
-    cocktails.forEach((cocktail) => {
-      const data = organizeCocktail(cocktail);
-      organizedCocktails.push(data);
-    });
+    if (limit > 0) {
+      cocktails.forEach((cocktail, index) => {
+        if (index < limit) {
+          const data = organizeCocktail(cocktail);
+          organizedCocktails.push(data);
+        }
+      });
+    } else {
+      cocktails.forEach((cocktail) => {
+        const data = organizeCocktail(cocktail);
+        organizedCocktails.push(data);
+      });
+    }
   }
   return organizedCocktails;
 };
@@ -91,7 +100,7 @@ export const calcHomeCocktailGrid = (width) => {
     return 4 * 2;
   }
   return 5 * 2;
-}
+};
 
 export const calcOtherCocktailGrid = (width) => {
   if (width < SCREEN_SIZE.MD) {
@@ -104,7 +113,7 @@ export const calcOtherCocktailGrid = (width) => {
     return 4 * 3;
   }
   return 5 * 3;
-}
+};
 
 export const calcPopularSlides = (width) => {
   if (width < SCREEN_SIZE.MD) {
@@ -117,7 +126,7 @@ export const calcPopularSlides = (width) => {
     return 4;
   }
   return 5;
-}
+};
 
 export const calcIngredientsGrid = (width) => {
   if (width < SCREEN_SIZE.MD) {
@@ -130,8 +139,7 @@ export const calcIngredientsGrid = (width) => {
     return 5 * 4;
   }
   return 5 * 4;
-}
-
+};
 
 export const calcSearchGrid = (width) => {
   if (width < SCREEN_SIZE.MD) {
@@ -143,8 +151,8 @@ export const calcSearchGrid = (width) => {
   if (width < SCREEN_SIZE.XL) {
     return 3 * 2;
   }
-  return 4 * 2;
-}
+  return 3 * 2;
+};
 
 export const calcVideoWidth = (width) => {
   if (width < SCREEN_SIZE.MD) {
@@ -157,4 +165,4 @@ export const calcVideoWidth = (width) => {
     return width * 0.7;
   }
   return width * 0.6;
-}
+};
