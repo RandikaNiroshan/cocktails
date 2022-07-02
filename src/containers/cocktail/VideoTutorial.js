@@ -40,7 +40,7 @@ const VideoTutorial = ({ cocktail, loading }) => {
                 url={`https://www.youtube.com/watch?v=${videosList[videoIndex]}`}
               />
               <div className="w-full p-4 flex justify-center gap-2 items-center">
-                <p className="text-app-cadet font-app-heading text-xl font-bold text-center">
+                <p className="text-app-cadet font-app-heading text-[16px] md:text-[18px] lg:text-[20px] font-bold text-center">
                   Video Guide Not Relevant?
                 </p>
                 <PrimaryButton onClick={onSkipVideo} text="Next Video" />
@@ -49,7 +49,7 @@ const VideoTutorial = ({ cocktail, loading }) => {
           )}
         {youtubeLoading === HTTP_STATUS.REJECTED && (
           <div className="w-full p-4">
-            <p className="text-app-flame font-app-heading text-xl font-bold text-center">
+            <p className="text-app-flame font-app-heading text-[16px] md:text-[18px] lg:text-[20px] font-bold text-center">
               Youtube API Quota Exceeded! Try Again Later
             </p>
           </div>

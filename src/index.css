@@ -38,19 +38,6 @@
     @apply stroke-app-cadet basic-transition group-hover:stroke-app-flame group-hover:scale-125;
   }
 
-  .stat-card {
-    transform: rotateY(25deg) scale(0.9) rotateX(10deg);
-    filter: blur(2px);
-    opacity: 0.9;
-    transition: 0.6s ease all;
-  }
-
-  .stat-card:hover {
-    transform: rotateY(-15deg) translateY(-10px) rotateX(10deg) scale(1);
-    filter: blur(0);
-    opacity: 1;
-  }
-
   .title-text {
     @apply before:block before:absolute before:top-1/2 before:w-[40px] md:before:w-[60px] lg:before:w-[70px] before:h-[3px] before:-left-16 md:before:-left-20  lg:before:-left-24  before:bg-app-flame before:content-[""];
     @apply after:block after:absolute after:top-1/2 after:w-[40px] md:after:w-[60px] lg:after:w-[70px] after:h-[3px] after:-right-16 md:after:-right-20  lg:after:-right-24 after:bg-app-flame after:content-[""];
@@ -85,11 +72,6 @@
     @apply card-hover after:rounded-md after:origin-right after:-top-[50%] after:-bottom-[50%] after:-right-[50%] after:duration-[800ms];
   }
 
-  .neon-text {
-    color: #fff;
-    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #29335c, 0 0 42px #29335c,
-      0 0 82px #29335c, 0 0 92px #29335c, 0 0 102px #29335c, 0 0 151px #29335c;
-  }
   .loading {
     background: #eee;
     background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
