@@ -76,7 +76,7 @@ const Header = () => {
             </svg>
             <div
               onClick={onNavigateFavorite}
-              className="w-8 h-8 flex justify-center items-center absolute -top-[5px] -left-1 md:top-0 md:left-0"
+              className="w-8 h-8 flex justify-center items-center absolute -top-[4px] -left-1 md:top-0 md:left-0"
             >
               <span className="text-white text-center text-[8px] md:text-[9px] font-app-main md:group-hover:tracking-widest basic-transition">
                 {favCount?.length ?? 0}

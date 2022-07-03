@@ -71,7 +71,7 @@
   .from-right {
     @apply card-hover after:rounded-md after:origin-right after:-top-[50%] after:-bottom-[50%] after:-right-[50%] after:duration-[800ms];
   }
-
+  
   .loading {
     background: #eee;
     background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
