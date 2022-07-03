@@ -19,10 +19,6 @@ export const Menu = [
     menu: "Ingredients",
     link: "/ingredients",
   },
-  {
-    menu: "About",
-    link: "/about",
-  },
 ];
 
 export const Letters = [

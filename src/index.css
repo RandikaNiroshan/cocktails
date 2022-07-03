@@ -71,6 +71,11 @@
   .from-right {
     @apply card-hover after:rounded-md after:origin-right after:-top-[50%] after:-bottom-[50%] after:-right-[50%] after:duration-[800ms];
   }
+
+  .menu-hover{
+    @apply after:content-[""] after:w-[100%] after:h-[3px] after:absolute after:top-[110%] after:left-0 after:bg-app-flame after:scale-x-0 after:hover:origin-right after:transition-transform after:ease-in-out after:duration-500;
+    @apply after:hover:scale-x-100 after:hover:origin-left;
+  }
   
   .loading {
     background: #eee;

@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./containers";
 import {
-  AboutPage,
   AlcoholicPage,
   CategoriesPage,
   CocktailPage,
@@ -24,7 +23,6 @@ function App() {
         <Route path="/glasses" element={<GlassesPage />} />
         <Route path="/ingredients" element={<IngredientsPage />} />
         <Route path="/ingredients/:id" element={<CocktailsByIngredientPage />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/favorites" element={<FavoritePage />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>

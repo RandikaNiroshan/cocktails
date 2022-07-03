@@ -23,7 +23,10 @@ const Header = () => {
   return (
     <>
       <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16">
-        <div onClick={() => setIsOpen(true)} className="h-6 w-6 md:h-8 md:w-8 lg:hidden">
+        <div
+          onClick={() => setIsOpen(true)}
+          className="h-6 w-6 md:h-8 md:w-8 lg:hidden"
+        >
           <svg
             className="drop-shadow-lg stroke-app-cadet basic-transition md:hover:stroke-app-flame md:hover:animate-expand cursor-pointer svg-icon"
             fill="none"
@@ -44,7 +47,10 @@ const Header = () => {
         <nav className="hidden lg:flex justify-center">
           <ul className="flex justify-center gap-5">
             {Menu.map((item, index) => (
-              <li key={index} className="font-app-text text-lg">
+              <li
+                key={index}
+                className="font-app-text text-lg xl:text-xl relative menu-hover"
+              >
                 <NavLink
                   to={item.link}
                   className={({ isActive }) =>

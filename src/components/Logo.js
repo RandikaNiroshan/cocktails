@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Logo = ({alt}) => {
   return (
-    <div className="flex gap-1 h-8 relative group">
+    <div className="flex gap-1 h-8 lg:w-20 relative group">
       <Link to="/">
         <svg
           className={`h-8 w-8 cursor-pointer svg-icon-group group-hover:fill-app-flame ${alt ? "fill-white" : "fill-app-cadet"}`}
