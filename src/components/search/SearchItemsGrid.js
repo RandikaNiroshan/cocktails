@@ -35,7 +35,7 @@ const SearchItemsGrid = ({ list, loading, perPage }) => {
       )}
 
       {loading === HTTP_STATUS.PENDING && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[16px] lg:gap-[20px] xl:gap-[30px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[16px] lg:gap-[20px] xl:gap-[25px]">
           {[...Array(itemsPerPage)].map((_item, index) => {
             return (
               <div key={index}>
@@ -47,7 +47,7 @@ const SearchItemsGrid = ({ list, loading, perPage }) => {
       )}
 
       {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[16px] lg:gap-[20px] xl:gap-[30px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[16px] lg:gap-[20px] xl:gap-[25px]">
           {displayItems.map((item, index) => {
             return (
               <div key={index}>

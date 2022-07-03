@@ -25,7 +25,7 @@ const SearchCocktails = () => {
 
   return (
     <div
-      className={`flex flex-col justify-center items-center w-[calc(95vw-40px)] max-w-[calc(95vw-40px)] md:w-[calc(90vw-40px)] md:max-w-[calc(90vw-40px)] lg:w-[calc(80vw-40px)] lg:max-w-[calc(80vw-40px)] xl:w-[calc(60vw-40px)] xl:max-w-[calc(60vw-40px)] px-2 md:px-3 lg:px-4 pt-4 ${
+      className={`flex flex-col justify-center items-center w-[calc(95vw-40px)] max-w-[calc(95vw-40px)] md:w-[calc(90vw-40px)] md:max-w-[calc(90vw-40px)] lg:w-[calc(80vw-40px)] lg:max-w-[calc(80vw-40px)] xl:w-[calc(65vw-40px)] xl:max-w-[calc(65vw-40px)] px-2 md:px-3 lg:px-4 pt-4 ${
         debounceSearch !== "" ? "pb-4" : "pb-8 md:pb-10"
       }`}
     >
