@@ -25,10 +25,10 @@ const Header = () => {
       <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16">
         <div
           onClick={() => setIsOpen(true)}
-          className="h-6 w-6 md:h-8 md:w-8 lg:hidden"
+          className="h-6 w-6 md:h-8 md:w-8 lg:hidden active:scale-95"
         >
           <svg
-            className="drop-shadow-lg stroke-app-cadet basic-transition md:hover:stroke-app-flame md:hover:animate-expand cursor-pointer svg-icon"
+            className="drop-shadow-lg stroke-app-cadet basic-transition md:hover:stroke-app-flame md:hover:animate-expand cursor-pointer"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -66,9 +66,9 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex gap-4 h-8 justify-center items-center">
-          <div className="h-6 w-6 md:h-8 md:w-8 relative group cursor-pointer">
+          <div className="h-6 w-6 md:h-8 md:w-8 relative group cursor-pointer active:scale-95">
             <svg
-              className="drop-shadow-lg fill-app-cadet md:group-hover:fill-app-flame stroke-app-cadet basic-transition md:group-hover:stroke-app-flame md:group-hover:animate-expand svg-icon"
+              className="drop-shadow-lg fill-app-cadet md:group-hover:fill-app-flame stroke-app-cadet basic-transition md:group-hover:stroke-app-flame md:group-hover:animate-expand"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -89,9 +89,9 @@ const Header = () => {
               </span>
             </div>
           </div>
-          <div onClick={openSearch} className="h-6 w-6 md:h-8 md:w-8">
+          <div onClick={openSearch} className="h-6 w-6 md:h-8 md:w-8 active:scale-95">
             <svg
-              className="drop-shadow-lg stroke-app-cadet basic-transition md:hover:stroke-app-flame md:hover:animate-expand cursor-pointer svg-icon"
+              className="drop-shadow-lg stroke-app-cadet basic-transition md:hover:stroke-app-flame md:hover:animate-expand cursor-pointer"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

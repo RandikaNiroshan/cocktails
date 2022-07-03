@@ -10,8 +10,8 @@ const StatCard = ({ title, count, icon1, icon2 }) => {
         <div className="text-white/30 absolute top-0 left-0 lg:top-4 lg:left-4 rotate-[135deg]">
           {icon2}
         </div>
-        <h2 className="text-white font-app-main text-6xl font-bold mt-1">{count}</h2>
-        <h3 className="text-app-olivine font-app-heading text-2xl mt-1">{title}</h3>
+        <h2 className="text-white font-app-main text-6xl text-center font-bold mt-1">{count}</h2>
+        <h3 className="text-app-olivine font-app-heading text-center text-2xl mt-1">{title}</h3>
       </div>
     </div>
   );

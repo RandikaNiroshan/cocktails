@@ -38,6 +38,7 @@ module.exports = {
         loading: "1s loading ease-in-out infinite",
       },
       screens: {
+        'xs': '345px',
         'sm': '640px',
         'md': '768px',
         'lg': '1050px',

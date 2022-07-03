@@ -15,10 +15,10 @@ const PopularCard = ({ cocktail }) => {
         <Favorite cocktail={cocktail} />
         <div className="absolute overflow-hidden bottom-2 left-2 right-2 bg-app-cadet/70 group-hover:bg-app-cadet/30 h-1/3 w-fill rounded-b-lg group-hover:h-[calc(100%-16px)] group-hover:rounded-lg basic-transition grid items-center">
           <div className="px-2 py-2 flex flex-col items-center justify-center">
-            <p className="text-[14px] text-center font-app-text text-white truncate leading-5">
+            <p className="text-[12px] md:text-[13px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-white truncate leading-5">
               {drink ?? "Classic Cocktail"}
             </p>
-            <p className="text-base text-center font-app-heading text-app-olivine truncate leading-5">
+            <p className="text-[13x] md:text-[14px] lg:text-[15px] xl:text-[16px]  text-center font-app-heading text-app-olivine truncate leading-5">
               {category ?? "Category"}
             </p>
             <div className="flex mt-1 md:m-2 lg:mt-3 justify-center scale-0 w-full group-hover:scale-100 delay-150 translate-y-32 group-hover:translate-y-0 double-transition">

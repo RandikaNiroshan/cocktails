@@ -20,7 +20,7 @@ const Modal = ({ children, onCloseModal, show = false }) => {
           {children}
           <div
             onClick={onCloseModal}
-            className="rounded-full p-1 bg-white ring-2 ring-app-flame absolute drop-shadow-md -top-2 -right-2 cursor-pointer group md:hover:bg-app-flame basic-transition"
+            className="rounded-full p-1 bg-white ring-2 ring-app-flame absolute drop-shadow-md -top-2 -right-2 cursor-pointer group md:hover:bg-app-flame basic-transition active:scale-95"
           >
             <MdClose className="h-4 w-4 text-app-flame group-hover:text-white group-hover:animate-expand basic-transition" />
           </div>

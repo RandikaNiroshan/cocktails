@@ -51,13 +51,13 @@ const SearchCard = ({ cocktail, loading }) => {
             {loading === HTTP_STATUS.FULFILLED && (
               <div className="flex flex-col justify-between items-start w-full h-full">
                 <div className="flex flex-col justify-start items-start">
-                  <p className="text-[10px] md:text-[12px] lg:text-[14px] xl:text-[15px] font-app-text text-app-flame leading-4 md:leading-5">
+                  <p className="text-[12px] md:text-[13px] lg:text-[14px] xl:text-[15px] font-app-text text-app-flame leading-4 md:leading-5">
                     {drink ?? "Cocktail"}
                   </p>
-                  <p className="text-[12px] md:text-[13px] lg:text-[15px] xl:text-[16px] font-app-heading text-app-cadet font-bold truncate leading-4 md:leading-5">
+                  <p className="text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] font-app-heading text-app-cadet font-bold truncate leading-4 md:leading-5">
                     {category ?? "Category"}
                   </p>
-                  <p className="text-[11px] md:text-[12px] lg:text-[14px] xl:text-[15px] font-app-heading text-app-cadet font-bold truncate leading-4 md:leading-5 capitalize">
+                  <p className="text-[12px] md:text-[13px] lg:text-[14px] xl:text-[15px] font-app-heading text-app-cadet font-bold truncate leading-4 md:leading-5 capitalize">
                     {alcoholic ?? "alcoholic"}
                   </p>
                 </div>
@@ -71,7 +71,7 @@ const SearchCard = ({ cocktail, loading }) => {
           <div className="z-[2] rounded-[5px] h-full w-full flex justify-center items-center overflow-hidden absolute top-0 left-0 right-0">
             <div className="relative w-full flex justify-center items-center">
               <div className="px-3 pb-2 flex flex-col items-center justify-center scale-0 group-hover:scale-100 absolute -bottom-48 group-hover:-bottom-[2px] md:group-hover:bottom-0 group-hover:delay-[150ms] group-hover:duration-500 duration-150">
-                <p className="text-[10px] md:text-[12px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-white leading-5">
+                <p className="text-[12px] md:text-[13px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-white leading-5">
                   {drink ?? "Cocktail"}
                 </p>
               </div>

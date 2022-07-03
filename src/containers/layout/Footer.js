@@ -77,9 +77,9 @@ const Footer = () => {
           </div>
           <div
             onClick={() => scrollToTop()}
-            className="rounded-md bg-app-cadet md:hover:bg-app-flame ring-[2px] md:ring-[3px] ring-white absolute -top-[14px] md:-top-4 right-4 md:right-[40px] lg:right-16 p-2 drop-shadow-md group hover:cursor-pointer basic-transition"
+            className="active:scale-95 rounded-md bg-app-cadet md:hover:bg-app-flame ring-[2px] md:ring-[3px] ring-white absolute -top-[14px] md:-top-4 right-4 md:right-[40px] lg:right-16 p-2 drop-shadow-md group hover:cursor-pointer basic-transition"
           >
-            <TbArrowBigUpLines className="w-4 h-4 md:w-5 md:h-5 text-white shadow-sm group-hover:animate-expand " />
+            <TbArrowBigUpLines className="w-4 h-4 md:w-5 md:h-5 text-white shadow-sm group-hover:animate-expand" />
           </div>
         </>
       )}
@@ -91,6 +91,7 @@ const Footer = () => {
             href="https://github.com/RandikaNiroshan"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Randika"
           >
             Randika Niroshan
           </a>

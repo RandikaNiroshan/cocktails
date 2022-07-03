@@ -39,10 +39,10 @@ const MobileMenu = ({ onClose }) => {
         </div>
         <div
           onClick={() => onClose()}
-          className="h-6 w-6 md:h-8 md:w-8 absolute top-4 right-4"
+          className="h-6 w-6 md:h-8 md:w-8 absolute top-4 right-4 active:scale-95"
         >
           <svg
-            className="drop-shadow-lg stroke-white basic-transition hover:stroke-app-flame hover:animate-expand cursor-pointer svg-icon"
+            className="drop-shadow-lg stroke-white basic-transition md:hover:stroke-app-flame md:hover:animate-expand cursor-pointer"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

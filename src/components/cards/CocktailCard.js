@@ -40,11 +40,11 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
             )}
             {loading === HTTP_STATUS.FULFILLED && (
               <>
-                <p className="text-[14px] text-center font-app-text text-app-flame truncate leading-5">
+                <p className="text-[12px] md:text-[13px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-app-flame truncate leading-5">
                   {drink ?? "Classic Cocktail"}
                 </p>
                 {category && (
-                  <p className="text-base text-center font-app-heading font-bold text-app-cadet truncate leading-5">
+                  <p className="text-[13x] md:text-[14px] lg:text-[15px] xl:text-[16px] text-center font-app-heading font-bold text-app-cadet truncate leading-5">
                     {category ?? "Category"}
                   </p>
                 )}
@@ -56,7 +56,7 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
           <div className="z-[2] rounded-[8px] h-full w-full flex justify-center items-center overflow-hidden absolute top-0 left-0 right-0">
             <div className="relative w-full flex justify-center items-center">
               <div className="px-3 pb-2 flex flex-col scale-0 group-hover:scale-100 items-center justify-center absolute -bottom-80 group-hover:-bottom-[6px] delay-[150ms] group-hover:duration-500 duration-150">
-                <p className="text-[14px] text-center font-app-text text-white leading-5">
+                <p className="text-[12px] md:text-[13px] lg:text-[14px] xl:text-[15px] text-center font-app-text text-white leading-5">
                   {drink ?? "Classic Cocktail"}
                 </p>
               </div>

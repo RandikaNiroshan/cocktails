@@ -13,7 +13,7 @@ const Pagination = ({pageCount, setPageNumber}) => {
   return (
     <ReactPaginate
       pageRangeDisplayed={size.width < SCREEN_SIZE.MD ? 2 : 5}
-      marginPagesDisplayed={size.width < SCREEN_SIZE.MD ? 2 : 3}
+      marginPagesDisplayed={size.width < SCREEN_SIZE.MD ? 1 : 3}
       previousLabel={" < "}
       nextLabel={" > "}
       pageCount={pageCount}

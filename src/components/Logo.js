@@ -6,7 +6,7 @@ const Logo = ({alt}) => {
     <div className="flex gap-1 h-8 lg:w-20 relative group">
       <Link to="/">
         <svg
-          className={`h-8 w-8 cursor-pointer svg-icon-group group-hover:fill-app-flame ${alt ? "fill-white" : "fill-app-cadet"}`}
+          className={`h-8 w-8 cursor-pointer md:svg-icon-group md:group-hover:fill-app-flame ${alt ? "fill-white" : "fill-app-cadet"}`}
           viewBox="0 0 64 64"
         >
           <g id="_logo" data-name="logo">
@@ -20,7 +20,7 @@ const Logo = ({alt}) => {
           </g>
         </svg>
 
-        <span className={`first-letter:text-app-flame first-letter:text-[33px] font-bold font-app-heading text-3xl absolute -bottom-3 left-[10px] cursor-pointer basic-transition group-hover:text-app-flame group-hover:text-[31px] group-hover:left-6 ${alt ? "text-white" : "text-app-cadet"}`}>
+        <span className={`first-letter:text-app-flame first-letter:text-[33px] font-bold font-app-heading text-3xl absolute -bottom-3 left-[10px] cursor-pointer md:basic-transition md:group-hover:text-app-flame md:group-hover:text-[31px] md:group-hover:left-6 ${alt ? "text-white" : "text-app-cadet"}`}>
           Cocktails
         </span>
       </Link>

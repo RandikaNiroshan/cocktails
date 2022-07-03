@@ -16,6 +16,7 @@ const FooterLogo = () => {
           href="https://facebook.com/RandikaNiroshan"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Facebook"
         >
           <FaFacebookSquare className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
@@ -23,6 +24,7 @@ const FooterLogo = () => {
           href="https://twitter.com/RandikaNiroshan"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Twitter"
         >
           <FaTwitterSquare className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
@@ -30,6 +32,7 @@ const FooterLogo = () => {
           href="https://github.com/RandikaNiroshan"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Github"
         >
           <FaGithubSquare className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
@@ -37,6 +40,7 @@ const FooterLogo = () => {
           href="https://linkedin.com/in/randika-niroshan"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="LinedIn"
         >
           <FaLinkedin className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
