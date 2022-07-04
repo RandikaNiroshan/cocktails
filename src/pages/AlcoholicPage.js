@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import { fetchByAlcoholic } from "../app/features/alcoholicSlice";
+import { fromBelow } from "../app/utils/animationsHelper";
 import { HTTP_STATUS } from "../app/utils/constants";
 import { calcOtherCocktailGrid } from "../app/utils/helpers";
 import { CocktailsGrid, Title } from "../components";
@@ -47,7 +49,18 @@ const AlcoholicPage = () => {
     <AnimateRoute>
       <Title title="Select Cocktails Based On" />
       {loadingTypes === HTTP_STATUS.FULFILLED && (
-        <div className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28">
+        <motion.div
+          variants={fromBelow}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          transition={{
+            ease: "easeInOut",
+            duration: 0.8,
+            delay: 0.4,
+          }}
+          className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28"
+        >
           {alcoholicTypes.map((alcoholic, index) => {
             return (
               <div
@@ -69,9 +82,9 @@ const AlcoholicPage = () => {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       )}
-      <div className="px-[5vw] md:px-[6vw] lg:px-[7vw]">
+      <div className="px-[5vw] md:px-[6vw] lg:px-[7vw] overflow-hidden">
         <CocktailsGrid
           list={cocktails}
           loading={loading}

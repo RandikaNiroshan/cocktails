@@ -7,7 +7,7 @@ export const initialFetch = createAsyncThunk(
     "cocktails/initialFetch",
     async () => {
       const response = await axios.get(`${API_BASE_URL}/search.php?s=`);
-      return organizeCocktailList(response.data.drinks);
+      return organizeCocktailList(response.data.drinks, 24);
     }
   );
   
@@ -15,7 +15,7 @@ export const initialFetch = createAsyncThunk(
     "cocktails/fetchByFirstLetter",
     async (letter) => {
       const response = await axios.get(`${API_BASE_URL}/search.php?f=${letter}`);
-      return organizeCocktailList(response.data.drinks);
+      return organizeCocktailList(response.data.drinks, 24);
     }
   );
 

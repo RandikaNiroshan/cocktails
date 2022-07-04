@@ -156,7 +156,7 @@ export const calcSearchGrid = (width) => {
 
 export const calcVideoWidth = (width) => {
   if (width < SCREEN_SIZE.MD) {
-    return width - 30;
+    return (width * 0.75) - 20;
   }
   if (width < SCREEN_SIZE.LG) {
     return width * 0.8;

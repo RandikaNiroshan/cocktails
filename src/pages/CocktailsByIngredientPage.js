@@ -25,7 +25,7 @@ const CocktailsByIngredientPage = () => {
   return (
     <AnimateRoute>
       <Title className="mt-7 mb-8 md:mt-10 md:mb-12 lg:mt-12 lg:mb-16" title={`Recipes For ${id}`} />
-      <div className="px-[5vw] md:px-[6vw] lg:px-[7vw]">
+      <div className="px-[5vw] md:px-[6vw] lg:px-[7vw] overflow-hidden">
         <CocktailsGrid
           list={cocktails}
           loading={loading}

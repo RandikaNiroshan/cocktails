@@ -8,7 +8,6 @@ import { CocktailInfo, Instructions, VideoTutorial } from "../containers";
 import { hideIngredientModal } from "../app/features/modalSlice";
 import AnimateRoute from "../containers/layout/AnimateRoute";
 
-
 const CocktailPage = () => {
   const dispatch = useDispatch();
   const cocktail = useSelector((state) => state.details.cocktail);
