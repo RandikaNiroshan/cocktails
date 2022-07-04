@@ -9,7 +9,7 @@ import {
   fetchGlasses,
 } from "../../app/features/initialSlice";
 
-const Layout = (props) => {
+const Layout = ({children}) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.initial.categoriesList);
   const glasses = useSelector((state) => state.initial.glassesList);
@@ -32,7 +32,7 @@ const Layout = (props) => {
       <div className="flex-grow-0 flex-shrink-0 flex-">
         <Header />
       </div>
-      <div className="flex-grow flex-shrink-0">{props.children}</div>
+      <div className="flex-grow flex-shrink-0">{children}</div>
       <div className="flex-grow-0 flex-shrink-0">
         <Footer />
       </div>

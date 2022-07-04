@@ -39,7 +39,6 @@ const Home = () => {
         <div className="h-min w-auto col-start-1 row-start-4 row-span-2 col-span-2">
           <TwoByTwo cocktail={featuredDrinks[4]} loading={loading} />
         </div>
-        
       </div>
     </section>
   );

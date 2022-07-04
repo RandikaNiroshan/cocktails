@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchByIngredient } from "../app/features/fetchByIngredientSlice";
 import { calcOtherCocktailGrid } from "../app/utils/helpers";
 import { CocktailsGrid, Title } from "../components";
+import AnimateRoute from "../containers/layout/AnimateRoute";
 import { useTitle } from "../hooks/useTitle";
 import useWindowSize from "../hooks/useWindowSize";
 
@@ -22,7 +23,7 @@ const CocktailsByIngredientPage = () => {
   }, [id, dispatch]);
 
   return (
-    <>
+    <AnimateRoute>
       <Title className="mt-7 mb-8 md:mt-10 md:mb-12 lg:mt-12 lg:mb-16" title={`Recipes For ${id}`} />
       <div className="px-[5vw] md:px-[6vw] lg:px-[7vw]">
         <CocktailsGrid
@@ -31,7 +32,7 @@ const CocktailsByIngredientPage = () => {
           perPage={calcOtherCocktailGrid(size.width)}
         />
       </div>
-    </>
+    </AnimateRoute>
   );
 };
 

@@ -18,7 +18,7 @@ const AboutIngredient = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center cursor-default">
       <h1 className="text-xl md:text-2xl lg:text-3xl my-2 capitalize text-app-flame font-extrabold font-app-heading">
         Ingredient Details
       </h1>

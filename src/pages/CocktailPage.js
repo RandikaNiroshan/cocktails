@@ -6,6 +6,7 @@ import { fetchCocktailDetails } from "../app/features/detailsSlice";
 import { AboutIngredient, Title, Modal } from "../components";
 import { CocktailInfo, Instructions, VideoTutorial } from "../containers";
 import { hideIngredientModal } from "../app/features/modalSlice";
+import AnimateRoute from "../containers/layout/AnimateRoute";
 
 
 const CocktailPage = () => {
@@ -26,7 +27,7 @@ const CocktailPage = () => {
     dispatch(fetchCocktailDetails(id));
   }, [id, dispatch]);
   return (
-    <>
+    <AnimateRoute>
       <CocktailInfo cocktail={cocktail} loading={loading} />
       <Title title={"Instructions"} />
       <Instructions cocktail={cocktail} loading={loading} />
@@ -37,7 +38,7 @@ const CocktailPage = () => {
           <AboutIngredient />
         </Modal>
       )}
-    </>
+    </AnimateRoute>
   );
 };
 

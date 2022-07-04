@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { showSearchModal } from "../app/features/modalSlice";
+import AnimateRoute from "../containers/layout/AnimateRoute";
 
 const ErrorPage = () => {
   const dispatch = useDispatch();
@@ -9,6 +10,7 @@ const ErrorPage = () => {
     dispatch(showSearchModal());
   };
   return (
+    <AnimateRoute>
     <div className="flex flex-col justify-center items-center h-full w-full my-10 xl:my-16">
       <div className="flex flex-col justify-center items-center w-[80%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
         <h2 className="text-7xl md:text-8xl xl:text-9xl font-app-main font-bold text-app-flame">
@@ -33,6 +35,7 @@ const ErrorPage = () => {
           </div>
       </div>
     </div>
+    </AnimateRoute>
   );
 };
 

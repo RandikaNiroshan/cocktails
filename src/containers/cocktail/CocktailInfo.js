@@ -17,7 +17,7 @@ const CocktailInfo = ({ cocktail, loading }) => {
   return (
     <section className="px-4 md:px-6 lg:px-20 w-full mt-6 md:mt-8 lg:mt-12 mb-8">
       <div className="flex w-full md:gap-4 lg:gap-10 flex-col-reverse md:flex-row">
-        <div className="flex flex-col justify-center items-center w-full md:w-2/3">
+        <div className="flex flex-col justify-start items-center w-full md:w-2/3">
           <AboutCocktail cocktail={cocktail} loading={loading} />
           <IngredientsList cocktail={cocktail} loading={loading} />
         </div>

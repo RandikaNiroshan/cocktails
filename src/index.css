@@ -44,7 +44,7 @@
   }
 
   .pagination-buttons {
-    @apply bg-white text-[9px] xs:text-[13px] md:text-sm text-app-cadet font-bold font-app-main px-[6px] xs:px-[10px] md:px-3 py-[2px] xs:py-[3px] md:py-1 rounded-md text-center ring-2 ring-app-cadet md:hover:bg-app-cadet md:hover:text-white basic-transition;
+    @apply bg-white text-[9px] xs:text-[13px] md:text-sm lg:text-[15px] text-app-cadet font-bold font-app-main px-[6px] xs:px-[10px] md:px-3 py-[2px] xs:py-[3px] md:py-1 rounded-md text-center ring-2 ring-app-cadet md:hover:bg-app-cadet md:hover:text-white active:scale-95 basic-transition;
   }
 
   .bg-image {

@@ -5,6 +5,7 @@ import { fetchByAlcoholic } from "../app/features/alcoholicSlice";
 import { HTTP_STATUS } from "../app/utils/constants";
 import { calcOtherCocktailGrid } from "../app/utils/helpers";
 import { CocktailsGrid, Title } from "../components";
+import AnimateRoute from "../containers/layout/AnimateRoute";
 import { useTitle } from "../hooks/useTitle";
 import useWindowSize from "../hooks/useWindowSize";
 
@@ -43,7 +44,7 @@ const AlcoholicPage = () => {
   }, [dispatch, alcoholicTypes, selectedType, type]);
 
   return (
-    <>
+    <AnimateRoute>
       <Title title="Select Cocktails Based On" />
       {loadingTypes === HTTP_STATUS.FULFILLED && (
         <div className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28">
@@ -77,7 +78,7 @@ const AlcoholicPage = () => {
           perPage={calcOtherCocktailGrid(size.width)}
         />
       </div>
-    </>
+    </AnimateRoute>
   );
 };
 

@@ -1,6 +1,6 @@
 <h1 align="center">React.js Cocktails App</h1>
 
-### A fully responsive Single Page Application created using React, Redux, Redux Thunk, React Router and Tailwind. 
+### A fully responsive Single Page Application created using React, Redux, Redux Async Thunk, React Router and Tailwind. 
 
 ![Cocktails App](https://i.imgur.com/fmdlxd8.jpg "Device Preview of Cocktails App")
 

@@ -24,7 +24,7 @@ const Popular = () => {
   };
 
   return (
-    <section className="bg-image pt-5 pb-3">
+    <section className="bg-image mt-8 lg:mt-10 pt-5 pb-3">
       <div className="px-[28px] md:px-[32px] lg:px-12 py-3">
         <Slider {...settings}>
           {PopularList.map((item) => (

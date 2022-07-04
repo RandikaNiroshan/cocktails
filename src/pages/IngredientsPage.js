@@ -4,6 +4,7 @@ import { fetchIngredients } from "../app/features/ingredientSlice";
 import { hideIngredientModal } from "../app/features/modalSlice";
 import { calcIngredientsGrid } from "../app/utils/helpers";
 import { AboutIngredient, IngredientsGrid, Title, Modal } from "../components";
+import AnimateRoute from "../containers/layout/AnimateRoute";
 import { useTitle } from "../hooks/useTitle";
 import useWindowSize from "../hooks/useWindowSize";
 
@@ -26,7 +27,7 @@ const IngredientsPage = () => {
   }, []);
 
   return (
-    <>
+    <AnimateRoute>
       <Title
         className="mt-7 mb-8 md:mt-10 md:mb-12 lg:mt-12 lg:mb-16"
         title="Perfect Ingredients Never Exists"
@@ -43,7 +44,7 @@ const IngredientsPage = () => {
           <AboutIngredient />
         </Modal>
       )}
-    </>
+    </AnimateRoute>
   );
 };
 
