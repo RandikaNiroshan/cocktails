@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import { showSearchModal } from "../../app/features/modalSlice";
+import { hideMobileMenu, showMobileMenu, showSearchModal } from "../../app/features/modalSlice";
 import { Menu } from "../../app/utils/data";
 import { Logo } from "../../components";
 import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const favCount = useSelector((state) => state.favorite.favorite);
-  const [isOpen, setIsOpen] = useState(false);
+  const showModal = useSelector((state) => state.modal.showMobileMenu);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const openSearch = () => {
     dispatch(showSearchModal());
   };
+
+  const onCloseModal = () => {
+    dispatch(hideMobileMenu());
+  };
+
+  const openMenu = () => {
+    dispatch(showMobileMenu());
+  }
 
   const onNavigateFavorite = () => {
     favCount?.length > 0 && navigate("/favorites");
@@ -24,7 +32,7 @@ const Header = () => {
     <>
       <header className="flex bg-white drop-shadow-md justify-between items-center h-16 px-4 md:px-6 lg:px-10 xl:px-16">
         <div
-          onClick={() => setIsOpen(true)}
+          onClick={openMenu}
           className="h-6 w-6 md:h-8 md:w-8 lg:hidden active:scale-95"
         >
           <svg
@@ -106,7 +114,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-      {isOpen && <MobileMenu onClose={() => setIsOpen(false)} />}
+      <MobileMenu onClose={onCloseModal} show={showModal} />
     </>
   );
 };

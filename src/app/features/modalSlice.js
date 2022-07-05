@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   showIngredientModal: false,
   showSearchModal: false,
+  showMobileMenu: false,
 };
 
 export const modalSlice = createSlice({
@@ -21,6 +22,12 @@ export const modalSlice = createSlice({
     hideSearchModal: (state) => {
       state.showSearchModal = false;
     },
+    showMobileMenu: (state) => {
+      state.showMobileMenu = true;
+    },
+    hideMobileMenu: (state) => {
+      state.showMobileMenu = false;
+    },
   },
 });
 
@@ -29,6 +36,8 @@ export const {
   hideIngredientModal,
   showSearchModal,
   hideSearchModal,
+  showMobileMenu,
+  hideMobileMenu,
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

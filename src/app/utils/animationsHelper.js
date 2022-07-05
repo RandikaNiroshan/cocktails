@@ -15,33 +15,123 @@ export const cocktailsGridAnimation = {
 };
 
 export const fromBelow = {
-  initial: { opacity: 0, translateY: 50 },
+  initial: { opacity: 0, y: 50 },
   animate: {
     opacity: 1,
-    translateY: 0,
+    y: 0,
   },
 };
 
 export const fromTop = {
-  initial: { opacity: 0, translateY: -50 },
+  initial: { opacity: 0, y: -50 },
   animate: {
     opacity: 1,
-    translateY: 0,
+    y: 0,
   },
 };
 
 export const fromLeft = {
-  initial: { opacity: 0, translateX: -50 },
+  initial: { opacity: 0, x: -50 },
   animate: {
     opacity: 1,
-    translateX: 0,
+    x: 0,
   },
 };
 
 export const fromRight = {
-  initial: { opacity: 0, translateX: 50 },
+  initial: { opacity: 0, x: 50 },
   animate: {
     opacity: 1,
-    translateX: 0,
+    x: 0,
+  },
+};
+
+export const mobileMenu = {
+  initial: { x: "100vw", opacity: 0.8},
+  animate: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      ease: "circIn",
+      duration: 0.35,
+      delay: 0.1,
+    },
+  },
+  exit: {
+    x: "-100vw",
+    opacity: 0.9,
+    transition: {
+      ease: "circIn",
+      duration: 0.25,
+      delay: 0.1,
+    },
+  },
+};
+
+export const menuFromLeft = {
+  initial: { opacity: 0, x: "-50vw" },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      ease: "linear",
+      duration: 0.5,
+      delay: 0.5,
+    },
+  },
+};
+
+export const menuFromRight = {
+  initial: { opacity: 0, x: "50vw" },
+  animate: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      ease: "linear",
+      duration: 0.5,
+      delay: 0.5,
+    },
+  },
+};
+
+export const closeIconAnimate = {
+  initial: { opacity: 0, scale: 0 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      duration: 0.5,
+      delay: 1.2,
+    },
+  },
+};
+
+export const modalBackDrop = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+  },
+};
+
+export const modalAnimation = {
+  initial: { opacity: 0, y: "-100vh" },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: "circIn",
+      duration: 0.3,
+      delay: 0.35,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: "-100vh",
+    transition: {
+      ease: "circIn",
+      duration: 0.3,
+      delay: 0.1,
+    },
   },
 };

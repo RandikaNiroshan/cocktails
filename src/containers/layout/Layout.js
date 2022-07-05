@@ -21,11 +21,9 @@ const Layout = ({ children }) => {
       <div className="flex-grow-0 flex-shrink-0">
         <Footer />
       </div>
-      {showModal && (
-        <Modal onCloseModal={onCloseModal} show={showModal}>
-          <SearchCocktails />
-        </Modal>
-      )}
+      <Modal onCloseModal={onCloseModal} show={showModal}>
+        <SearchCocktails />
+      </Modal>
     </div>
   );
 };

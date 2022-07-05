@@ -39,11 +39,9 @@ const IngredientsPage = () => {
           perPage={calcIngredientsGrid(size.width)}
         />
       </div>
-      {showModal && (
-        <Modal onCloseModal={onCloseModal} show={showModal}>
-          <AboutIngredient />
-        </Modal>
-      )}
+      <Modal onCloseModal={onCloseModal} show={showModal}>
+        <AboutIngredient />
+      </Modal>
     </AnimateRoute>
   );
 };

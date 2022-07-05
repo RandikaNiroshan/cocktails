@@ -13,9 +13,9 @@ const CocktailPage = () => {
   const cocktail = useSelector((state) => state.details.cocktail);
   const loading = useSelector((state) => state.details.loading);
   const { id } = useParams();
-  
+
   const showModal = useSelector((state) => state.modal.showIngredientModal);
-  
+
   useTitle(`${cocktail.drink} | Cocktails`, loading);
 
   const onCloseModal = () => {
@@ -32,11 +32,9 @@ const CocktailPage = () => {
       <Instructions cocktail={cocktail} loading={loading} />
       <Title title={"Video Guide"} />
       <VideoTutorial cocktail={cocktail} loading={loading} />
-      {showModal && (
-        <Modal onCloseModal={onCloseModal} show={showModal}>
-          <AboutIngredient />
-        </Modal>
-      )}
+      <Modal onCloseModal={onCloseModal} show={showModal}>
+        <AboutIngredient />
+      </Modal>
     </AnimateRoute>
   );
 };

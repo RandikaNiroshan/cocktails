@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Pagination from "../Pagination";
 import { HTTP_STATUS } from "../../app/utils/constants";
 import IngredientCard from "./IngredientCard";
-import { motion, AnimateSharedLayout } from "framer-motion";
+import { motion } from "framer-motion";
 import { cocktailsGridAnimation } from "../../app/utils/animationsHelper";
 
 const IngredientsGrid = ({ list, loading, perPage }) => {
@@ -48,27 +48,25 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
       )}
 
       {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
-        <AnimateSharedLayout type="crossfade">
-          <motion.div
-            layout
-            className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-5 lg:gap-8"
-          >
-            {displayItems.map((item, index) => {
-              return (
-                <motion.div
-                  key={`${item}-${index}`}
-                  variants={cocktailsGridAnimation}
-                  initial="initial"
-                  whileInView="animate"
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.2, delay: index * 0.09 }}
-                >
-                  {<IngredientCard name={item} loading={loading} />}
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </AnimateSharedLayout>
+        <motion.div
+          layoutId="ingredients-grid"
+          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-5 lg:gap-8"
+        >
+          {displayItems.map((item, index) => {
+            return (
+              <motion.div
+                key={`${item}-${index}`}
+                variants={cocktailsGridAnimation}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                transition={{ duration: 0.2, delay: index * 0.09 }}
+              >
+                {<IngredientCard name={item} loading={loading} />}
+              </motion.div>
+            );
+          })}
+        </motion.div>
       )}
 
       <div className="mx-8 my-12">

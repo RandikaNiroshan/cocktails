@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { HTTP_STATUS } from "../../app/utils/constants";
 import { Pagination } from "../";
 import { DummyCocktail } from "../../app/utils/data";
 import SearchCard from "./SearchCard";
+import { cocktailsGridAnimation } from "../../app/utils/animationsHelper";
 
 const SearchItemsGrid = ({ list, loading, perPage }) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -29,7 +31,7 @@ const SearchItemsGrid = ({ list, loading, perPage }) => {
       {loading === HTTP_STATUS.REJECTED && (
         <div className="w-full p-4">
           <p className="text-app-flame font-app-heading text-[16px] md:text-[18px] lg:text-[20px] font-bold text-center">
-            Something Went Wrong. Try Again Later
+            Oops!! No Cocktails Found.
           </p>
         </div>
       )}
@@ -47,15 +49,25 @@ const SearchItemsGrid = ({ list, loading, perPage }) => {
       )}
 
       {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[16px] lg:gap-[20px] xl:gap-[25px]">
+        <motion.div
+          layoutId="search-grid"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[16px] lg:gap-[20px] xl:gap-[25px]"
+        >
           {displayItems.map((item, index) => {
             return (
-              <div key={index}>
+              <motion.div
+                key={item.id}
+                variants={cocktailsGridAnimation}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                transition={{ duration: 0.2, delay: index * 0.09 }}
+              >
                 {<SearchCard cocktail={item} loading={loading} />}
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       )}
 
       {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
