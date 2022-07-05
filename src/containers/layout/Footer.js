@@ -4,6 +4,8 @@ import { TbArrowBigUpLines } from "react-icons/tb";
 import { animateScroll as scroll } from "react-scroll";
 import FooterLogo from "./FooterLogo";
 import { alcoholicTypes, categoryTypes, Menu } from "../../app/utils/data";
+import { motion } from "framer-motion";
+import { fromBelow } from "../../app/utils/animationsHelper";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -19,7 +21,18 @@ const Footer = () => {
       <>
         <div className="flex justify-center md:flex-col lg:flex-row py-4 md:py-6 px-12 lg:px-20 xl:px-32 lg:py-10">
           <div className="flex justify-center md:justify-evenly w-full">
-            <div className="lg:flex-[3] flex flex-col md:hidden lg:flex justify-center items-center lg:items-start lg:justify-start">
+            <motion.div
+              variants={fromBelow}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{
+                ease: "easeInOut",
+                duration: 0.7,
+                delay: 0.5,
+              }}
+              className="lg:flex-[3] flex flex-col md:hidden lg:flex justify-center items-center lg:items-start lg:justify-start"
+            >
               <FooterLogo />
               <div className="flex md:hidden mt-3 justify-center gap-4 w-full px-1">
                 {Menu.map((item, index) => {
@@ -34,8 +47,19 @@ const Footer = () => {
                   );
                 })}
               </div>
-            </div>
-            <div className="flex-[3] hidden md:flex flex-col justify-start w-full px-1">
+            </motion.div>
+            <motion.div
+              variants={fromBelow}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{
+                ease: "easeInOut",
+                duration: 0.7,
+                delay: 0.5,
+              }}
+              className="flex-[3] hidden md:flex flex-col justify-start w-full px-1"
+            >
               {alcoholicTypes.map((item, index) => {
                 return (
                   <Link
@@ -47,8 +71,19 @@ const Footer = () => {
                   </Link>
                 );
               })}
-            </div>
-            <div className="flex-[9] hidden md:block w-full">
+            </motion.div>
+            <motion.div
+              variants={fromBelow}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{
+                ease: "easeInOut",
+                duration: 0.7,
+                delay: 0.5,
+              }}
+              className="flex-[9] hidden md:block w-full"
+            >
               <div className="grid grid-cols-3 items-center gap-1">
                 {categoryTypes.map((item, index) => {
                   return (
@@ -62,11 +97,22 @@ const Footer = () => {
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           </div>
-          <div className="hidden mt-4 md:flex lg:hidden justify-center items-center w-full">
+          <motion.div
+            variants={fromBelow}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.7,
+              delay: 0.5,
+            }}
+            className="hidden mt-4 md:flex lg:hidden justify-center items-center w-full"
+          >
             <FooterLogo />
-          </div>
+          </motion.div>
         </div>
         <div
           onClick={() => scrollToTop()}

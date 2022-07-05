@@ -3,7 +3,7 @@ import Pagination from "../Pagination";
 import { HTTP_STATUS } from "../../app/utils/constants";
 import IngredientCard from "./IngredientCard";
 import { motion, AnimateSharedLayout } from "framer-motion";
-import { otherDeviceCocktailsGrid } from "../../app/utils/animationsHelper";
+import { cocktailsGridAnimation } from "../../app/utils/animationsHelper";
 
 const IngredientsGrid = ({ list, loading, perPage }) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -57,7 +57,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
               return (
                 <motion.div
                   key={`${item}-${index}`}
-                  variants={otherDeviceCocktailsGrid}
+                  variants={cocktailsGridAnimation}
                   initial="initial"
                   whileInView="animate"
                   viewport={{ once: true }}

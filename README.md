@@ -4,7 +4,7 @@
 
 ![Cocktails App](https://i.imgur.com/fmdlxd8.jpg "Device Preview of Cocktails App")
 
-[![](https://i.imgur.com/S2zk8Nc.png)](https://cocktails-lk.netlify.app/)
+[![](https://i.imgur.com/NyD504y.png)](https://cocktails-lk.netlify.app/)
 
 ### Tools & Skills
 ![Tools and Skills](https://skillicons.dev/icons?i=js,react,redux,tailwind,netlify)

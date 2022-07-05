@@ -14,21 +14,6 @@ export const cocktailsGridAnimation = {
   animate: { opacity: 1, scale: 1 },
 };
 
-export const mobileCocktailsGridFromLeft = {
-  initial: { opacity: 0, translateX: -30, translateY: -20 },
-  animate: { opacity: 1, translateX: 0, translateY: 0 },
-};
-
-export const mobileCocktailsGridFromRight = {
-  initial: { opacity: 0, translateX: 30, translateY: -20 },
-  animate: { opacity: 1, translateX: 0, translateY: 0 },
-};
-
-export const otherDeviceCocktailsGrid = {
-  initial: { opacity: 0, translateX: -50, translateY: -50 },
-  animate: { opacity: 1, translateX: 0, translateY: 0 },
-};
-
 export const fromBelow = {
   initial: { opacity: 0, translateY: 50 },
   animate: {

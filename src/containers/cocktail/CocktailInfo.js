@@ -3,6 +3,8 @@ import { HTTP_STATUS } from "../../app/utils/constants";
 import { ImagePlaceHolder } from "../../assets";
 import { Favorite, IngredientsList } from "../../components";
 import AboutCocktail from "../../components/cocktail/AboutCocktail";
+import { motion } from "framer-motion";
+import { fromRight, fromTop } from "../../app/utils/animationsHelper";
 
 const CocktailInfo = ({ cocktail, loading }) => {
   const [tags, setTags] = useState([]);
@@ -16,14 +18,28 @@ const CocktailInfo = ({ cocktail, loading }) => {
 
   return (
     <section className="px-4 md:px-6 lg:px-20 w-full mt-6 md:mt-8 lg:mt-12 mb-8 overflow-hidden">
-      <div className="flex w-full md:gap-4 lg:gap-10 flex-col-reverse md:flex-row">
+      <motion.div
+        layoutId="cocktails-details"
+        className="flex w-full md:gap-4 lg:gap-10 flex-col-reverse md:flex-row"
+      >
         <div className="flex flex-col justify-start items-center w-full md:w-2/3">
           <AboutCocktail cocktail={cocktail} loading={loading} />
           <IngredientsList cocktail={cocktail} loading={loading} />
         </div>
 
         <div className="flex flex-col justify-center md:justify-start w-full md:w-1/3 mb-6 md:p-0">
-          <div className="rounded-lg drop-shadow-xl h-max group ring-1 ring-white">
+          <motion.div
+            variants={fromTop}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.8,
+              delay: 0.4,
+            }}
+            className="rounded-lg drop-shadow-xl h-max group ring-1 ring-white"
+          >
             {loading === HTTP_STATUS.PENDING && (
               <div className="loading animate-loading rounded-xl w-full aspect-[4/3] md:aspect-square"></div>
             )}
@@ -35,9 +51,20 @@ const CocktailInfo = ({ cocktail, loading }) => {
               />
             )}
             <Favorite cocktail={cocktail} />
-          </div>
+          </motion.div>
           {loading === HTTP_STATUS.FULFILLED && tags.length > 0 && (
-            <div className="hidden md:flex flex-wrap gap-2 overflow-hidden mt-8 pr-4">
+            <motion.div
+              variants={fromRight}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{
+                ease: "easeInOut",
+                duration: 0.6,
+                delay: 1,
+              }}
+              className="hidden md:flex flex-wrap gap-2 overflow-hidden mt-8 pr-4"
+            >
               {tags.map((item, i) => {
                 return (
                   <div
@@ -48,10 +75,10 @@ const CocktailInfo = ({ cocktail, loading }) => {
                   </div>
                 );
               })}
-            </div>
+            </motion.div>
           )}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { HTTP_STATUS } from "../../app/utils/constants";
+import { motion } from "framer-motion";
+import { fromBelow, skeletonGrid } from "../../app/utils/animationsHelper";
 
 const Instructions = ({ cocktail, loading }) => {
   const [instructions, setInstructions] = useState([]);
@@ -9,10 +11,29 @@ const Instructions = ({ cocktail, loading }) => {
       setInstructions(cocktail.instructions.split("."));
     }
   }, [loading, cocktail.instructions]);
-
+  
   return (
-    <section className="bg-app-cadet" id="instructions">
-      <div className="w-full px-6 md:px-20 lg:px-32 py-8 md:py-10 mt-6 md:mt-8 lg:mt-12 mb-8 flex flex-col items-center">
+    <motion.div variants={skeletonGrid}
+    initial="initial"
+    whileInView="animate"
+    viewport={{ once: true }}
+    transition={{
+      ease: "easeInOut",
+      duration: 0.2,
+      delay: 1,
+    }} className="bg-app-cadet" id="instructions">
+      <motion.div
+        variants={fromBelow}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        transition={{
+          ease: "easeInOut",
+          duration: 1,
+          delay: 0.8,
+        }}
+        className="w-full px-6 md:px-20 lg:px-32 py-8 md:py-10 mt-6 md:mt-8 lg:mt-12 mb-8 flex flex-col items-center"
+      >
         {loading === HTTP_STATUS.FULFILLED &&
           instructions.length > 0 &&
           instructions.map((item, index) => {
@@ -35,8 +56,8 @@ const Instructions = ({ cocktail, loading }) => {
               </div>
             );
           })}
-      </div>
-    </section>
+      </motion.div>
+    </motion.div>
   );
 };
 

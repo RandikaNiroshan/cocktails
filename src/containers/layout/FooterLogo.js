@@ -13,7 +13,7 @@ const FooterLogo = () => {
       <Logo alt={true} />
       <div className="flex gap-1 mx-1 mb-2 mt-3 w-full justify-start">
         <a
-          href="https://facebook.com/RandikaNiroshan"
+          href="https://facebook.com/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
@@ -21,7 +21,7 @@ const FooterLogo = () => {
           <FaFacebookSquare className="w-5 h-5 text-white shadow-sm md:hover:text-app-flame md:hover:animate-expand md:hover:cursor-pointer" />
         </a>
         <a
-          href="https://twitter.com/RandikaNiroshan"
+          href="https://twitter.com/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Twitter"

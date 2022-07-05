@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { calcHomeCocktailGrid } from "../../app/utils/helpers";
-import { MainCocktailsGrid, SelectLetter } from "../../components";
+import { CocktailsGrid, SelectLetter } from "../../components";
 import useWindowSize from "../../hooks/useWindowSize";
 import {
   fetchByFirstLetter,
@@ -44,7 +44,7 @@ const Cocktails = () => {
         <SelectLetter />
       </motion.div>
       <div className="px-[5vw] md:px-[6vw] lg:px-[7vw]">
-        <MainCocktailsGrid
+        <CocktailsGrid
           perPage={calcHomeCocktailGrid(size.width)}
           list={cocktails}
           loading={loading}

@@ -3,10 +3,23 @@ import { HTTP_STATUS } from "../../app/utils/constants";
 import PrimaryButton from "../buttons/PrimaryButton";
 import InfoCard from "./InfoCard";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+import { fromBelow, fromLeft, fromTop } from "../../app/utils/animationsHelper";
 
 const AboutCocktail = ({ cocktail, loading }) => {
   return (
-    <div className="flex flex-col bg-white rounded-xl drop-shadow-lg w-full px-4 lg:px-6 py-4">
+    <motion.div
+      variants={fromLeft}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true }}
+      transition={{
+        ease: "easeInOut",
+        duration: 0.8,
+        delay: 0.4,
+      }}
+      className="flex flex-col bg-white rounded-xl drop-shadow-lg w-full px-4 lg:px-6 py-4"
+    >
       {loading === HTTP_STATUS.PENDING && (
         <>
           <div className="px-1 space-y-1">
@@ -30,15 +43,70 @@ const AboutCocktail = ({ cocktail, loading }) => {
         </>
       )}
       <div className="flex justify-evenly gap-2 lg:gap-3 mt-3 h-auto px-1">
-        <InfoCard
-          title="Ingredients"
-          data={cocktail.ingredients?.length}
-          loading={loading}
-        />
-        <InfoCard title="Category" data={cocktail.category} loading={loading} />
-        <InfoCard title="Serve" data={cocktail.glass} loading={loading} />
+        <motion.div
+          variants={fromTop}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          transition={{
+            ease: "easeInOut",
+            duration: 0.5,
+            delay: 1.2,
+          }}
+          className="w-full"
+        >
+          <InfoCard
+            title="Ingredients"
+            data={cocktail.ingredients?.length}
+            loading={loading}
+          />
+        </motion.div>
+        <motion.div
+          variants={fromTop}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          transition={{
+            ease: "easeInOut",
+            duration: 0.5,
+            delay: 1.4,
+          }}
+          className="w-full"
+        >
+          <InfoCard
+            title="Category"
+            data={cocktail.category}
+            loading={loading}
+          />
+        </motion.div>
+
+        <motion.div
+          variants={fromTop}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          transition={{
+            ease: "easeInOut",
+            duration: 0.5,
+            delay: 1.6,
+          }}
+          className="w-full"
+        >
+          <InfoCard title="Serve" data={cocktail.glass} loading={loading} />
+        </motion.div>
       </div>
-      <div className="flex justify-center items-start gap-1 w-full mt-5">
+      <motion.div
+        variants={fromBelow}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        transition={{
+          ease: "easeInOut",
+          duration: 0.7,
+          delay: 1.4,
+        }}
+        className="flex justify-center items-start gap-1 w-full mt-5"
+      >
         <Link
           to="instructions"
           smooth="easeInCubic"
@@ -46,7 +114,7 @@ const AboutCocktail = ({ cocktail, loading }) => {
           duration={700}
           delay={150}
         >
-          <PrimaryButton text="Instructions" loading={loading}/>
+          <PrimaryButton text="Instructions" loading={loading} />
         </Link>
 
         <Link
@@ -56,10 +124,10 @@ const AboutCocktail = ({ cocktail, loading }) => {
           duration={700}
           delay={150}
         >
-          <PrimaryButton text="Video Guide" loading={loading}/>
+          <PrimaryButton text="Video Guide" loading={loading} />
         </Link>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
