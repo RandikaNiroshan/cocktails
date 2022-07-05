@@ -2,9 +2,12 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { showSearchModal } from "../app/features/modalSlice";
 import AnimateRoute from "../containers/layout/AnimateRoute";
+import { useTitle } from "../hooks/useTitle";
 
 const ErrorPage = () => {
   const dispatch = useDispatch();
+
+  useTitle("Error 404 | Cocktails");
 
   const openSearch = () => {
     dispatch(showSearchModal());

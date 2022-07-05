@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import { fetchByGlass } from "../app/features/glassSlice";
-import { HTTP_STATUS } from "../app/utils/constants";
 import { calcOtherCocktailGrid } from "../app/utils/helpers";
 import { CocktailsGrid, Title } from "../components";
 import AnimateRoute from "../containers/layout/AnimateRoute";
@@ -10,6 +9,7 @@ import { useTitle } from "../hooks/useTitle";
 import useWindowSize from "../hooks/useWindowSize";
 import { motion } from "framer-motion";
 import { fromBelow } from "../app/utils/animationsHelper";
+import { glassTypes } from "../app/utils/data";
 
 const GlassesPage = () => {
   const dispatch = useDispatch();
@@ -17,14 +17,13 @@ const GlassesPage = () => {
 
   const type = searchParams.get("id") ?? 0;
 
-  const glasses = useSelector((state) => state.initial.glassesList);
-  const loadingGlasses = useSelector((state) => state.initial.loading);
+  const types = glassTypes;
   const cocktails = useSelector((state) => state.glass.cocktails);
   const loading = useSelector((state) => state.glass.loading);
 
   const [selectedType, setSelectedType] = useState(type);
 
-  useTitle(`${glasses?.[type]?.["strGlass"]} | Cocktails`, loadingGlasses);
+  useTitle(`${types?.[selectedType] ?? "Error"} | Cocktails`);
   const size = useWindowSize();
 
   const onChangeType = (index) => {
@@ -35,16 +34,13 @@ const GlassesPage = () => {
 
   useEffect(() => {
     setSelectedType(type);
-    if (glasses.length > 0) {
-      dispatch(fetchByGlass({ param: selectedType, typeList: glasses }));
-    }
-  }, [dispatch, glasses, selectedType, type]);
+    dispatch(fetchByGlass(selectedType));
+  }, [dispatch, selectedType, type]);
 
   return (
     <AnimateRoute>
       <Title title="What's Your Preferred Glass?" />
-      {loadingGlasses === HTTP_STATUS.FULFILLED && (
-        <motion.div
+      <motion.div
           variants={fromBelow}
           initial="initial"
           whileInView="animate"
@@ -56,7 +52,7 @@ const GlassesPage = () => {
           }}
           className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28"
         >
-          {glasses.map((glass, index) => {
+          {types.map((glass, index) => {
             return (
               <div
                 key={index}
@@ -72,13 +68,12 @@ const GlassesPage = () => {
                       : "text-app-cadet"
                   }`}
                 >
-                  {glass.strGlass}
+                  {glass}
                 </p>
               </div>
             );
           })}
         </motion.div>
-      )}
       <div className="px-[5vw] md:px-[6vw] lg:px-[7vw] overflow-hidden">
         <CocktailsGrid
           list={cocktails}

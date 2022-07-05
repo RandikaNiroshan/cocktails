@@ -50,6 +50,49 @@ export const Letters = [
   "Z",
 ];
 
+export const alcoholicTypes = [
+  "Alcoholic",
+  "Non alcoholic",
+  "Optional alcohol",
+];
+
+export const categoryTypes = [
+  "Ordinary Drink",
+  "Cocktail",
+  "Shake",
+  "Other/Unknown",
+  "Cocoa",
+  "Shot",
+  "Coffee / Tea",
+  "Homemade Liqueur",
+  "Punch / Party Drink",
+  "Beer",
+  "Soft Drink",
+];
+
+export const glassTypes = [
+  "Highball glass",
+  "Cocktail glass",
+  "Old-fashioned glass",
+  "Collins glass",
+  "Champagne flute",
+  "Whiskey sour glass",
+  "Hurricane glass",
+  "Coffee mug",
+  "Shot glass",
+  "Irish coffee cup",
+  "Punch bowl",
+  "Pitcher",
+  "Pint glass",
+  "Wine Glass",
+  "Beer mug",
+  "Beer pilsner",
+  "Mason jar",
+  "Margarita glass",
+  "Martini Glass",
+  "Balloon Glass",
+];
+
 //Quotes from "https://cliquelv.com/clique-bar-lounge-20-incredible-quotes-cocktails/"
 export const Quotes = [
   {
@@ -739,7 +782,7 @@ export const FeaturedCocktails = [
       {
         name: "Passion fruit syrup",
         measure: "2 cl ",
-      }
+      },
     ],
   },
   {

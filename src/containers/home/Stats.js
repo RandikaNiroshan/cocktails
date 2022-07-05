@@ -44,7 +44,7 @@ const Stats = () => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.8,
+              duration: 1.5,
               delay: (size.width < SCREEN_SIZE.MD ? 1 : 2) * 0.5,
             }}
           >
@@ -63,8 +63,8 @@ const Stats = () => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.8,
-              delay: (size.width < SCREEN_SIZE.MD ? 2 : 1) * 0.5,
+              duration: 1.5,
+              delay: (size.width < SCREEN_SIZE.MD ? 2 : 1) * 0.7,
             }}
           >
             <StatCard
@@ -82,8 +82,8 @@ const Stats = () => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.8,
-              delay: (size.width < SCREEN_SIZE.MD ? 2 : 1) * 0.5,
+              duration: 1.5,
+              delay: (size.width < SCREEN_SIZE.MD ? 2 : 1) * 0.7,
             }}
           >
             <StatCard
@@ -101,8 +101,8 @@ const Stats = () => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.8,
-              delay: (size.width < SCREEN_SIZE.MD ? 1 : 2) * 0.5,
+              duration: 1.5,
+              delay: (size.width < SCREEN_SIZE.MD ? 1 : 2) * 0.7,
             }}
           >
             <StatCard

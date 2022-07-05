@@ -13,6 +13,7 @@ export { default as CocktailQuote } from "./home/CocktailQuote";
 export { default as SelectLetter } from "./home/SelectLetter";
 export { default as CocktailCard } from "./cards/CocktailCard";
 export { default as CocktailsGrid } from "./CocktailsGrid";
+export { default as MainCocktailsGrid } from "./MainCocktailsGrid";
 export { default as Pagination } from "./Pagination";
 export { default as Modal } from "./Modal";
 export { default as InfoCard } from "./cocktail/InfoCard";

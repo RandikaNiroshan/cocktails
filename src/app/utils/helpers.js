@@ -91,7 +91,7 @@ export const youtubeResponseToVideos = (response) => {
 
 export const calcHomeCocktailGrid = (width) => {
   if (width < SCREEN_SIZE.MD) {
-    return 2 * 4;
+    return 2 * 3;
   }
   if (width < SCREEN_SIZE.LG) {
     return 3 * 3;

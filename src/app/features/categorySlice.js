@@ -1,14 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_BASE_URL, HTTP_STATUS } from "../utils/constants";
+import { categoryTypes } from "../utils/data";
 import { organizeCocktailList } from "../utils/helpers";
 
 export const fetchByCategory = createAsyncThunk(
   "category/fetchByCategory",
-  async ({ param, typeList }) => {
-    if (param >= 0 && param < typeList.length) {
+  async (type) => {
+    if (categoryTypes.some((t) => t === categoryTypes[type])) {
       const response = await axios.get(
-        `${API_BASE_URL}/filter.php?c=${typeList[param]["strCategory"]}`
+        `${API_BASE_URL}/filter.php?c=${categoryTypes[type]}`
       );
       return organizeCocktailList(response.data.drinks);
     }
@@ -28,6 +29,7 @@ export const categorySlice = createSlice({
   initialState: initialState,
   extraReducers: {
     [fetchByCategory.pending]: (state) => {
+      state.cocktails = [];
       state.loading = HTTP_STATUS.PENDING;
     },
     [fetchByCategory.fulfilled]: (state, action) => {
@@ -35,6 +37,7 @@ export const categorySlice = createSlice({
       state.cocktails = action.payload;
     },
     [fetchByCategory.rejected]: (state, action) => {
+      state.cocktails = [];
       state.loading = HTTP_STATUS.REJECTED;
       state.error = action.error.message;
     },

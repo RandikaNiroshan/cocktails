@@ -4,12 +4,12 @@ import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fetchByAlcoholic } from "../app/features/alcoholicSlice";
 import { fromBelow } from "../app/utils/animationsHelper";
-import { HTTP_STATUS } from "../app/utils/constants";
 import { calcOtherCocktailGrid } from "../app/utils/helpers";
 import { CocktailsGrid, Title } from "../components";
 import AnimateRoute from "../containers/layout/AnimateRoute";
 import { useTitle } from "../hooks/useTitle";
 import useWindowSize from "../hooks/useWindowSize";
+import { alcoholicTypes } from "../app/utils/data";
 
 const AlcoholicPage = () => {
   const dispatch = useDispatch();
@@ -17,17 +17,13 @@ const AlcoholicPage = () => {
 
   const type = searchParams.get("id") ?? 0;
 
-  const alcoholicTypes = useSelector((state) => state.initial.alcoholicList);
-  const loadingTypes = useSelector((state) => state.initial.loading);
+  const types = alcoholicTypes;
   const cocktails = useSelector((state) => state.alcoholic.cocktails);
   const loading = useSelector((state) => state.alcoholic.loading);
 
   const [selectedType, setSelectedType] = useState(type);
 
-  useTitle(
-    `${alcoholicTypes?.[selectedType]?.["strAlcoholic"]} | Cocktails`,
-    loadingTypes
-  );
+  useTitle(`${types?.[selectedType] ?? "Error"} | Cocktails`);
   const size = useWindowSize();
 
   const onChangeType = (index) => {
@@ -38,52 +34,46 @@ const AlcoholicPage = () => {
 
   useEffect(() => {
     setSelectedType(type);
-    if (alcoholicTypes.length > 0) {
-      dispatch(
-        fetchByAlcoholic({ param: selectedType, typeList: alcoholicTypes })
-      );
-    }
-  }, [dispatch, alcoholicTypes, selectedType, type]);
+    dispatch(fetchByAlcoholic(selectedType));
+  }, [dispatch, selectedType, type]);
 
   return (
     <AnimateRoute>
       <Title title="Select Cocktails Based On" />
-      {loadingTypes === HTTP_STATUS.FULFILLED && (
-        <motion.div
-          variants={fromBelow}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          transition={{
-            ease: "easeInOut",
-            duration: 0.8,
-            delay: 0.4,
-          }}
-          className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28"
-        >
-          {alcoholicTypes.map((alcoholic, index) => {
-            return (
-              <div
-                key={index}
-                className={`rounded-md px-[12px] md:px-4 lg:px-6 py-[5px] md:py-[6px] lg:py-2 drop-shadow-lg cursor-pointer group md:hover:scale-110 basic-transition ${
-                  index === Number(selectedType) ? "bg-app-flame" : "bg-white"
+      <motion.div
+        variants={fromBelow}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        transition={{
+          ease: "easeInOut",
+          duration: 0.8,
+          delay: 0.4,
+        }}
+        className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28"
+      >
+        {types.map((alcoholic, index) => {
+          return (
+            <div
+              key={index}
+              className={`rounded-md px-[12px] md:px-4 lg:px-6 py-[5px] md:py-[6px] lg:py-2 drop-shadow-lg cursor-pointer group md:hover:scale-110 basic-transition ${
+                index === Number(selectedType) ? "bg-app-flame" : "bg-white"
+              }`}
+              onClick={() => onChangeType(index)}
+            >
+              <p
+                className={`text-app-cadet text-sm md:text-base lg:text-lg font-app-text ${
+                  index === Number(selectedType)
+                    ? "text-white"
+                    : "text-app-cadet"
                 }`}
-                onClick={() => onChangeType(index)}
               >
-                <p
-                  className={`text-app-cadet text-sm md:text-base lg:text-lg font-app-text ${
-                    index === Number(selectedType)
-                      ? "text-white"
-                      : "text-app-cadet"
-                  }`}
-                >
-                  {alcoholic.strAlcoholic}
-                </p>
-              </div>
-            );
-          })}
-        </motion.div>
-      )}
+                {alcoholic}
+              </p>
+            </div>
+          );
+        })}
+      </motion.div>
       <div className="px-[5vw] md:px-[6vw] lg:px-[7vw] overflow-hidden">
         <CocktailsGrid
           list={cocktails}

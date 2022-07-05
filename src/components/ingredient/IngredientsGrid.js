@@ -22,7 +22,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
       {loading === HTTP_STATUS.FULFILLED && list.length === 0 && (
         <div className="w-full p-4">
           <p className="text-app-flame font-app-heading text-[16px] md:text-[18px] lg:text-[20px] font-bold text-center">
-            "Oops!!. No Ingredients Found"
+            Oops!! No Ingredients Found.
           </p>
         </div>
       )}
@@ -30,7 +30,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
       {loading === HTTP_STATUS.REJECTED && (
         <div className="w-full p-4">
           <p className="text-app-flame font-app-heading text-[16px] md:text-[18px] lg:text-[20px] font-bold text-center">
-            Something Went Wrong. Try Again Later
+            Oops!! No Ingredients Found.
           </p>
         </div>
       )}
