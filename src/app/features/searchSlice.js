@@ -5,8 +5,14 @@ import { organizeCocktailList } from "../utils/helpers";
 
 export const searchCocktails = createAsyncThunk(
   "search/searchCocktails",
-  async (search) => {
-    const response = await axios.get(`${API_BASE_URL}/search.php?s=${search}`);
+  async (search, { signal }) => {
+    const source = axios.CancelToken.source();
+    signal.addEventListener("abort", () => {
+      source.cancel();
+    });
+    const response = await axios.get(`${API_BASE_URL}/search.php?s=${search}`, {
+      cancelToken: source.token,
+    });
     return organizeCocktailList(response.data.drinks, 16);
   }
 );

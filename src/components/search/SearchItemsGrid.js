@@ -6,7 +6,7 @@ import { DummyCocktail } from "../../app/utils/data";
 import SearchCard from "./SearchCard";
 import { cocktailsGridAnimation } from "../../app/utils/animationsHelper";
 
-const SearchItemsGrid = ({ list, loading, perPage }) => {
+const SearchItemsGrid = ({ list, loading, perPage, error }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = perPage ?? 8;
@@ -28,7 +28,7 @@ const SearchItemsGrid = ({ list, loading, perPage }) => {
         </div>
       )}
 
-      {loading === HTTP_STATUS.REJECTED && (
+      {loading === HTTP_STATUS.REJECTED && error !== "Aborted" && (
         <div className="w-full p-4">
           <p className="text-app-flame font-app-heading text-[16px] md:text-[18px] lg:text-[20px] font-bold text-center">
             Oops!! No Cocktails Found.
@@ -36,7 +36,8 @@ const SearchItemsGrid = ({ list, loading, perPage }) => {
         </div>
       )}
 
-      {loading === HTTP_STATUS.PENDING && (
+{(loading === HTTP_STATUS.PENDING ||
+        (loading === HTTP_STATUS.REJECTED && error === "Aborted")) && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[12px] md:gap-[16px] lg:gap-[20px] xl:gap-[25px]">
           {[...Array(itemsPerPage)].map((_item, index) => {
             return (

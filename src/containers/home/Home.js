@@ -18,7 +18,11 @@ const Home = () => {
   const featuredDrinks = featuredCocktails();
 
   useEffect(() => {
-    dispatch(fetchRandomDrink());
+    const promise = dispatch(fetchRandomDrink());
+
+    return () => {
+      promise.abort();
+    };
     // eslint-disable-next-line
   }, [dispatch]);
 

@@ -5,7 +5,7 @@ import IngredientCard from "./IngredientCard";
 import { motion } from "framer-motion";
 import { cocktailsGridAnimation } from "../../app/utils/animationsHelper";
 
-const IngredientsGrid = ({ list, loading, perPage }) => {
+const IngredientsGrid = ({ list, loading, perPage, error }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = perPage ?? 8;
@@ -27,7 +27,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
         </div>
       )}
 
-      {loading === HTTP_STATUS.REJECTED && (
+      {loading === HTTP_STATUS.REJECTED && error !== "Aborted" && (
         <div className="w-full p-4">
           <p className="text-app-flame font-app-heading text-[16px] md:text-[18px] lg:text-[20px] font-bold text-center">
             Oops!! No Ingredients Found.
@@ -35,7 +35,8 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
         </div>
       )}
 
-      {loading === HTTP_STATUS.PENDING && (
+      {(loading === HTTP_STATUS.PENDING ||
+        (loading === HTTP_STATUS.REJECTED && error === "Aborted")) && (
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
           {[...Array(itemsPerPage)].map((_item, index) => {
             return (

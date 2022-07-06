@@ -14,12 +14,17 @@ const CocktailsByIngredientPage = () => {
 
   const cocktails = useSelector((state) => state.fetchByIngredient.cocktails);
   const loading = useSelector((state) => state.fetchByIngredient.loading);
+  const error = useSelector((state) => state.fetchByIngredient.error);
 
   useTitle(`Cocktails For ${id} | Cocktails`, loading);
   const size = useWindowSize();
   
   useEffect(() => {
-    dispatch(fetchByIngredient(id));
+    const promise = dispatch(fetchByIngredient(id));
+
+    return () => {
+      promise.abort();
+    };
   }, [id, dispatch]);
 
   return (
@@ -29,6 +34,7 @@ const CocktailsByIngredientPage = () => {
         <CocktailsGrid
           list={cocktails}
           loading={loading}
+          error={error}
           perPage={calcOtherCocktailGrid(size.width)}
         />
       </div>

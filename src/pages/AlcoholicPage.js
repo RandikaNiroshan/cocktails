@@ -20,6 +20,7 @@ const AlcoholicPage = () => {
   const types = alcoholicTypes;
   const cocktails = useSelector((state) => state.alcoholic.cocktails);
   const loading = useSelector((state) => state.alcoholic.loading);
+  const error = useSelector((state) => state.alcoholic.error);
 
   const [selectedType, setSelectedType] = useState(type);
 
@@ -34,7 +35,11 @@ const AlcoholicPage = () => {
 
   useEffect(() => {
     setSelectedType(type);
-    dispatch(fetchByAlcoholic(selectedType));
+    const promise = dispatch(fetchByAlcoholic(selectedType));
+
+    return () => {
+      promise.abort();
+    };
   }, [dispatch, selectedType, type]);
 
   return (
@@ -78,6 +83,7 @@ const AlcoholicPage = () => {
         <CocktailsGrid
           list={cocktails}
           loading={loading}
+          error={error}
           perPage={calcOtherCocktailGrid(size.width)}
         />
       </div>

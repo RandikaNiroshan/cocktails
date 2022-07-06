@@ -10,7 +10,7 @@ const TwoByTwo = ({ cocktail, loading }) => {
       <div className="rounded-[5px] overflow-hidden">
         <div className="grid grid-cols-two-by-two">
           <div className="p-[6px] md:p-2 xl:p-[10px] relative">
-            {loading === HTTP_STATUS.PENDING && (
+            {loading !== HTTP_STATUS.FULFILLED && (
               <div className="loading animate-loading aspect-[4/3] w-full rounded-[5px]"></div>
             )}
             {loading === HTTP_STATUS.FULFILLED && (
@@ -34,7 +34,7 @@ const TwoByTwo = ({ cocktail, loading }) => {
                   : "pr-0"
               }`}
             >
-              {loading === HTTP_STATUS.PENDING && (
+              {loading !== HTTP_STATUS.FULFILLED && (
                 <div className="flex flex-col w-full h-full">
                   <div className="flex flex-col justify-start items-start">
                     <p className="loading animate-loading rounded-md text-slate-100 h-[25px] xl:h-[30px] w-full mb-1"></p>

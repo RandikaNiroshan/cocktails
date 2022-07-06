@@ -6,10 +6,16 @@ import { organizeCocktailList } from "../utils/helpers";
 
 export const fetchByGlass = createAsyncThunk(
   "glass/fetchByGlass",
-  async (type) => {
+  async (type, {signal}) => {
+    const source = axios.CancelToken.source();
+    signal.addEventListener("abort", () => {
+      source.cancel();
+    });
     if (glassTypes.some((t) => t === glassTypes[type])) {
       const response = await axios.get(
-        `${API_BASE_URL}/filter.php?g=${glassTypes[type]}`
+        `${API_BASE_URL}/filter.php?g=${glassTypes[type]}`, {
+          cancelToken: source.token,
+        }
       );
       return organizeCocktailList(response.data.drinks);
     }

@@ -4,7 +4,7 @@ import { HTTP_STATUS } from "../../app/utils/constants";
 const InfoCard = ({ title, data, loading }) => {
   return (
     <>
-      {loading === HTTP_STATUS.PENDING && (
+      {loading !== HTTP_STATUS.FULFILLED && (
         <>
           <div className="loading animate-loading flex flex-col justify-center items-center rounded-lg border-[3px] border-dashed w-full h-auto px-4 py-2">
             <div className="w-full space-y-1">

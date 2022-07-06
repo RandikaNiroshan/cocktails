@@ -23,7 +23,11 @@ const CocktailPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchCocktailDetails(id));
+    const promise = dispatch(fetchCocktailDetails(id));
+
+    return () => {
+      promise.abort();
+    };
   }, [id, dispatch]);
   return (
     <AnimateRoute>

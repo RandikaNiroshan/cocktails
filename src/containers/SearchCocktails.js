@@ -11,6 +11,7 @@ const SearchCocktails = () => {
   const [searchText, setSearchText] = useState("");
   const cocktails = useSelector((state) => state.search.cocktails);
   const loading = useSelector((state) => state.search.loading);
+  const error = useSelector((state) => state.search.error);
 
   const debounceSearch = useDebounce(searchText.trim(), 1000);
   const size = useWindowSize();
@@ -20,7 +21,12 @@ const SearchCocktails = () => {
   };
 
   useEffect(() => {
-    debounceSearch !== "" && dispatch(searchCocktails(debounceSearch));
+    if (debounceSearch !== "") {
+      const promise = dispatch(searchCocktails(debounceSearch));
+      return () => {
+        promise.abort();
+      };
+    }
   }, [debounceSearch, dispatch]);
 
   return (
@@ -43,6 +49,7 @@ const SearchCocktails = () => {
           <SearchItemsGrid
             list={cocktails}
             loading={loading}
+            error={error}
             perPage={calcSearchGrid(size.width)}
           />
         </div>

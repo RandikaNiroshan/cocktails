@@ -5,19 +5,21 @@ import { youtubeResponseToVideos } from "../utils/helpers";
 
 export const fetchVideoList = createAsyncThunk(
   "youtube/fetchVideoList",
-  async (title) => {
+  async (title, { signal }) => {
+    const source = axios.CancelToken.source();
+    signal.addEventListener("abort", () => {
+      source.cancel();
+    });
     const searchQuery = `How to make ${title} cocktail`;
-    const response = await axios.get(
-      `${YOUTUBE_API_BASE_URL}/search`,
-      {
-        params: {
-          maxResults: 10,
-          safeSearch:"strict",
-          q: searchQuery,
-          key: process.env.REACT_APP_YOUTUBE_API_KEY,
-        },
-      }
-    );
+    const response = await axios.get(`${YOUTUBE_API_BASE_URL}/search`, {
+      params: {
+        maxResults: 6,
+        safeSearch: "strict",
+        q: searchQuery,
+        key: process.env.REACT_APP_YOUTUBE_API_KEY,
+      },
+      cancelToken: source.token,
+    });
     return youtubeResponseToVideos(response.data["items"]);
   }
 );

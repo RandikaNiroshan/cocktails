@@ -48,7 +48,7 @@
   }
 
   .bg-image {
-    @apply bg-cover bg-[url('https://m.media-amazon.com/images/S/aplus-media/vc/e92cec4a-692f-46ba-865a-37879a4617bf._CR0,0,970,300_PT0_SX970__.jpg')] relative overflow-hidden;
+    @apply bg-cover bg-[url('https://i.imgur.com/nksYEBa.jpg')] relative overflow-hidden;
     @apply before:content-[""] before:block before:blur-[10px] before:absolute before:left-0 before:top-0 before:bg-[#000] before:opacity-80 before:h-full before:w-full z-[1];
   }
 

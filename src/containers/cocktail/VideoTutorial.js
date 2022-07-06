@@ -21,12 +21,15 @@ const VideoTutorial = ({ cocktail, loading }) => {
   const youtubeLoading = useSelector((state) => state.youtube.loading);
 
   const onSkipVideo = () => {
-    videoIndex >= 9 ? setVideoIndex(0) : setVideoIndex(videoIndex + 1);
+    videoIndex >= 5 ? setVideoIndex(0) : setVideoIndex(videoIndex + 1);
   };
 
   useEffect(() => {
     if (loading === HTTP_STATUS.FULFILLED) {
-      dispatch(fetchVideoList(cocktail.drink));
+      const promise = dispatch(fetchVideoList(cocktail.drink));
+      return () => {
+        promise.abort();
+      };
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -5,8 +5,14 @@ import { organizeCocktail } from "../utils/helpers";
 
 export const fetchRandomDrink = createAsyncThunk(
   "random/fetchRandomDrink",
-  async () => {
-    const response = await axios.get(`${API_BASE_URL}/random.php`);
+  async (_data, { signal }) => {
+    const source = axios.CancelToken.source();
+    signal.addEventListener("abort", () => {
+      source.cancel();
+    });
+    const response = await axios.get(`${API_BASE_URL}/random.php`, {
+      cancelToken: source.token,
+    });
     return organizeCocktail(response.data.drinks[0]);
   }
 );

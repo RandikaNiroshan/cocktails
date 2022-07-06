@@ -9,7 +9,7 @@ const MainCard = ({ cocktail, loading }) => {
     <div className={`bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default ${loading === HTTP_STATUS.FULFILLED && " from-bottom"}`}>
       <div className="rounded-[5px] overflow-hidden">
         <div className="p-2 xl:p-[10px] relative">
-          {loading === HTTP_STATUS.PENDING && (
+          {loading !== HTTP_STATUS.FULFILLED && (
             <div className="loading animate-loading aspect-[4/3] w-full rounded-[5px]"></div>
           )}
           {loading === HTTP_STATUS.FULFILLED && (
@@ -25,7 +25,7 @@ const MainCard = ({ cocktail, loading }) => {
           )}
         </div>
         <div className={`px-1 ${loading === HTTP_STATUS.FULFILLED ? "lg:pb-[15px]" : "pb-1"}`}>
-          {loading === HTTP_STATUS.PENDING && (
+          {loading !== HTTP_STATUS.FULFILLED && (
             <div className="flex flex-col justify-start items-start mx-2">
               <p className="loading animate-loading rounded-md text-slate-100 h-[22px] w-full mb-1"></p>
               <p className="loading animate-loading rounded-[5px] text-slate-100 h-[18px] w-full mb-2 xl:mb-[10px]"></p>

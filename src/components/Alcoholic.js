@@ -3,7 +3,7 @@ import React from "react";
 const Alcoholic = ({ alcoholic, alt }) => {
   return (
     <>
-      <div className={`w-max group-1 h-5 flex place-items-center cursor-pointer drop-shadow-sm bg-app-cadet absolute rounded-md z-[3] active:scale-[0.95] basic-transition ${alt ? "bottom-4 left-4" : " top-4 right-4"}`}>
+      <div className={`w-max group-1 h-5 flex place-items-center drop-shadow-sm bg-app-cadet absolute rounded-md z-[3] basic-transition ${alt ? "bottom-4 left-4" : " top-4 right-4"}`}>
         <div className="w-5 h-5 p-1 group-hover:rotate-[30deg] basic-transition">
           {alcoholic === "Alcoholic" && (
             <svg className="stroke-white fill-white" viewBox="0 0 64 64">

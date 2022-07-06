@@ -20,6 +20,7 @@ const CategoriesPage = () => {
   const types = categoryTypes;
   const cocktails = useSelector((state) => state.category.cocktails);
   const loading = useSelector((state) => state.category.loading);
+  const error = useSelector((state) => state.category.error);
 
   const [selectedType, setSelectedType] = useState(type);
 
@@ -33,7 +34,11 @@ const CategoriesPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchByCategory(selectedType));
+    const promise = dispatch(fetchByCategory(selectedType));
+
+    return () => {
+      promise.abort();
+    };
   }, [dispatch, selectedType, type]);
 
   return (
@@ -77,6 +82,7 @@ const CategoriesPage = () => {
         <CocktailsGrid
           list={cocktails}
           loading={loading}
+          error={error}
           perPage={calcOtherCocktailGrid(size.width)}
         />
       </div>

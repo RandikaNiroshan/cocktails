@@ -14,16 +14,24 @@ const Cocktails = () => {
   const dispatch = useDispatch();
   const cocktails = useSelector((state) => state.cocktails.cocktails);
   const loading = useSelector((state) => state.cocktails.loading);
+  const error = useSelector((state) => state.cocktails.error);
   const selectedLetter = useSelector((state) => state.cocktails.selectedLetter);
 
   const size = useWindowSize();
 
   useEffect(() => {
     if (selectedLetter === "") {
-      dispatch(initialFetch());
+      const promise = dispatch(initialFetch());
+      return () => {
+        promise.abort();
+      };
     } else {
-      dispatch(fetchByFirstLetter(selectedLetter));
+      const promise = dispatch(fetchByFirstLetter(selectedLetter));
+      return () => {
+        promise.abort();
+      };
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -48,6 +56,7 @@ const Cocktails = () => {
           perPage={calcHomeCocktailGrid(size.width)}
           list={cocktails}
           loading={loading}
+          error={error}
           fullData={true}
         />
       </div>

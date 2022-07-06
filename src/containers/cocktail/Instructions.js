@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { HTTP_STATUS } from "../../app/utils/constants";
 import { motion } from "framer-motion";
 import { fromBelow, skeletonGrid } from "../../app/utils/animationsHelper";
+import Champagne from "../../components/animatedSvg/Champagne";
 
 const Instructions = ({ cocktail, loading }) => {
   const [instructions, setInstructions] = useState([]);
@@ -21,7 +22,10 @@ const Instructions = ({ cocktail, loading }) => {
       ease: "easeInOut",
       duration: 0.2,
       delay: 1,
-    }} className="bg-app-cadet" id="instructions">
+    }} className="bg-app-cadet relative overflow-hidden" id="instructions">
+      <div className="hidden md:block absolute w-20 h-20 lg:w-24 lg:h-24 bottom-2 md:right-16 lg:right-24 -rotate-[10deg]">
+        <Champagne />
+      </div>
       <motion.div
         variants={fromBelow}
         initial="initial"

@@ -5,11 +5,17 @@ import { organizeCocktailList } from "../utils/helpers";
 
 export const fetchByIngredient = createAsyncThunk(
   "fetchByIngredient/fetchByIngredient",
-  async (id) => {
+  async (id, { signal }) => {
+    const source = axios.CancelToken.source();
+    signal.addEventListener("abort", () => {
+      source.cancel();
+    });
     const response = await axios.get(
-        `${API_BASE_URL}/filter.php?i=${id}`
-      );
-      return organizeCocktailList(response.data.drinks);
+      `${API_BASE_URL}/filter.php?i=${id}`, {
+          cancelToken: source.token,
+        }
+    );
+    return organizeCocktailList(response.data.drinks);
   }
 );
 

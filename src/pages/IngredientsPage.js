@@ -12,6 +12,7 @@ const IngredientsPage = () => {
   const dispatch = useDispatch();
   const ingredients = useSelector((state) => state.ingredient.ingredients);
   const loading = useSelector((state) => state.ingredient.loading);
+  const error = useSelector((state) => state.ingredient.error);
   const showModal = useSelector((state) => state.modal.showIngredientModal);
 
   useTitle("Ingredients | Cocktails");
@@ -22,7 +23,11 @@ const IngredientsPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchIngredients());
+    const promise = dispatch(fetchIngredients());
+
+    return () => {
+      promise.abort();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -36,6 +41,7 @@ const IngredientsPage = () => {
         <IngredientsGrid
           list={ingredients}
           loading={loading}
+          error={error}
           perPage={calcIngredientsGrid(size.width)}
         />
       </div>

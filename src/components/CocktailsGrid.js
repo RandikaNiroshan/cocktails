@@ -6,10 +6,9 @@ import Pagination from "./Pagination";
 import { motion } from "framer-motion";
 import {
   cocktailsGridAnimation,
-  skeletonGrid,
 } from "../app/utils/animationsHelper";
 
-const CocktailsGrid = ({ list, loading, perPage, fullData }) => {
+const CocktailsGrid = ({ list, loading, perPage, error, fullData }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const itemsPerPage = perPage ?? 8;
@@ -33,7 +32,7 @@ const CocktailsGrid = ({ list, loading, perPage, fullData }) => {
         </div>
       )}
 
-      {loading === HTTP_STATUS.REJECTED && (
+      {loading === HTTP_STATUS.REJECTED && error !== "Aborted" && (
         <div className="w-full p-4">
           <p className="text-app-flame font-app-heading text-[16px] md:text-[18px] lg:text-[20px] font-bold text-center">
             Oops!! No Cocktails Found.
@@ -41,26 +40,17 @@ const CocktailsGrid = ({ list, loading, perPage, fullData }) => {
         </div>
       )}
 
-      {loading === HTTP_STATUS.PENDING && (
-        <motion.div
-          layoutId="cocktailsSkeleton"
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8"
-        >
+      {(loading === HTTP_STATUS.PENDING ||
+        (loading === HTTP_STATUS.REJECTED && error === "Aborted")) && (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8">
           {[...Array(itemsPerPage)].map((_item, index) => {
             return (
-              <motion.div
-                key={index}
-                variants={skeletonGrid}
-                initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                transition={{ duration: 0.2 }}
-              >
+              <div key={index}>
                 {<CocktailCard cocktail={DummyCocktail} loading={loading} />}
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       )}
 
       {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (

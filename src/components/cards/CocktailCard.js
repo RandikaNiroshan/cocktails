@@ -14,7 +14,7 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
       >
         <div className="rounded-[8px] overflow-hidden">
           <div className="p-1 md:px-2 md:pt-2 md:pb-[6px] lg:px-3 lg:pt-3 lg:pb-2 relative">
-            {loading === HTTP_STATUS.PENDING && (
+            {loading !== HTTP_STATUS.FULFILLED && (
               <div className="loading animate-loading aspect-[4/5] w-full rounded-[8px]"></div>
             )}
             {loading === HTTP_STATUS.FULFILLED && (
@@ -30,7 +30,7 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
             )}
           </div>
           <div className="mx-1 md:mx-2 lg:mx-3 pb-1 md:pb-[6px] lg:pb-2">
-            {loading === HTTP_STATUS.PENDING && (
+            {loading !== HTTP_STATUS.FULFILLED && (
               <div className="flex flex-col justify-start items-start">
                 <p className="loading animate-loading rounded-md text-slate-100 h-[24px] lg:h-[28px] w-full mb-1"></p>
                 {fullData && (

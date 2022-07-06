@@ -10,7 +10,10 @@ const SelectLetter = () => {
 
   const onClick = (letter) => {
     dispatch(onLetterClick(letter));
-    dispatch(fetchByFirstLetter(letter));
+    const promise = dispatch(fetchByFirstLetter(letter));
+    return () => {
+      promise.abort();
+    };
   };
 
   return (

@@ -9,8 +9,12 @@ const IngredientCard = ({ loading, name }) => {
   const dispatch = useDispatch();
 
   const onClick = () => {
-    dispatch(fetchIngredientDetails(name));
+    const promise = dispatch(fetchIngredientDetails(name));
     dispatch(showIngredientModal());
+
+    return () => {
+      promise.abort();
+    };
   };
   return (
     <div
@@ -20,7 +24,7 @@ const IngredientCard = ({ loading, name }) => {
     >
       <div className="rounded-[5px] overflow-hidden">
         <div className="p-1 md:p-2 lg:p-3 relative">
-          {loading === HTTP_STATUS.PENDING && (
+          {loading !== HTTP_STATUS.FULFILLED && (
             <div className="loading animate-loading aspect-square w-full rounded-[5px]"></div>
           )}
           {loading === HTTP_STATUS.FULFILLED && (
@@ -34,7 +38,7 @@ const IngredientCard = ({ loading, name }) => {
           )}
         </div>
         <div className="pb-1 md:pb-2 lg:pb-3 px-1 md:px-2 lg:px-3">
-          {loading === HTTP_STATUS.PENDING && (
+          {loading !== HTTP_STATUS.FULFILLED && (
             <div className="flex flex-col justify-start items-start">
               <p className="loading animate-loading rounded-md text-slate-100 h-[20px] lg:h-[24px] w-full"></p>
             </div>

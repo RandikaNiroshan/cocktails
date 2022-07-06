@@ -25,7 +25,7 @@ const SearchCard = ({ cocktail, loading }) => {
       <div className="rounded-[5px] overflow-hidden">
         <div className="grid grid-cols-5">
           <div className="p-[5px] md:p-2 relative col-start-1 col-span-2">
-            {loading === HTTP_STATUS.PENDING && (
+            {loading !== HTTP_STATUS.FULFILLED && (
               <div className="loading animate-loading aspect-[8/5] w-full rounded-[5px]"></div>
             )}
             {loading === HTTP_STATUS.FULFILLED && (
@@ -39,7 +39,7 @@ const SearchCard = ({ cocktail, loading }) => {
             )}
           </div>
           <div className="rounded-[5px] px-[5px] py-[8px] md:p-2 col-start-3 col-span-3">
-            {loading === HTTP_STATUS.PENDING && (
+            {loading !== HTTP_STATUS.FULFILLED && (
               <div className="flex flex-col justify-between w-full h-full">
                 <div className="flex flex-col justify-start items-start mr-1">
                   <p className="loading animate-loading rounded-md text-slate-100 h-[20px] w-full mb-1"></p>

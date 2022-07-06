@@ -6,10 +6,17 @@ import { organizeCocktailList } from "../utils/helpers";
 
 export const fetchByCategory = createAsyncThunk(
   "category/fetchByCategory",
-  async (type) => {
+  async (type, { signal }) => {
+    const source = axios.CancelToken.source();
+    signal.addEventListener("abort", () => {
+      source.cancel();
+    });
     if (categoryTypes.some((t) => t === categoryTypes[type])) {
       const response = await axios.get(
-        `${API_BASE_URL}/filter.php?c=${categoryTypes[type]}`
+        `${API_BASE_URL}/filter.php?c=${categoryTypes[type]}`,
+        {
+          cancelToken: source.token,
+        }
       );
       return organizeCocktailList(response.data.drinks);
     }

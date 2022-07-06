@@ -5,8 +5,17 @@ import { organizeIngredient } from "../utils/helpers";
 
 export const fetchIngredientDetails = createAsyncThunk(
   "aboutIngredient/fetchIngredientDetails",
-  async (ingredient) => {
-    const response = await axios.get(`${API_BASE_URL}/search.php?i=${ingredient}`);
+  async (ingredient, { signal }) => {
+    const source = axios.CancelToken.source();
+    signal.addEventListener("abort", () => {
+      source.cancel();
+    });
+    const response = await axios.get(
+      `${API_BASE_URL}/search.php?i=${ingredient}`,
+      {
+        cancelToken: source.token,
+      }
+    );
     return organizeIngredient(response.data.ingredients[0]);
   }
 );

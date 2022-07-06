@@ -20,6 +20,7 @@ const GlassesPage = () => {
   const types = glassTypes;
   const cocktails = useSelector((state) => state.glass.cocktails);
   const loading = useSelector((state) => state.glass.loading);
+  const error = useSelector((state) => state.glass.error);
 
   const [selectedType, setSelectedType] = useState(type);
 
@@ -34,7 +35,10 @@ const GlassesPage = () => {
 
   useEffect(() => {
     setSelectedType(type);
-    dispatch(fetchByGlass(selectedType));
+    const promise = dispatch(fetchByGlass(selectedType));
+    return () => {
+      promise.abort();
+    };
   }, [dispatch, selectedType, type]);
 
   return (
@@ -78,6 +82,7 @@ const GlassesPage = () => {
         <CocktailsGrid
           list={cocktails}
           loading={loading}
+          error={error}
           perPage={calcOtherCocktailGrid(size.width)}
         />
       </div>

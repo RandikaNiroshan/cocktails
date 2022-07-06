@@ -40,7 +40,7 @@ const CocktailInfo = ({ cocktail, loading }) => {
             }}
             className="rounded-lg drop-shadow-xl h-max group ring-1 ring-white"
           >
-            {loading === HTTP_STATUS.PENDING && (
+            {loading !== HTTP_STATUS.FULFILLED && (
               <div className="loading animate-loading rounded-xl w-full aspect-[4/3] md:aspect-square"></div>
             )}
             {loading === HTTP_STATUS.FULFILLED && (

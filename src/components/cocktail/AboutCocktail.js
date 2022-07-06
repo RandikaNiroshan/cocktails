@@ -20,7 +20,7 @@ const AboutCocktail = ({ cocktail, loading }) => {
       }}
       className="flex flex-col bg-white rounded-xl drop-shadow-lg w-full px-4 lg:px-6 py-4"
     >
-      {loading === HTTP_STATUS.PENDING && (
+      {loading !== HTTP_STATUS.FULFILLED && (
         <>
           <div className="px-1 space-y-1">
             <p className="loading animate-loading text-3xl text-slate-100 text-center truncate leading-5">
