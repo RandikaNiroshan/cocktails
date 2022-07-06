@@ -46,8 +46,8 @@ const VideoTutorial = ({ cocktail, loading }) => {
               viewport={{ once: true }}
               transition={{
                 ease: "easeInOut",
-                duration: 1,
-                delay: 0.3,
+                duration: 0.5,
+                delay: 0.2,
               }}
               className="flex flex-col justify-center items-center"
             >
@@ -65,8 +65,8 @@ const VideoTutorial = ({ cocktail, loading }) => {
                 viewport={{ once: true }}
                 transition={{
                   ease: "easeInOut",
-                  duration: 0.7,
-                  delay: 0.3,
+                  duration: 0.3,
+                  delay: 0.2,
                 }}
                 className="w-full p-4 flex justify-center gap-2 items-center"
               >
@@ -85,8 +85,8 @@ const VideoTutorial = ({ cocktail, loading }) => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.7,
-              delay: 0.3,
+              duration: 0.5,
+              delay: 0.2,
             }}
             className="w-full p-4"
           >

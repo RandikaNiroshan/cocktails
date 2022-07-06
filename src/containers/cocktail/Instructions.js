@@ -21,7 +21,7 @@ const Instructions = ({ cocktail, loading }) => {
     transition={{
       ease: "easeInOut",
       duration: 0.2,
-      delay: 1,
+      delay: 0.3,
     }} className="bg-app-cadet relative overflow-hidden" id="instructions">
       <div className="hidden md:block absolute w-20 h-20 lg:w-24 lg:h-24 bottom-2 md:right-16 lg:right-24 -rotate-[10deg]">
         <Champagne />
@@ -33,8 +33,8 @@ const Instructions = ({ cocktail, loading }) => {
         viewport={{ once: true }}
         transition={{
           ease: "easeInOut",
-          duration: 1,
-          delay: 0.8,
+          duration: 0.6,
+          delay: 0.5,
         }}
         className="w-full px-6 md:px-20 lg:px-32 py-8 md:py-10 mt-6 md:mt-8 lg:mt-12 mb-8 flex flex-col items-center"
       >

@@ -52,8 +52,8 @@ const AlcoholicPage = () => {
         viewport={{ once: true }}
         transition={{
           ease: "easeInOut",
-          duration: 0.8,
-          delay: 0.4,
+          duration: 0.5,
+          delay: 0.3,
         }}
         className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28"
       >

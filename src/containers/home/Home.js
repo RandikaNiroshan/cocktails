@@ -40,8 +40,8 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1,
-            delay: 1 * 0.3,
+            duration: 0.5,
+            delay: 1 * 0.2,
           }}
           className="h-min w-auto col-start-1 row-start-1 row-span-3"
         >
@@ -56,8 +56,8 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1,
-            delay: 2 * 0.3,
+            duration: 0.5,
+            delay: 2 * 0.2,
           }}
           className="h-min w-auto col-start-2 row-start-1 row-span-3"
         >
@@ -72,8 +72,8 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1,
-            delay: 4 * 0.3,
+            duration: 0.5,
+            delay: 3.5 * 0.2,
           }}
           className="h-min w-auto hidden lg:block lg:col-start-3 lg:row-start-1 lg:row-span-5 lg:col-span-2"
         >
@@ -88,8 +88,8 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1,
-            delay: 3 * 0.3,
+            duration: 0.5,
+            delay: 3 * 0.2,
           }}
           className="h-min w-auto hidden md:block md:col-start-3 lg:col-start-5 md:row-start-1 md:row-span-2 md:col-span-2"
         >
@@ -104,8 +104,8 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1,
-            delay: 2 * 0.3,
+            duration: 0.5,
+            delay: 2 * 0.2,
           }}
           className="h-min w-auto hidden md:block md:col-start-3 lg:col-start-5 md:row-start-3 md:row-span-3"
         >
@@ -120,8 +120,8 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1,
-            delay: 1 * 0.3,
+            duration: 0.5,
+            delay: 1 * 0.2,
           }}
           className="h-min w-auto hidden md:block md:col-start-4 lg:col-start-6 md:row-start-3 md:row-span-3"
         >
@@ -135,8 +135,8 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1,
-            delay: 3 * 0.3,
+            duration: 0.5,
+            delay: 3 * 0.2,
           }}
           className="h-min w-auto col-start-1 row-start-4 row-span-2 col-span-2"
         >

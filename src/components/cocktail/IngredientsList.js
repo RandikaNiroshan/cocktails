@@ -20,7 +20,7 @@ const IngredientsList = ({ cocktail, loading }) => {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                transition={{ duration: 0.2, delay: 1.2 + index * 0.09 }}
+                transition={{ duration: 0.2, delay: index * 0.07 }}
               >
                 {<IngredientWithMeasure ingredient={item} loading={loading} />}
               </motion.div>

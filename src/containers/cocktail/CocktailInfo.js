@@ -35,8 +35,8 @@ const CocktailInfo = ({ cocktail, loading }) => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.8,
-              delay: 0.4,
+              duration: 0.5,
+              delay: 0.2,
             }}
             className="rounded-lg drop-shadow-xl h-max group ring-1 ring-white"
           >
@@ -60,8 +60,8 @@ const CocktailInfo = ({ cocktail, loading }) => {
               viewport={{ once: true }}
               transition={{
                 ease: "easeInOut",
-                duration: 0.6,
-                delay: 1,
+                duration: 0.4,
+                delay: 0.5,
               }}
               className="hidden md:flex flex-wrap gap-2 overflow-hidden mt-8 pr-4"
             >

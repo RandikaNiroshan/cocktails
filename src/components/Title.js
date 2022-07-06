@@ -11,7 +11,7 @@ const Title = ({ title, className }) => {
       viewport={{ once: true }}
       transition={{
         ease: "easeInOut",
-        duration: 0.8,
+        duration: 0.4,
         delay: 0.3,
       }}
       className={`mt-8 mb-6 md:mt-10 md:mb-8 lg:mt-12 mx-4 w-fill flex justify-center ${

@@ -24,8 +24,8 @@ const Stats = () => {
         viewport={{ once: true }}
         transition={{
           ease: "easeInOut",
-          duration: 1,
-          delay: 0.5,
+          duration: 0.5,
+          delay: 0.4,
         }}
         className="px-[68px] md:px-[100px] lg:px-[180px] xl:px-[280px] w-full"
       >
@@ -44,16 +44,14 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1.5,
-            delay: (size.width < SCREEN_SIZE.MD ? 1 : 2) * 0.5,
+            duration: 0.6,
+            delay: 0.3,
           }}
         >
           <StatCard
             title="Total Drinks"
             count="635"
-            delay={1}
             icon1={<ImGlass className="w-16 h-16" />}
-            icon2={<ImGlass className="w-8 h-8" />}
           />
         </motion.div>
         <motion.div
@@ -64,16 +62,14 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1.5,
-            delay: (size.width < SCREEN_SIZE.MD ? 2 : 1) * 0.7,
+            duration: 0.6,
+            delay: 0.5,
           }}
         >
           <StatCard
             title="Non Alcoholic"
             count="58"
-            delay={2}
             icon1={<ImMug className="w-16 h-16" />}
-            icon2={<ImMug className="w-8 h-8" />}
           />
         </motion.div>
         <motion.div
@@ -84,16 +80,14 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1.5,
-            delay: (size.width < SCREEN_SIZE.MD ? 2 : 1) * 0.7,
+            duration: 0.6,
+            delay: 0.5,
           }}
         >
           <StatCard
             title="Categories"
             count="11"
-            delay={3}
             icon1={<FaGlassCheers className="w-16 h-16" />}
-            icon2={<FaGlassCheers className="w-8 h-8" />}
           />
         </motion.div>
         <motion.div
@@ -104,16 +98,14 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 1.5,
-            delay: (size.width < SCREEN_SIZE.MD ? 1 : 2) * 0.7,
+            duration: 0.6,
+            delay: 0.3,
           }}
         >
           <StatCard
             title="Ingredients"
             count="488"
-            delay={4}
             icon1={<GiWineBottle className="w-16 h-16" />}
-            icon2={<GiWineBottle className="w-8 h-8" />}
           />
         </motion.div>
       </motion.div>

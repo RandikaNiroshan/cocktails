@@ -59,9 +59,8 @@ const IngredientsGrid = ({ list, loading, perPage, error }) => {
                 key={`${item}-${index}`}
                 variants={cocktailsGridAnimation}
                 initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                transition={{ duration: 0.2, delay: index * 0.09 }}
+                animate="animate"
+                transition={{ duration: 0.2, delay: index * 0.06 }}
               >
                 {<IngredientCard name={item} loading={loading} />}
               </motion.div>

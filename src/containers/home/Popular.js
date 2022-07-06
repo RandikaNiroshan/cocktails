@@ -33,7 +33,7 @@ const Popular = () => {
       viewport={{ once: true }}
       transition={{
         ease: "easeInOut",
-        duration: 1,
+        duration: 0.6,
         delay: 0.5,
       }}
       className="bg-image mt-8 lg:mt-10 pt-5 pb-3"

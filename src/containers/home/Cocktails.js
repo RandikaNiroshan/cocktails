@@ -44,7 +44,7 @@ const Cocktails = () => {
         viewport={{ once: true }}
         transition={{
           ease: "easeInOut",
-          duration: 1,
+          duration: 0.6,
           delay: 0.5,
         }}
         className="mb-8 mt-1 lg:mt-2 mx-12 md:mx-24 lg:mx-12"

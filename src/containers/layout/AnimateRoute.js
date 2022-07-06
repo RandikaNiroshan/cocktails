@@ -10,7 +10,7 @@ const AnimateRoute = ({ children }) => {
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.15, ease: "easeInOut" }}
     >
       {children}
     </motion.div>

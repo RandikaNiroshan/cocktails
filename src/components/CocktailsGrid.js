@@ -64,9 +64,8 @@ const CocktailsGrid = ({ list, loading, perPage, error, fullData }) => {
                 key={item.id}
                 variants={cocktailsGridAnimation}
                 initial="initial"
-                whileInView="animate"
-                viewport={{ once: true }}
-                transition={{ duration: 0.2, delay: index * 0.09 }}
+                animate="animate"
+                transition={{ duration: 0.2, delay: index * 0.06 }}
               >
                 {
                   <CocktailCard

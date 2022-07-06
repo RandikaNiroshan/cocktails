@@ -25,7 +25,7 @@ const ErrorPage = () => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.7,
+              duration: 0.5,
               delay: 0.3,
             }}
             className="text-7xl md:text-8xl xl:text-9xl font-app-main font-bold text-app-flame"
@@ -39,7 +39,7 @@ const ErrorPage = () => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.7,
+              duration: 0.5,
               delay: 0.3,
             }}
             className="text-center text-xl md:text-2xl lg:text-3xl xl:text-5xl font-app-text font-bold text-app-cadet mt-2"
@@ -53,8 +53,8 @@ const ErrorPage = () => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 1,
-              delay: 0.8,
+              duration: 0.5,
+              delay: 0.5,
             }}
             className="text-xl lg:text-[22px] xl:text-2xl font-app-heading text-app-olivine text-center mt-5 xl:mt-8 mb-4 xl:mb-7"
           >
@@ -69,8 +69,8 @@ const ErrorPage = () => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 1.5,
-              delay: 1.5
+              duration: 0.5,
+              delay: 1
             }}
             className="w-full px-10 md:px-20 xl:px-32"
           >

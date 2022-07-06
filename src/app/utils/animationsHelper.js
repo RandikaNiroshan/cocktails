@@ -53,7 +53,7 @@ export const mobileMenu = {
     opacity: 1,
     transition: {
       ease: "circIn",
-      duration: 0.35,
+      duration: 0.3,
       delay: 0.1,
     },
   },
@@ -75,8 +75,8 @@ export const menuFromLeft = {
     x: 0,
     transition: {
       ease: "linear",
-      duration: 0.5,
-      delay: 0.5,
+      duration: 0.4,
+      delay: 0.4,
     },
   },
 };
@@ -88,8 +88,8 @@ export const menuFromRight = {
     x: 0,
     transition: {
       ease: "linear",
-      duration: 0.5,
-      delay: 0.5,
+      duration: 0.4,
+      delay: 0.4,
     },
   },
 };
@@ -101,7 +101,7 @@ export const closeIconAnimate = {
     scale: 1,
     transition: {
       type: "spring",
-      duration: 0.5,
+      duration: 0.4,
       delay: 1.2,
     },
   },
@@ -121,8 +121,8 @@ export const modalAnimation = {
     y: 0,
     transition: {
       ease: "circIn",
-      duration: 0.5,
-      delay: 0.3,
+      duration: 0.4,
+      delay: 0.2,
     },
   },
   exit: {
