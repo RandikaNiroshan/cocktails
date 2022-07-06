@@ -47,7 +47,7 @@ export const fromRight = {
 };
 
 export const mobileMenu = {
-  initial: { x: "100vw", opacity: 0.8},
+  initial: { x: "100vw", opacity: 0.8 },
   animate: {
     x: 0,
     opacity: 1,
@@ -121,8 +121,8 @@ export const modalAnimation = {
     y: 0,
     transition: {
       ease: "circIn",
-      duration: 0.3,
-      delay: 0.35,
+      duration: 0.5,
+      delay: 0.3,
     },
   },
   exit: {
@@ -132,6 +132,30 @@ export const modalAnimation = {
       ease: "circIn",
       duration: 0.3,
       delay: 0.1,
+    },
+  },
+};
+
+export const svgPathAnimation = {
+  initial: { pathLength: 0 },
+  animate: {
+    pathLength: [0,1,0],
+    transition: {
+      repeat: Infinity,
+      duration: 21,
+      delay: 2,
+    },
+  },
+};
+
+export const svgDetailsAnimation = {
+  initial: { pathLength: 0 },
+  animate: {
+    pathLength: [0,1,0],
+    transition: {
+      repeat: Infinity,
+      duration: 9,
+      delay: 8,
     },
   },
 };

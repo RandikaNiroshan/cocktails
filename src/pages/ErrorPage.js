@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { motion } from "framer-motion";
 import { showSearchModal } from "../app/features/modalSlice";
+import { fromBelow } from "../app/utils/animationsHelper";
 import AnimateRoute from "../containers/layout/AnimateRoute";
 import { useTitle } from "../hooks/useTitle";
 
@@ -14,20 +16,64 @@ const ErrorPage = () => {
   };
   return (
     <AnimateRoute>
-    <div className="flex flex-col justify-center items-center h-full w-full my-10 xl:my-16">
-      <div className="flex flex-col justify-center items-center w-[80%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
-        <h2 className="text-7xl md:text-8xl xl:text-9xl font-app-main font-bold text-app-flame">
-          404
-        </h2>
-        <h2 className="text-center text-xl md:text-2xl lg:text-3xl xl:text-5xl font-app-text font-bold text-app-cadet mt-2">
-          Page Not Found!
-        </h2>
-        <p className="text-xl lg:text-[22px] xl:text-2xl font-app-heading text-app-olivine text-center mt-5 xl:mt-8 mb-4 xl:mb-7">
+      <div className="flex flex-col justify-center items-center h-full w-full my-10 xl:my-16">
+        <div className="flex flex-col justify-center items-center w-[80%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
+          <motion.h2
+            variants={fromBelow}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.7,
+              delay: 0.3,
+            }}
+            className="text-7xl md:text-8xl xl:text-9xl font-app-main font-bold text-app-flame"
+          >
+            404
+          </motion.h2>
+          <motion.h2
+            variants={fromBelow}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.7,
+              delay: 0.3,
+            }}
+            className="text-center text-xl md:text-2xl lg:text-3xl xl:text-5xl font-app-text font-bold text-app-cadet mt-2"
+          >
+            Page Not Found!
+          </motion.h2>
+          <motion.p
+            variants={fromBelow}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            transition={{
+              ease: "easeInOut",
+              duration: 1,
+              delay: 0.8,
+            }}
+            className="text-xl lg:text-[22px] xl:text-2xl font-app-heading text-app-olivine text-center mt-5 xl:mt-8 mb-4 xl:mb-7"
+          >
             The page you were looking for could not be found. It might have been
             removed, renamed, or did not exist in the first place.
-          </p>
+          </motion.p>
 
-          <div className="w-full px-10 md:px-20 xl:px-32">
+          <motion.div
+            variants={fromBelow}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            transition={{
+              ease: "easeInOut",
+              duration: 1.5,
+              delay: 1.5
+            }}
+            className="w-full px-10 md:px-20 xl:px-32"
+          >
             <input
               onClick={openSearch}
               type="text"
@@ -35,9 +81,9 @@ const ErrorPage = () => {
               placeholder="Try searching for something else"
               readOnly
             />
-          </div>
+          </motion.div>
+        </div>
       </div>
-    </div>
     </AnimateRoute>
   );
 };

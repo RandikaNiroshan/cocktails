@@ -49,7 +49,7 @@ const IngredientsGrid = ({ list, loading, perPage }) => {
 
       {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
         <motion.div
-          layoutId="ingredients-grid"
+          layoutId="ingredientsGrid"
           className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-5 lg:gap-8"
         >
           {displayItems.map((item, index) => {

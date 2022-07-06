@@ -43,7 +43,7 @@ const CocktailsGrid = ({ list, loading, perPage, fullData }) => {
 
       {loading === HTTP_STATUS.PENDING && (
         <motion.div
-          layoutId="cocktails-skeleton"
+          layoutId="cocktailsSkeleton"
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 lg:gap-8"
         >
           {[...Array(itemsPerPage)].map((_item, index) => {
@@ -65,7 +65,7 @@ const CocktailsGrid = ({ list, loading, perPage, fullData }) => {
 
       {loading === HTTP_STATUS.FULFILLED && list.length > 0 && (
         <motion.div
-          layoutId="cocktails-grid"
+          layoutId="cocktailsGrid"
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-[12px] md:gap-[20px] lg:gap-8"
         >
           {displayItems.map((item, index) => {

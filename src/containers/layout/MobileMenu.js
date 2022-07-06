@@ -10,12 +10,10 @@ import {
   mobileMenu,
 } from "../../app/utils/animationsHelper";
 import { Menu } from "../../app/utils/data";
-import { ImGlass, ImGlass2, ImMug } from "react-icons/im";
-import useWindowSize from "../../hooks/useWindowSize";
+import Champagne from "../../components/animatedSvg/Champagne";
 
 const MobileMenu = ({ onClose, show }) => {
   const navigate = useNavigate();
-  const size = useWindowSize();
 
   const navigateRoute = (route) => {
     navigate(route);
@@ -91,39 +89,9 @@ const MobileMenu = ({ onClose, show }) => {
                 />
               </svg>
             </motion.div>
-            <motion.div
-              animate={{
-                x: [0, (-1.1 * size.width) / 2, -1.3 * size.width],
-                y: [0, (-1.3 * size.height) / 2, 0],
-                rotate: [25, 270, 0],
-              }}
-              transition={{ repeat: Infinity, duration: 30 }}
-              className="text-white/[0.15] absolute -bottom-8 -right-8"
-            >
-              <ImGlass className="w-14 h-14" />
-            </motion.div>
-            <motion.div
-              animate={{
-                x: [0, (1.1 * size.width * 0.5), (1.3 * size.width)],
-                y: [0, (-1.2 * size.height) /3 , (-1.3 * size.height)],
-                rotate: [45, 270, 0],
-              }}
-              transition={{ repeat: Infinity, duration: 20, delay: 3 }}
-              className="text-white/[0.15] absolute -bottom-24 -left-20"
-            >
-              <ImGlass2 className="w-16 h-16" />
-            </motion.div>
-            <motion.div
-              animate={{
-                x: [0, (1.1 * size.width * 0.8), (2 * size.width)],
-                y: [0, (1.2 * size.height) / 4, (1.1 * size.height) / 2],
-                rotate: [180, 270, 0],
-              }}
-              transition={{ repeat: Infinity, duration: 25, delay: 6 }}
-              className="text-white/[0.15] absolute -top-24 -left-64"
-            >
-              <ImMug className="w-10 h-10" />
-            </motion.div>
+            <div className="absolute w-24 h-24 md:w-28 md:h-28 bottom-12 right-4 -rotate-[10deg]">
+              <Champagne />
+            </div>
           </div>
         </motion.div>
       )}

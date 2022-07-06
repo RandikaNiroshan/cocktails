@@ -27,7 +27,7 @@ const AboutIngredient = () => {
           <div className="p-[6px] min-h-[150px] md:p-2 h-max md:h-full w-auto bg-app-cadet/50 rounded-[5px] flex justify-center items-center">
             {loading === HTTP_STATUS.FULFILLED && (
               <img
-                className="aspect-[4/3] md:aspect-square w-full object-cover rounded-[5px] max-w-[75vw] md:max-w-[200px] scale-100 md:scale-110"
+                className="aspect-square w-full object-cover rounded-[5px] max-w-[75vw] md:max-w-[200px] scale-90 md:scale-110"
                 src={`https://www.thecocktaildb.com/images/ingredients/${ingredient.name}-Medium.png`}
                 alt={ingredient.name}
               />

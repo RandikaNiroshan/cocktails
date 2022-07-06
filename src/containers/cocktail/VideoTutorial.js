@@ -49,11 +49,11 @@ const VideoTutorial = ({ cocktail, loading }) => {
               className="flex flex-col justify-center items-center"
             >
               <ReactPlayer
-                width={calcVideoWidth(size.width) ?? "100%"}
+                width={calcVideoWidth(size?.width) ?? "100%"}
                 height="100%"
                 className="w-full h-auto aspect-video p-[6px] md:p-2 lg:p-3 xl:p-4 mb-4 drop-shadow-lg bg-white rounded-md lg:rounded-xl"
                 controls={true}
-                url={`https://www.youtube.com/watch?v=${videosList[videoIndex]}`}
+                url={`https://www.youtube-nocookie.com/embed/${videosList[videoIndex]}`}
               />
               <motion.div
                 variants={fromBelow}
