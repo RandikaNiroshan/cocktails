@@ -5,6 +5,7 @@ import { Favorite, IngredientsList } from "../../components";
 import AboutCocktail from "../../components/cocktail/AboutCocktail";
 import { motion } from "framer-motion";
 import { fromRight, fromTop } from "../../app/utils/animationsHelper";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const CocktailInfo = ({ cocktail, loading }) => {
   const [tags, setTags] = useState([]);
@@ -35,8 +36,8 @@ const CocktailInfo = ({ cocktail, loading }) => {
             viewport={{ once: true }}
             transition={{
               ease: "easeInOut",
-              duration: 0.5,
-              delay: 0.2,
+              duration: 0.3,
+              delay: 0.1,
             }}
             className="rounded-lg drop-shadow-xl h-max group ring-1 ring-white"
           >
@@ -44,10 +45,11 @@ const CocktailInfo = ({ cocktail, loading }) => {
               <div className="loading animate-loading rounded-xl w-full aspect-[4/3] md:aspect-square"></div>
             )}
             {loading === HTTP_STATUS.FULFILLED && (
-              <img
+              <LazyLoadImage
                 className="w-full h-auto rounded-xl object-cover drop-shadow-md md:drop-shadow-lg aspect-[4/3] md:aspect-square"
                 src={cocktail.image ?? ImagePlaceHolder}
                 alt={cocktail.drink}
+                placeholder={<div className="loading animate-loading rounded-xl w-full aspect-[4/3] md:aspect-square"></div>}
               />
             )}
             <Favorite cocktail={cocktail} />
@@ -60,8 +62,8 @@ const CocktailInfo = ({ cocktail, loading }) => {
               viewport={{ once: true }}
               transition={{
                 ease: "easeInOut",
-                duration: 0.4,
-                delay: 0.5,
+                duration: 0.2,
+                delay: 0.3,
               }}
               className="hidden md:flex flex-wrap gap-2 overflow-hidden mt-8 pr-4"
             >

@@ -2,6 +2,7 @@ import React from "react";
 import { ImagePlaceHolder } from "../../assets";
 import { Alcoholic, Favorite, LinkButton } from "..";
 import { HTTP_STATUS } from "../../app/utils/constants";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const CocktailCard = ({ cocktail, loading, fullData }) => {
   const { id, drink, image, category, alcoholic } = cocktail;
@@ -19,10 +20,11 @@ const CocktailCard = ({ cocktail, loading, fullData }) => {
             )}
             {loading === HTTP_STATUS.FULFILLED && (
               <>
-                <img
+                <LazyLoadImage
                   className="aspect-[4/5] w-full object-cover rounded-[8px] group-hover:scale-[1.35] group-hover:blur-[3px] group-hover:translate-y-5 basic-transition"
                   src={image ?? ImagePlaceHolder}
                   alt={drink ?? "Cocktail Image"}
+                  placeholder={<div className="loading animate-loading aspect-[4/5] w-full rounded-[8px]"></div>}
                 />
                 {alcoholic && <Alcoholic alcoholic={alcoholic} />}
                 <Favorite cocktail={cocktail} />

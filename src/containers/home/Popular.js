@@ -6,8 +6,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import useWindowSize from "../../hooks/useWindowSize";
 import { calcPopularSlides } from "../../app/utils/helpers";
-import { motion } from "framer-motion";
-import { fromBelow } from "../../app/utils/animationsHelper";
 
 const Popular = () => {
   const PopularList = PopularDrinks;
@@ -26,16 +24,7 @@ const Popular = () => {
   };
 
   return (
-    <motion.div
-      variants={fromBelow}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true }}
-      transition={{
-        ease: "easeInOut",
-        duration: 0.6,
-        delay: 0.5,
-      }}
+    <div
       className="bg-image mt-8 lg:mt-10 pt-5 pb-3"
     >
       <div className="px-[28px] md:px-[32px] lg:px-12 py-3">
@@ -47,7 +36,7 @@ const Popular = () => {
           ))}
         </Slider>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

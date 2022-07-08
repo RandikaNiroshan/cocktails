@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { HTTP_STATUS } from "../../app/utils/constants";
 import { ImagePlaceHolder } from "../../assets/";
 import { Alcoholic, Favorite, LinkButton } from "../../components";
@@ -6,7 +7,11 @@ import { Alcoholic, Favorite, LinkButton } from "../../components";
 const OneByThree = ({ cocktail, loading }) => {
   const { id, drink, image, category, alcoholic } = cocktail;
   return (
-    <div className={`bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default ${loading === HTTP_STATUS.FULFILLED && " from-bottom"}`}>
+    <div
+      className={`bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default ${
+        loading === HTTP_STATUS.FULFILLED && " from-bottom"
+      }`}
+    >
       <div className="rounded-[5px] overflow-hidden">
         <div className="p-[6px] md:p-2 xl:p-[10px] relative">
           {loading !== HTTP_STATUS.FULFILLED && (
@@ -14,7 +19,8 @@ const OneByThree = ({ cocktail, loading }) => {
           )}
           {loading === HTTP_STATUS.FULFILLED && (
             <>
-              <img
+              <LazyLoadImage
+                placeholder={<div className="loading animate-loading aspect-[4/3] w-full rounded-[5px]"></div>}
                 className="aspect-[4/3] w-full object-cover rounded-[5px] group-hover:scale-[1.85] group-hover:translate-y-4 group-hover:blur-[2px] basic-transition"
                 src={image ?? ImagePlaceHolder}
                 alt={drink ?? "Cocktail Image"}

@@ -7,8 +7,6 @@ import { CocktailsGrid, Title } from "../components";
 import AnimateRoute from "../containers/layout/AnimateRoute";
 import { useTitle } from "../hooks/useTitle";
 import useWindowSize from "../hooks/useWindowSize";
-import { motion } from "framer-motion";
-import { fromBelow } from "../app/utils/animationsHelper";
 import { categoryTypes } from "../app/utils/data";
 
 const CategoriesPage = () => {
@@ -44,18 +42,7 @@ const CategoriesPage = () => {
   return (
     <AnimateRoute>
       <Title title="Select From Your Favorite Category" />
-      <motion.div
-        variants={fromBelow}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        transition={{
-          ease: "easeInOut",
-          duration: 0.5,
-          delay: 0.3,
-        }}
-        className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28"
-      >
+      <div className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28">
         {types.map((category, index) => {
           return (
             <div
@@ -77,7 +64,7 @@ const CategoriesPage = () => {
             </div>
           );
         })}
-      </motion.div>
+      </div>
       <div className="px-[5vw] md:px-[6vw] lg:px-[7vw] overflow-hidden">
         <CocktailsGrid
           list={cocktails}

@@ -7,8 +7,6 @@ import { CocktailsGrid, Title } from "../components";
 import AnimateRoute from "../containers/layout/AnimateRoute";
 import { useTitle } from "../hooks/useTitle";
 import useWindowSize from "../hooks/useWindowSize";
-import { motion } from "framer-motion";
-import { fromBelow } from "../app/utils/animationsHelper";
 import { glassTypes } from "../app/utils/data";
 
 const GlassesPage = () => {
@@ -44,40 +42,29 @@ const GlassesPage = () => {
   return (
     <AnimateRoute>
       <Title title="What's Your Preferred Glass?" />
-      <motion.div
-          variants={fromBelow}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          transition={{
-            ease: "easeInOut",
-            duration: 0.5,
-            delay: 0.3,
-          }}
-          className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28"
-        >
-          {types.map((glass, index) => {
-            return (
-              <div
-                key={index}
-                className={`rounded-md px-[12px] md:px-4 lg:px-6 py-[5px] md:py-[6px] lg:py-2 drop-shadow-lg cursor-pointer group md:hover:scale-110 basic-transition ${
-                  index === Number(selectedType) ? "bg-app-flame" : "bg-white"
+      <div className="bg-image flex justify-center gap-3 md:gap-5 lg:gap-6 flex-wrap mt-7 mb-8 md:mt-10 md:mb-12 py-6 md:py-8 lg:py-10 px-2 md:px-20 lg:px-28">
+        {types.map((glass, index) => {
+          return (
+            <div
+              key={index}
+              className={`rounded-md px-[12px] md:px-4 lg:px-6 py-[5px] md:py-[6px] lg:py-2 drop-shadow-lg cursor-pointer group md:hover:scale-110 basic-transition ${
+                index === Number(selectedType) ? "bg-app-flame" : "bg-white"
+              }`}
+              onClick={() => onChangeType(index)}
+            >
+              <p
+                className={`text-app-cadet text-sm md:text-base lg:text-lg font-app-text ${
+                  index === Number(selectedType)
+                    ? "text-white"
+                    : "text-app-cadet"
                 }`}
-                onClick={() => onChangeType(index)}
               >
-                <p
-                  className={`text-app-cadet text-sm md:text-base lg:text-lg font-app-text ${
-                    index === Number(selectedType)
-                      ? "text-white"
-                      : "text-app-cadet"
-                  }`}
-                >
-                  {glass}
-                </p>
-              </div>
-            );
-          })}
-        </motion.div>
+                {glass}
+              </p>
+            </div>
+          );
+        })}
+      </div>
       <div className="px-[5vw] md:px-[6vw] lg:px-[7vw] overflow-hidden">
         <CocktailsGrid
           list={cocktails}

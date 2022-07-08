@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { hideSearchModal } from "../../app/features/modalSlice";
@@ -30,10 +31,11 @@ const SearchCard = ({ cocktail, loading }) => {
             )}
             {loading === HTTP_STATUS.FULFILLED && (
               <>
-                <img
+                <LazyLoadImage
                   className="aspect-[8/5] w-full object-cover rounded-[5px] group-hover:scale-[2.85] group-hover:blur-[2px] group-hover:translate-x-2/4 basic-transition"
                   src={image ?? ImagePlaceHolder}
                   alt={drink ?? "Cocktail Image"}
+                  placeholder={<div className="loading animate-loading aspect-[8/5] w-full rounded-[5px]"></div>}
                 />
               </>
             )}

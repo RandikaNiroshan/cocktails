@@ -1,16 +1,18 @@
 import React from "react";
 import { ImagePlaceHolder } from "../../assets";
 import { Favorite, LinkButton } from "../";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const PopularCard = ({ cocktail }) => {
   const { id, drink, image, category } = cocktail;
   return (
     <div className="bg-white mx-2 lg:mx-3 my-1 h-full w-auto rounded-lg drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white">
       <div className="p-1 md:p-[6px] lg:p-2 relative">
-        <img
+        <LazyLoadImage
           className="aspect-[4/3] w-full object-cover rounded-[5px] group-hover:scale-[1.25] group-hover:rotate-6 group-hover:blur-[2px] basic-transition"
           src={image ?? ImagePlaceHolder}
           alt={drink ?? "Cocktail"}
+          placeholder={<div className="loading animate-loading aspect-[4/3 w-full rounded-[5px]"></div>}
         />
         <Favorite cocktail={cocktail} />
         <div className="absolute overflow-hidden bottom-2 left-2 right-2 bg-app-cadet/70 group-hover:bg-app-cadet/30 h-1/3 w-fill rounded-b-lg group-hover:h-[calc(100%-16px)] group-hover:rounded-lg basic-transition grid items-center">

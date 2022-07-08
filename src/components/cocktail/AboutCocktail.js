@@ -15,8 +15,8 @@ const AboutCocktail = ({ cocktail, loading }) => {
       viewport={{ once: true }}
       transition={{
         ease: "easeInOut",
-        duration: 0.5,
-        delay: 0.3,
+        duration: 0.3,
+        delay: 0.1,
       }}
       className="flex flex-col bg-white rounded-xl drop-shadow-lg w-full px-4 lg:px-6 py-4"
     >
@@ -50,8 +50,8 @@ const AboutCocktail = ({ cocktail, loading }) => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 0.3,
-            delay: 0.5,
+            duration: 0.2,
+            delay: 0.3,
           }}
           className="w-full"
         >
@@ -68,8 +68,8 @@ const AboutCocktail = ({ cocktail, loading }) => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 0.3,
-            delay: 0.6,
+            duration: 0.2,
+            delay: 0.4,
           }}
           className="w-full"
         >
@@ -87,8 +87,8 @@ const AboutCocktail = ({ cocktail, loading }) => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 0.3,
-            delay: 0.7,
+            duration: 0.2,
+            delay: 0.5,
           }}
           className="w-full"
         >
@@ -102,7 +102,7 @@ const AboutCocktail = ({ cocktail, loading }) => {
         viewport={{ once: true }}
         transition={{
           ease: "easeInOut",
-          duration: 0.4,
+          duration: 0.2,
           delay: 0.5,
         }}
         className="flex justify-center items-start gap-1 w-full mt-5"

@@ -17,8 +17,8 @@ const StatCard = ({ title, count, icon1}) => {
         </div>
         <CountUp
           className="text-white font-app-main text-6xl text-center font-bold mt-1"
-          delay={1.5}
-          duration={1.5}
+          delay={0.6}
+          duration={0.7}
           end={count}
         />
         <h3 className="text-app-olivine font-app-heading text-center text-2xl mt-1">

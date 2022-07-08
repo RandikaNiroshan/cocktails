@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { hideIngredientModal } from "../../app/features/modalSlice";
@@ -26,10 +27,11 @@ const AboutIngredient = () => {
         <div className="col-start-1 row-start-1 row-span-4 md:row-span-1 md:col-start-1 md:col-span-4 overflow-hidden">
           <div className="p-[6px] min-h-[150px] md:p-2 h-max md:h-full w-auto bg-app-cadet/50 rounded-[5px] flex justify-center items-center">
             {loading === HTTP_STATUS.FULFILLED && (
-              <img
+              <LazyLoadImage
                 className="aspect-square w-full object-cover rounded-[5px] max-w-[75vw] md:max-w-[200px] scale-90 md:scale-110"
                 src={`https://www.thecocktaildb.com/images/ingredients/${ingredient.name}-Medium.png`}
                 alt={ingredient.name}
+                placeholder={<div className="loading animate-loading aspect-square w-full rounded-[5px] max-w-[75vw] md:max-w-[200px]"></div>}
               />
             )}
           </div>

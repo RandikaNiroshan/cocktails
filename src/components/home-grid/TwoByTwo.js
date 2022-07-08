@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { HTTP_STATUS } from "../../app/utils/constants";
 import { ImagePlaceHolder } from "../../assets/";
 import { Alcoholic, Favorite, LinkButton } from "../../components";
@@ -6,7 +7,11 @@ import { Alcoholic, Favorite, LinkButton } from "../../components";
 const TwoByTwo = ({ cocktail, loading }) => {
   const { id, drink, image, category, alcoholic, ingredients } = cocktail;
   return (
-    <div className={`bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default ${loading === HTTP_STATUS.FULFILLED && " from-right"}`}>
+    <div
+      className={`bg-white h-full w-full rounded-[5px] drop-shadow-lg group overflow-hidden relative hover:ring-1 hover:ring-white cursor-default ${
+        loading === HTTP_STATUS.FULFILLED && " from-right"
+      }`}
+    >
       <div className="rounded-[5px] overflow-hidden">
         <div className="grid grid-cols-two-by-two">
           <div className="p-[6px] md:p-2 xl:p-[10px] relative">
@@ -15,7 +20,8 @@ const TwoByTwo = ({ cocktail, loading }) => {
             )}
             {loading === HTTP_STATUS.FULFILLED && (
               <>
-                <img
+                <LazyLoadImage
+                  placeholder={<div className="loading animate-loading aspect-[4/3] w-full rounded-[5px]"></div>}
                   className="aspect-[4/3] w-full object-cover rounded-[5px] group-hover:scale-[2.85] group-hover:blur-[2px] group-hover:translate-x-2/4 basic-transition"
                   src={image ?? ImagePlaceHolder}
                   alt={drink ?? "Cocktail Image"}

@@ -24,8 +24,8 @@ const Stats = () => {
         viewport={{ once: true }}
         transition={{
           ease: "easeInOut",
-          duration: 0.5,
-          delay: 0.4,
+          duration: 0.3,
+          delay: 0.2,
         }}
         className="px-[68px] md:px-[100px] lg:px-[180px] xl:px-[280px] w-full"
       >
@@ -44,8 +44,8 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 0.6,
-            delay: 0.3,
+            duration: 0.3,
+            delay: 0.2,
           }}
         >
           <StatCard
@@ -62,8 +62,8 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 0.6,
-            delay: 0.5,
+            duration: 0.3,
+            delay: 0.4,
           }}
         >
           <StatCard
@@ -80,8 +80,8 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 0.6,
-            delay: 0.5,
+            duration: 0.3,
+            delay: 0.4,
           }}
         >
           <StatCard
@@ -98,8 +98,8 @@ const Stats = () => {
           viewport={{ once: true }}
           transition={{
             ease: "easeInOut",
-            duration: 0.6,
-            delay: 0.3,
+            duration: 0.3,
+            delay: 0.2,
           }}
         >
           <StatCard

@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useDispatch } from "react-redux";
 import { fetchIngredientDetails } from "../../app/features/aboutIngredientSlice";
 import { showIngredientModal } from "../../app/features/modalSlice";
@@ -25,10 +26,11 @@ const IngredientWithMeasure = ({ ingredient, loading }) => {
           )}
           {loading === HTTP_STATUS.FULFILLED && (
             <div className="p-2 rounded-[5px] bg-app-cadet/30 group-hover:bg-transparent double-transition">
-              <img
+              <LazyLoadImage
                 className="aspect-square w-full object-cover rounded-[5px] group-hover:scale-[1.35] group-hover:blur-[3px] group-hover:translate-y-5 basic-transition"
                 src={`https://www.thecocktaildb.com/images/ingredients/${name}-Medium.png`}
                 alt={name}
+                placeholder={<div className="loading animate-loading aspect-square w-full rounded-[5px]"></div>}
               />
             </div>
           )}

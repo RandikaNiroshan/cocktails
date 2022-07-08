@@ -1,19 +1,8 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { fromBelow } from "../app/utils/animationsHelper";
 
 const Title = ({ title, className }) => {
   return (
-    <motion.div
-      variants={fromBelow}
-      initial="initial"
-      whileInView="animate"
-      viewport={{ once: true }}
-      transition={{
-        ease: "easeInOut",
-        duration: 0.4,
-        delay: 0.3,
-      }}
+    <div
       className={`mt-8 mb-6 md:mt-10 md:mb-8 lg:mt-12 mx-4 w-fill flex justify-center ${
         className ?? ""
       }`}
@@ -23,7 +12,7 @@ const Title = ({ title, className }) => {
           {title}
         </h1>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
